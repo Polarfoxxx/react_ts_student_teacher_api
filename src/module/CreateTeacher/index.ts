@@ -1,0 +1,1 @@
+export { default as CreateTeacher } from "./Component/CreateTeacher.route"
