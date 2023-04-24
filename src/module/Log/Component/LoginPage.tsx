@@ -1,12 +1,18 @@
-
+import { SignIn } from "../../Sign_In"
+import { SignUp } from "../../Sign_Up"
 
 function LoginPage(): JSX.Element {
-    return(
+    return (
         <div className="LoginPage">
-            login page
+                <div className="signInComponent">
+                        <SignIn/>
+                </div>
+                <div className="signUpComponent">
+                        <SignUp/>
+                </div>
         </div>
     )
 }
 
 
- export default LoginPage
+export default LoginPage

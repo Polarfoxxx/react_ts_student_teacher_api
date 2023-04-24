@@ -1,1 +1,0 @@
-export { default as ContextMasterPg } from "./Component/ContextMasterPg.Routes"
