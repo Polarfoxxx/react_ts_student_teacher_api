@@ -1,0 +1,1 @@
+export { default as TeachersByID } from "./Component/TeachersByID"

@@ -9,6 +9,7 @@ function Students(): JSX.Element {
                 <div className="link-block">
                     < Link className="link " to="/Students/CreateStudents">CreateStudents</Link>
                     < Link className="link " to="/Students/StudentsALL">StudentsALL</Link>
+                    < Link className="link " to="/Students/UpdateStudents">UpdateStudents</Link>
                 </div>
             </div>
         </div>
@@ -18,3 +19,6 @@ function Students(): JSX.Element {
 
 
  export default Students
+
+
+ 

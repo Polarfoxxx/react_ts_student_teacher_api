@@ -9,6 +9,8 @@ function Teacher(): JSX.Element {
                 <div className="link-block">
                     < Link className="link " to="/Teacher/CreateTeacher">CreateTeacher</Link>
                     < Link className="link " to="/Teacher/TeacherALL">TeacherALL</Link>
+                    < Link className="link " to="/Teacher/TeachersByID">TeachersByID</Link>
+                    < Link className="link " to="/Teacher/UpdateTeacher">UpdateTeacher</Link>
                 </div>
             </div>
         </div>
@@ -19,3 +21,5 @@ function Teacher(): JSX.Element {
 
 
  export default Teacher
+
+ 

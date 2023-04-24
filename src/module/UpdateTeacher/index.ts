@@ -1,0 +1,1 @@
+export { default as UpdateTeacher } from "./Component/UpdateTeacher"
