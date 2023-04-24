@@ -10,13 +10,7 @@ function App(): JSX.Element {
   const loginPG = useNavigate()
 
   useEffect(() => {
-    if (localStorage.getItem("authenticationKey") !== null) {
-      let logs = "LoginPage";
-      loginPG(logs)
-    } else {
-      let logs = "/";
-      loginPG(logs)
-    }
+    localStorage.getItem("authenticationKey") === null ? loginPG("LoginPage") : loginPG("/")
   }, [])
 
 
