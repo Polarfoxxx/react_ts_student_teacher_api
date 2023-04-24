@@ -1,26 +1,33 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Container } from './module/Container';
 import { LoginPage } from './module/Log';
 import { Context } from './module/Context';
 
 
 function App(): JSX.Element {
+  const loginPG = useNavigate()
 
-  if (localStorage.getItem("authenticationKey") !== null) {
-    return (
-      <div className="App">
-        <Container.Provider>
-          <LoginPage />
-        </Container.Provider>
-      </div>
-    )
-  }
+  useEffect(() => {
+    if (localStorage.getItem("authenticationKey") !== null) {
+      let logs = "LoginPage";
+      loginPG(logs)
+    } else {
+      let logs = "/";
+      loginPG(logs)
+    }
+  }, [])
+
+
 
   return (
     <div className="App">
       <Container.Provider>
-          <Context />
+        <Routes>
+          <Route path='LoginPage' element={<LoginPage />} />
+          <Route path='*' element={<Context />} />
+        </Routes>
       </Container.Provider>
     </div>
   );
