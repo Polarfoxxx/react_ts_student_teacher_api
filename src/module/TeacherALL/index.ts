@@ -1,0 +1,1 @@
+export { default as TeacherALL } from "./Component/TeacherALL"

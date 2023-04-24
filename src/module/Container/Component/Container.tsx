@@ -1,6 +1,6 @@
 
 type Props = {
-    children: JSX.Element
+    children: JSX.Element | JSX.Element[] 
 }
 
 function Provider({children} : Props): JSX.Element {

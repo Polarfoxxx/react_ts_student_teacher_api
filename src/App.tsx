@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Container } from './module/Container';
 import { LoginPage } from './module/Log';
 import { Context } from './module/Context';
@@ -20,12 +20,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <Container.Provider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/LoginPage.tsx" element={<LoginPage />} />
-          </Routes>
           <Context />
-        </BrowserRouter>
       </Container.Provider>
     </div>
   );

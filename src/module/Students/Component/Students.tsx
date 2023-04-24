@@ -1,9 +1,17 @@
+import { Link } from "react-router-dom"
 
 
 function Students(): JSX.Element {
     return(
         <div className="Students">
-            <h1>stunedts</h1>
+            <div className="Context">
+            <div className='toogle-link-container'>
+                <div className="link-block">
+                    < Link className="link " to="/Students/CreateStudents">CreateStudents</Link>
+                    < Link className="link " to="/Students/StudentsALL">StudentsALL</Link>
+                </div>
+            </div>
+        </div>
         </div>
     )
 }

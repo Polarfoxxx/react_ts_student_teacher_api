@@ -1,0 +1,1 @@
+export { default as CreateStudents } from "./Component/CreateStudents.Route"
