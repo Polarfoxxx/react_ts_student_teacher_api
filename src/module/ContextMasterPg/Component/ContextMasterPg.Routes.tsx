@@ -1,33 +1,27 @@
 
 import { Link } from "react-router-dom"
+import { Route, Routes } from 'react-router-dom';
 
-type Props = {
-    children: JSX.Element
-}
+import { Teacher } from "../../Teacher";
+import { Students } from "../../Students";
 
-
-function ContextMasterPg({children} : Props): JSX.Element {
-
-
+function ContextMasterPg(): JSX.Element {
 
     return (
         <div className="ContextMasterPg">
             <div className='toogle-link-container'>
                 <div className="link-block">
-                    <Link className="link home" to="/">Temperature</Link>
+                    <Link className="link home" to="/Teacher">Teacher</Link>
                 </div>
                 <div className="link-block">
-                    <Link className="link " to="/RouterCloud">Cloud</Link>
-                </div>
-                <div className="link-block">
-                    <Link className="link " to="/RouterPressure">Pressure</Link>
-                </div>
-                <div className="link-block">
-                    <Link className="link " to="/createTeacher">Wind</Link>
+                    <Link className="link " to="/Students">Students</Link>
                 </div>
             </div>
             <div className="routes-block">
-                {children}
+                <Routes>
+                    <Route path="/Teacher.tsx" element={<Teacher />} />
+                    <Route path="/Students.tsx" element={<Students />} />
+                </Routes>
             </div>
         </div>
     )

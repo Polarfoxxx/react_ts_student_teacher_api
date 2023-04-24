@@ -1,34 +1,38 @@
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
-
+import { Route, Routes, BrowserRouter, useNavigate } from 'react-router-dom';
 import { Container } from './module/Container';
-
 import { LoginPage } from './module/Log';
-import { SignIn } from './module/Sign_In';
-import { SignUp } from './module/Sign_Up';
-
 import { Context } from './module/Context';
 import { ContextMasterPg } from './module/ContextMasterPg';
-import { CreateTeacher } from './module/CreateTeacher';
 
 
 function App(): JSX.Element {
+
+  if (localStorage.getItem("authenticationKey") === null) {
+    return (
+      <div className="App">
+        <Container.Provider>
+          <LoginPage />
+        </Container.Provider>
+      </div>
+    )
+  }
+
+
+
   return (
     <div className="App">
+      <h1>fcf</h1>
       <Container.Provider>
         <BrowserRouter>
-          <LoginPage>
-            <SignIn />
-            <SignUp />
-          </LoginPage>
-          <Context >
-            <ContextMasterPg>
-              <Routes>
-                <Route path="CreateTeacher" element={<CreateTeacher />} />
-              </Routes>
-            </ContextMasterPg>
-          </Context>
+          <Routes>
+            <Route path="/LoginPage.tsx" element={<LoginPage />} />
+            <Route
+              path="./module/Context/Component/Context.tsx"
+              element={
+                <Context children={<ContextMasterPg />} />}
+            />
+          </Routes>
         </BrowserRouter>
       </Container.Provider>
     </div>

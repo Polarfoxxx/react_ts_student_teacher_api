@@ -1,1 +1,1 @@
-export { default as CreateTeacher } from "./Component/CreateTeacher.route"
+export { default as CreateTeacher } from "./Component/CreateTeacher.Route"

@@ -3,7 +3,6 @@
 function CreateTeacher(): JSX.Element {
 
 
-
     return (
         <div className="CreateTeacher">
            
