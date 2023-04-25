@@ -34,15 +34,13 @@ function Context(): JSX.Element {
             <div className="routes-block">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/Teacher" >
-                        <Route index element={<Teacher />}/>
+                    <Route path="/Teacher" element={<Teacher />}>
                         <Route path="CreateTeacher" element={<CreateTeacher />} />
                         <Route path="TeacherALL" element={<TeacherALL />} />
                         <Route path="TeachersByID" element={<TeachersByID />} />
                         <Route path="UpdateTeacher" element={<UpdateTeacher />} />
                     </Route>
-                    <Route path="/Students" >
-                        <Route index element={<Students />}/>
+                    <Route path="/Students" element={<Students />}>
                         <Route path="CreateStudents" element={<CreateStudents />} />
                         <Route path="StudentsALL" element={<StudentsALL />} />
                         <Route path="UpdateStudents" element={<UpdateStudents />} />

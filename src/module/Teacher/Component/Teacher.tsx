@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-
+import { Outlet } from "react-router-dom"
 
 function Teacher(): JSX.Element {
     return(
@@ -11,6 +11,7 @@ function Teacher(): JSX.Element {
                     < Link className="link " to="/Teacher/TeacherALL">TeacherALL</Link>
                     < Link className="link " to="/Teacher/TeachersByID">TeachersByID</Link>
                     < Link className="link " to="/Teacher/UpdateTeacher">UpdateTeacher</Link>
+                    <Outlet/>
                 </div>
             </div>
         </div>

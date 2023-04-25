@@ -10,9 +10,8 @@ function App(): JSX.Element {
   const loginPG = useNavigate()
 
   useEffect(() => {
-    localStorage.getItem("authenticationKey") !== null ? loginPG("LoginPage") : loginPG("/")
+    localStorage.getItem("authenticationKey") === null ? loginPG("LoginPage") : loginPG("/")
   }, [])
-
 
 
   return (
