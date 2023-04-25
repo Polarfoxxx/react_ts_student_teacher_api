@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../style/CreateTeacher.style.css"
 
 type typeNewStudents = {
     name: string,
@@ -10,7 +11,7 @@ function CreateTeacher(): JSX.Element {
     const [inputFields, setInputFields] = useState<typeNewStudents>([
         { name: '', classe: '' }
     ])
-    const [ allStudents, setAllStudents] = useState<typeNewStudents>([])
+    const [allStudents, setAllStudents] = useState<typeNewStudents>([])
 
     const handleSabmit = () => {
         setAllStudents(inputFields)
@@ -21,8 +22,8 @@ function CreateTeacher(): JSX.Element {
         setInputFields([...inputFields, newfield])
     }
 
-    const handleFormChange = (index : number, event : React.FormEvent<HTMLInputElement>) => {
-        let data : any = [...inputFields];
+    const handleFormChange = (index: number, event: React.FormEvent<HTMLInputElement>) => {
+        let data: any = [...inputFields];
         data[index][event.currentTarget.name] = event.currentTarget.value;
         setInputFields(data)
     }
@@ -36,40 +37,54 @@ function CreateTeacher(): JSX.Element {
             </div>
             <div className="createTeacherContent">
                 <div className="createTeacherSub">
-                    <form action="submit">
-                        <div>
-                            <input type="text" />
-                            <div>
-                                <input type="text" />
-                            </div>
-                        </div>
-                    </form>
+                    <div>
+                        <h1>Teacher name</h1>
+                        <input
+                            type="text"
+                            placeholder="teacher name" />
+                    </div>
+                    <div>
+                        <h1>Subject</h1>
+                        <input
+                            type="text"
+                            placeholder="subject" />
+                    </div>
                 </div>
                 <div className="createStudentsSub">
-                    <form>
-                        <form>
-                            {inputFields.map((input : any , index : number) => {
-                                return (
-                                    <div key={index}>
+                    <div className="createSTContxt">
+                        {inputFields.map((input, index: number) => {
+                            return (
+                                <div
+                                    className="mapsBox"
+                                    key={index}>
+                                    <div className="mapsInputs">
+                                        <h1>Student name</h1>
                                         <input
                                             name='name'
                                             placeholder='Name'
-                                            onChange={event => handleFormChange(index, event )}
-                                        />
+                                            onChange={event => handleFormChange(index, event)} />
+                                    </div>
+                                    <div className="mapsInputs">
+                                        <h1>Class</h1>
+
                                         <input
                                             name='classe'
-                                            placeholder='classe'
-                                            onChange={event => handleFormChange(index, event )}
-                                        />
+                                            placeholder='class'
+                                            onChange={event => handleFormChange(index, event)} />
                                     </div>
-                                )
-                            })}
-                        </form>
-                    </form>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className="createNewStudents">
+                        <button onClick={addFields}>Add More..</button>
+                    </div>
                 </div>
             </div>
-            <button onClick={addFields}>Add More..</button>
-            <button onClick={handleSabmit}>creaste..</button>
+            <div className="AllcreateButton">
+                <button onClick={handleSabmit}>creaste..</button>
+
+            </div>
         </div>
     )
 
