@@ -10,32 +10,32 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: start;
     flex-direction: column;
     overflow: hidden;
 }
 .Context .contextBox .ContextHeader{
     width: 100%;
-    height: 60px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.452);
 }
 .Context .contextBox .ContextHeader > h1{
-    font-size: 30px;
+    font-size: 36px;
 }
 .Context .contextBox .ContextHeader > span{
-    font-size: 50px;
+    font-size: 80px;
     color: var(--orangeColor);
-
 }
-
 
 .Context .contextBox .toogle-link-container{
     width: 100%;
-    height: 5%;
+    height: 40px;
     display: flex;
     flex-direction: row;
+    background-image: linear-gradient(to right, rgba(216, 216, 216, 0.425), transparent 50%);
 }
 .Context .contextBox .toogle-link-container .link-block{
     width: 200px;
@@ -61,5 +61,5 @@
 }
 .Context .contextBox .routes-block{
     width: 100%;
-    height: 100%;
+    height: auto;
 }
