@@ -1,0 +1,65 @@
+.Context{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Context .contextBox{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+.Context .contextBox .ContextHeader{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.452);
+}
+.Context .contextBox .ContextHeader > h1{
+    font-size: 30px;
+}
+.Context .contextBox .ContextHeader > span{
+    font-size: 50px;
+    color: var(--orangeColor);
+
+}
+
+
+.Context .contextBox .toogle-link-container{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+}
+.Context .contextBox .toogle-link-container .link-block{
+    width: 200px;
+    height: 100%;
+}
+.Context .contextBox .toogle-link-container .link-block .link{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: 0.4s;
+}
+.Context .contextBox .toogle-link-container .link-block .link:hover{
+    color: white;
+}
+
+.Context .contextBox .toogle-link-container .link-block .home{
+    color: var(--orangeColor);
+}
+.Context .contextBox .routes-block{
+    width: 100%;
+    height: 100%;
+}
