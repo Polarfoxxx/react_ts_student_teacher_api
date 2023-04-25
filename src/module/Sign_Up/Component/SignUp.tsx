@@ -43,7 +43,7 @@ function SignUp(): JSX.Element {
                 </form>
             </div>
             <div className="buttonBox">
-                <button>Login</button>
+                <button>Create</button>
             </div>
         </div>
     )

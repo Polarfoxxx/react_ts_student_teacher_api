@@ -6,7 +6,9 @@
     justify-content: center;
     flex-direction: column;
     background-color: var(--silverContext);
+
 }
+
 .SignInBlock .formBox{
     width: 80%;
     height: 80%;

@@ -6,6 +6,10 @@ function LoginPage(): JSX.Element {
 
         return (
                 <div className="LoginPage">
+                        <div className="logPageHeader">
+                        <h1>Welcome to Teacher and Students Databaze</h1>
+
+                        </div>
                         <div className="loginPageContext">
                                 <div className="signInComponent">
                                         <div className="signHeader SignIN">
