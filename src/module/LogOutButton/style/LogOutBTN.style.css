@@ -1,0 +1,16 @@
+.LogOutContext{
+    width: 100%;
+    height: 100%;
+}
+.LogOutContext > button{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: var(--orangeColor);
+    transition: 0.4s;
+    cursor: pointer;
+}
+.LogOutContext > button:hover{
+    background-color: white;
+}
+

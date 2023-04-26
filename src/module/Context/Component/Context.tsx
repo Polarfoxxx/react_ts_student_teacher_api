@@ -1,6 +1,6 @@
 
-import { Link } from "react-router-dom"
-import { Route, Routes, } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
+import { useEffect } from "react"
 import "../style/Context.style.css"
 
 import { Home } from "../../Home";
@@ -16,14 +16,21 @@ import { CreateStudents } from "../../CreateStudents";
 import { StudentsALL } from "../../StudentsALL";
 import { UpdateStudents } from "../../UpdateStudents";
 
+import { LogOutButton } from "../../LogOutButton";
 
 function Context(): JSX.Element {
+    const loginPG = useNavigate()
+
+useEffect(()=> {
+    localStorage.getItem("authenticationKey") !== null ? loginPG("LoginPage") : loginPG("/")
+}, [])
 
     return (
         <div className="Context">
             <div className="contextBox">
                 <div className="ContextHeader">
-                    <span>W</span><h1>elcome to Teacher and Students Databaze</h1>
+                    <span className="first">W</span><h1>elcome to Teacher and Students Databaze</h1>
+                    <span className="logoutBTN"><LogOutButton/></span>
                 </div>
                 <div className='toogle-link-container'>
                     <div className="link-block">
@@ -44,8 +51,6 @@ function Context(): JSX.Element {
                             <Route path="TeacherALL" element={<TeacherALL />} />
                             <Route path="TeachersByID" element={<TeachersByID />} />
                             <Route path="UpdateTeacher" element={<UpdateTeacher />} />
-
-
                         </Route>
                         <Route path="/Students" element={<Students />}>
                             <Route path="CreateStudents" element={<CreateStudents />} />
@@ -55,11 +60,8 @@ function Context(): JSX.Element {
                     </Routes>
                 </div>
             </div>
-
         </div>
-
     )
 }
-
 
 export default Context
