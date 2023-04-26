@@ -7,9 +7,9 @@ function Students(): JSX.Element {
         <div className="Teacher">
             <div className='teacherContext-link-container'>
                 <div className="teacherlink-block">
-                    < Link className="Tlink " to="/Students/CreateStudents">CreateStudents</Link>
-                    < Link className="Tlink " to="/Students/StudentsALL">StudentsALL</Link>
-                    < Link className="Tlink " to="/Students/UpdateStudents">UpdateStudents</Link>
+                    < Link className="Tlink " to="/Students/CreateStudents">Create students</Link>
+                    < Link className="Tlink " to="/Students/StudentsALL">Students</Link>
+                    < Link className="Tlink " to="/Students/UpdateStudents">Update students</Link>
                   
                 </div>
             </div>
