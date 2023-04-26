@@ -1,9 +1,13 @@
-
+import "../style/TeacherALL.style.css"
 
 function TeacherALL(): JSX.Element {
     return(
         <div className="TeacherALL">
-            <h1>TeacherALL</h1>
+            <div className="teacherALLHeader">
+            <h1>All list Teacher</h1>
+            </div>
+            <div className="teacherALLContent">
+            </div>
         </div>
     )
 }
