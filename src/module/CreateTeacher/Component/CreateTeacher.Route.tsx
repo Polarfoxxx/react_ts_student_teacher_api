@@ -16,7 +16,7 @@ function CreateTeacher(): JSX.Element {
     /* funkcia services pre tvorbu objektu pre API */
     const handleCreateTeacher = () => {
         const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
-        /* osetrnie prazdnoty cakanie na potvrdenie*/
+        /* osetrenie prazdnoty cakanie na potvrdenie*/
         newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(newTeacher)
             .then(data => console.log(data))
             .catch(err => console.log(err))
