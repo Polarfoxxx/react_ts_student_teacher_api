@@ -1,26 +1,27 @@
 import { useState } from "react"
 
+import "../style/CreateTeacher.style.css"
+
 import { typeNewTeacher } from "../types"
 import { typeNewStudents } from "../types"
-import "../style/CreateTeacher.style.css"
+
+import servicesCreateTeacherObjectFromAPI from "../services/createTeacherObjectFromAPI"
+import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
 
 
 function CreateTeacher(): JSX.Element {
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
     const [teacher, setTeacher] = useState<typeNewTeacher>({ name: '', subject: '' })
 
-    /* hlavny button na vytvorenie objektu do APIs */
+    /* funkcia services pre tvorbu objektu pre API */
     const handleCreateTeacher = () => {
-        /* vymazanie prazdneho inputu */
-        const allStObject = [...inputFields]
-        const newStArry = allStObject.filter(item => item.name)
+        const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
+        /* osetrnie prazdnoty cakanie na potvrdenie*/
+        newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(newTeacher)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
 
-        const teacherObjectForAPIS = {
-            name: teacher.name,
-            subject: teacher.subject,
-            students: newStArry
-        }
-        console.log(teacherObjectForAPIS);
+        /* clear */
         setInputFields([{ name: '', class: '' }])
         setTeacher({ name: '', subject: '' })
     }

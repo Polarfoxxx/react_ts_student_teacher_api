@@ -1,6 +1,6 @@
 
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
-import { useEffect } from "react"
+import { useEffect, useContext } from "react"
 import "../style/Context.style.css"
 
 import { Home } from "../../Home";
@@ -17,20 +17,24 @@ import { StudentsALL } from "../../StudentsALL";
 import { UpdateStudents } from "../../UpdateStudents";
 
 import { LogOutButton } from "../../LogOutButton";
+import { Container } from '../../Container';
+
 
 function Context(): JSX.Element {
-    const loginPG = useNavigate()
+    const { logOut } = useContext(Container.Context)
+    const loginPG = useNavigate();
 
-useEffect(()=> {
-    localStorage.getItem("authenticationKey") !== null ? loginPG("LoginPage") : loginPG("/")
-}, [])
+    /* authentif.. kontrola */
+    useEffect(() => {
+        localStorage.getItem("authenticationKey") !== null && loginPG("LoginPage")
+    }, [loginPG, logOut])
 
     return (
         <div className="Context">
             <div className="contextBox">
                 <div className="ContextHeader">
                     <span className="first">W</span><h1>elcome to Teacher and Students Databaze</h1>
-                    <span className="logoutBTN"><LogOutButton/></span>
+                    <span className="logoutBTN"><LogOutButton /></span>
                 </div>
                 <div className='toogle-link-container'>
                     <div className="link-block">

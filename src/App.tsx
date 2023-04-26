@@ -13,7 +13,6 @@ function App(): JSX.Element {
     localStorage.getItem("authenticationKey") !== null ? loginPG("LoginPage") : loginPG("/")
   }, [])
 
-
   return (
     <div className="App">
       <Container.Provider>
