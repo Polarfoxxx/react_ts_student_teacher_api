@@ -1,6 +1,7 @@
 
 import { useState } from "react"
 import "../../Sign_In/style/SignIn.style.css"
+import { ConfirmationResp } from "../../ConfirmationResp"
 
 import apiServicesSignUp from "../../API/SignUp.API"
 
@@ -13,7 +14,17 @@ export type typeSignUp = {
     phoneNumber: string,
 }
 
+export type typeVerification = {
+    success: boolean,
+    stats: boolean
+}
+
+
 function SignUp(): JSX.Element {
+    const [verification, setVerification] = useState<typeVerification>({
+        success: true,
+        stats: true
+    })
     const [signUp, setSignUp] = useState<typeSignUp>({
         firstName: "",
         lastName: "",
@@ -33,7 +44,13 @@ function SignUp(): JSX.Element {
     /* odoslanie registracneho formulara */
     const handleSignUp = (event: React.MouseEvent<HTMLButtonElement>): void => {
         apiServicesSignUp.apiSignUp(signUp)
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                setVerification({
+                    success: false,
+                    stats: false
+                })
+            })
             .catch(err => console.log(err))
 
         /* clear */
@@ -49,6 +66,9 @@ function SignUp(): JSX.Element {
 
     return (
         <div className="SignInBlock">
+            <ConfirmationResp
+                verification={verification}
+                setVerification={setVerification} />
             <div className="formBox">
                 <form
                     className="SignInSubmit"
