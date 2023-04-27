@@ -1,3 +1,4 @@
+import React from "react"
 import './App.css';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -10,7 +11,7 @@ function App(): JSX.Element {
   const loginPG = useNavigate()
 
   useEffect(() => {
-    localStorage.getItem("authenticationKey") == null ? loginPG("LoginPage") : loginPG("/")
+    localStorage.getItem("authenticationKey") !== null ? loginPG("LoginPage") : loginPG("/")
   }, [])
 
   return (

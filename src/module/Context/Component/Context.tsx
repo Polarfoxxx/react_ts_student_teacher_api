@@ -21,10 +21,10 @@ import { Container } from '../../Container';
 
 
 function Context(): JSX.Element {
-    const { logOut } = useContext(Container.Context)
+    const { logOut } = useContext(Container.Context) /* pri buttne na odhlasenie */
     const loginPG = useNavigate();
 
-    /* authentif.. kontrola */
+    /* authentif.. kontrola pri kazdom pohybe*/
     useEffect(() => {
         localStorage.getItem("authenticationKey") !== null && loginPG("LoginPage")
     }, [loginPG, logOut])
@@ -34,7 +34,7 @@ function Context(): JSX.Element {
             <div className="contextBox">
                 <div className="ContextHeader">
                     <span className="first">W</span><h1>elcome to Teacher and Students Databaze</h1>
-                    <span className="logoutBTN"><LogOutButton /></span>
+                    <span className="logoutBTN"><LogOutButton /></span>  {/* logOut buttton */}
                 </div>
                 <div className='toogle-link-container'>
                     <div className="link-block">

@@ -16,7 +16,6 @@ function Teacher(): JSX.Element {
             <div className="contentRoute">
                 <Outlet />
             </div>
-
         </div>
     )
 }

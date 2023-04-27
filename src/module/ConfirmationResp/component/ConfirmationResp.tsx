@@ -13,12 +13,12 @@ function ConfirmationResp({ verification, setVerification }: props): JSX.Element
 
 
     useEffect(() => {
-       const timer =  setTimeout(() => {
-            setVerification({success : false, stats: false})
+        const timer = setTimeout(() => {
+            setVerification({ success: false, stats: false })
         }, 3000)
-        return(() => clearTimeout(timer))
+        return (() => clearTimeout(timer))
     }, [verification])
-    
+
 
 
     if (!verification.success) {
@@ -31,10 +31,10 @@ function ConfirmationResp({ verification, setVerification }: props): JSX.Element
     return (
         <div className="ConfirmationResp">
             {
-                verification.stats ? <div>
+                verification.stats ? <div style={{ backgroundColor: "green" }}>
                     <h1>Succesful</h1>
                 </div> :
-                    <div>
+                    <div style={{ backgroundColor: "red" }}>
                         <h1>False</h1>
                     </div>
             }

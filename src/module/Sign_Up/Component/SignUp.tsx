@@ -23,7 +23,7 @@ export type typeVerification = {
 function SignUp(): JSX.Element {
     const [verification, setVerification] = useState<typeVerification>({
         success: true,
-        stats: true
+        stats: false
     })
     const [signUp, setSignUp] = useState<typeSignUp>({
         firstName: "",
