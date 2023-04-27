@@ -4,21 +4,8 @@ import "../../Sign_In/style/SignIn.style.css"
 import { ConfirmationResp } from "../../ConfirmationResp"
 
 import apiServicesSignUp from "../../API/SignUp.API"
-
-export type typeSignUp = {
-    firstName: string,
-    lastName: string,
-    userName: string,
-    password: string,
-    email: string,
-    phoneNumber: string,
-}
-
-export type typeVerification = {
-    success: boolean,
-    stats: boolean
-}
-
+import { typeVerification } from "../../ConfirmationResp/type"
+import { typeSignUp } from "../types"
 
 function SignUp(): JSX.Element {
     const [verification, setVerification] = useState<typeVerification>({
@@ -68,7 +55,7 @@ function SignUp(): JSX.Element {
         <div className="SignInBlock">
             <ConfirmationResp
                 verification={verification}
-                setVerification={setVerification} />
+                setVerification={setVerification} />    {/* overenie uspenej registracie */}
             <div className="formBox">
                 <form
                     className="SignInSubmit"

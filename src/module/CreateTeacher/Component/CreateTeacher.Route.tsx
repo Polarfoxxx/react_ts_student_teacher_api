@@ -2,14 +2,17 @@ import { useState } from "react"
 
 import "../style/CreateTeacher.style.css"
 
+import { ConfirmationResp } from "../../ConfirmationResp"
+
 import { typeNewTeacher } from "../types"
 import { typeNewStudents } from "../types"
-
+import { typeVerification } from "../../ConfirmationResp/type"
 import servicesCreateTeacherObjectFromAPI from "../services/createTeacherObjectFromAPI"
 import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
 
 
 function CreateTeacher(): JSX.Element {
+    const [verification, setVerification] = useState<typeVerification>({success: false,stats: false}) /* overovanie */
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
     const [teacher, setTeacher] = useState<typeNewTeacher>({ name: '', subject: '' })
 
@@ -18,7 +21,10 @@ function CreateTeacher(): JSX.Element {
         const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
         /* osetrenie prazdnoty cakanie na potvrdenie*/
         newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(newTeacher)
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                setVerification({success: true,stats: false})
+            })
             .catch(err => console.log(err))
 
         /* clear */
@@ -48,6 +54,10 @@ function CreateTeacher(): JSX.Element {
 
     return (
         <div className="CreateTeacher">
+            <ConfirmationResp 
+                    verification = {verification}
+                    setVerification = {setVerification}
+                    />
             <div className="createTeacherHeader">
                 <h1>Create new Teacher</h1>
             </div>

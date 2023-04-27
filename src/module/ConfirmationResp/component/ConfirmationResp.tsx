@@ -1,7 +1,7 @@
 
 import "../style/ConfirmationResp.style.css"
 import { Dispatch, SetStateAction, useEffect } from "react"
-import { typeVerification } from "../../Sign_Up/Component/SignUp"
+import { typeVerification } from "../type"
 
 
 type props = {

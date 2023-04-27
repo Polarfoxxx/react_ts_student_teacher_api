@@ -1,5 +1,5 @@
 import axios from "axios"
-import { typeSignUp } from "../Sign_Up/Component/SignUp"
+import { typeSignUp } from "../Sign_Up/types";
 
 const apiServicesSignUp = {
     apiSignUp
