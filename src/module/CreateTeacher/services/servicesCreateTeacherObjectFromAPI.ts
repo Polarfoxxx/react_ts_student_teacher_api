@@ -1,29 +1,24 @@
 
 import { typeNewTeacher } from "../types"
 import { typeNewStudents } from "../types"
+import { typeCreateTeacherfromAPIs } from "../types"
 
 const servicesCreateTeacherObjectFromAPI = {
     createTeacherObjectFromAPI
 }
 export default servicesCreateTeacherObjectFromAPI
 
-type typeCreateTeacher = {
-    name: string,
-    subject: string,
-    students: typeNewStudents
-}
 const defCreateTeacher = {
     name: "",
     subject: "",
     students: []
 }
 
-
-function createTeacherObjectFromAPI(teacher: typeNewTeacher, studets: typeNewStudents): typeCreateTeacher {
-    let teacherObjectForAPIS: typeCreateTeacher = defCreateTeacher
+function createTeacherObjectFromAPI(teacher: typeNewTeacher, studets: typeNewStudents): typeCreateTeacherfromAPIs {
+    let teacherObjectForAPIS: typeCreateTeacherfromAPIs = defCreateTeacher
 
     const allStObject = [...studets]
-    const newStArry = allStObject.filter(item => item.name)
+    const newStArry: typeNewStudents = allStObject.filter(item => item.name)
     
     teacherObjectForAPIS = {
         name: teacher.name,

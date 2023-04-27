@@ -8,15 +8,17 @@ const apiServicesCreateTeacher = {
 export default apiServicesCreateTeacher
 
 
-async function apiCreateTeacher(newTeacher: typeNewTeacher) {
-    const yourJWTToken = localStorage.getItem("authenticationKey")
-
+async function apiCreateTeacher(JWTToken : string, newTeacher: typeNewTeacher) {
+    console.log(newTeacher);
+    
+/* 
     const options = {
         method: 'POST',
         url: 'https://tadeasburda.sk/api/teachers',
         headers: {
-            Authorization: `Bearer ${yourJWTToken}`,
-        }
+            Authorization: `Bearer ${JWTToken}`,
+        },
+        data: newTeacher
     };
 
     try {
@@ -24,5 +26,5 @@ async function apiCreateTeacher(newTeacher: typeNewTeacher) {
         console.log(response.data);
     } catch (error) {
         console.error(error);
-    }
+    } */
 }

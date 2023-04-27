@@ -6,13 +6,13 @@ const apiServicesAllTeacher = {
 export default apiServicesAllTeacher
 
 async function apiAllTeacher(JWTToken: string) {
+    
       /*  const options = {
         method: 'GET',
         url: 'https://tadeasburda.sk/api/teachers',
         headers: {
              "Authorization": `Bearer ${JWTToken}`
-            'content-type': 'application/json'},
-        data: signUpData
+            'content-type': 'application/json'}
     };
 
     try {

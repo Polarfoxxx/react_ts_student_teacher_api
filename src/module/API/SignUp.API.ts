@@ -8,8 +8,8 @@ export default apiServicesSignUp
 
 async function apiSignUp(signUpData: typeSignUp) {
 console.log(signUpData);
-
-   /*  const options = {
+/* 
+ const options = {
         method: 'POST',
         url: 'https://tadeasburda.sk/api/userauthentication',
         headers: {
@@ -22,5 +22,5 @@ console.log(signUpData);
         console.log(response);
     } catch (error) {
         console.error(error);
-    }  */
+    }   */
 }

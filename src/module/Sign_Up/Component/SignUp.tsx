@@ -9,7 +9,7 @@ import { typeSignUp } from "../types"
 
 function SignUp(): JSX.Element {
     const [verification, setVerification] = useState<typeVerification>({
-        success: true,
+        success: false,
         stats: false
     })
     const [signUp, setSignUp] = useState<typeSignUp>({
@@ -41,14 +41,14 @@ function SignUp(): JSX.Element {
             .catch(err => console.log(err))
 
         /* clear */
-        setSignUp({
+    /*     setSignUp({
             firstName: "",
             lastName: "",
             userName: "",
             password: "",
             email: "",
             phoneNumber: "",
-        })
+        }) */
     }
 
     return (

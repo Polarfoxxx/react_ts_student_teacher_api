@@ -7,7 +7,7 @@ import { ConfirmationResp } from "../../ConfirmationResp"
 import { typeNewTeacher } from "../types"
 import { typeNewStudents } from "../types"
 import { typeVerification } from "../../ConfirmationResp/type"
-import servicesCreateTeacherObjectFromAPI from "../services/createTeacherObjectFromAPI"
+import servicesCreateTeacherObjectFromAPI from "../services/servicesCreateTeacherObjectFromAPI"
 import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
 
 
@@ -17,10 +17,11 @@ function CreateTeacher(): JSX.Element {
     const [teacher, setTeacher] = useState<typeNewTeacher>({ name: '', subject: '' })
 
     /* funkcia services pre tvorbu objektu pre API */
-    const handleCreateTeacher = () => {
+    const handleCreateTeacher = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    const JWTToken = localStorage.getItem("authenticationKey") as string
         const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
         /* osetrenie prazdnoty cakanie na potvrdenie*/
-        newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(newTeacher)
+        newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(JWTToken, newTeacher)
             .then(data => {
                 console.log(data)
                 setVerification({success: true,stats: false})
@@ -33,7 +34,7 @@ function CreateTeacher(): JSX.Element {
     }
 
     /* vytvoranie noveho inputu pre studentov */
-    const addFields = (event: React.FocusEvent<HTMLInputElement>) => {
+    const addFields = (event: React.FocusEvent<HTMLInputElement>): void => {
         const targetValue = event.currentTarget.value
         if (!targetValue) {
             let newfield = { name: '', class: '' }
@@ -41,13 +42,13 @@ function CreateTeacher(): JSX.Element {
         }
     }
     /* vytvaranie objectov studentov */
-    const handleStidentsChange = (index: number, event: React.FormEvent<HTMLInputElement>) => {
+    const handleStidentsChange = (index: number, event: React.FormEvent<HTMLInputElement>): void => {
         let data: any = [...inputFields];
         data[index][event.currentTarget.name] = event.currentTarget.value;
         setInputFields(data)
     }
     /* vytvorenie objectu ucitela */
-    const handleTeacherChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const handleTeacherChange = (event: React.FormEvent<HTMLInputElement>): void => {
         let valuesTeacherInputs = event.currentTarget.value as string
         event.currentTarget.name === "name" ? setTeacher(prew => ({ ...prew, name: valuesTeacherInputs })) : setTeacher(prew => ({ ...prew, subject: valuesTeacherInputs }))
     }
