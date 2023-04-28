@@ -1,4 +1,4 @@
-.TeacherALL{
+.CreateStudents{
     width: 100%;
     height: 100%;
     min-height: 400px;
@@ -7,48 +7,75 @@
     justify-content: center;
     flex-direction: column;
 }
-.TeacherALL .teacherALLHeader{
+.CreateStudents .CreateStudentsHeader{
     width: 70%;
-    height: 15%;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--orangeColor);
     border-bottom: 1px solid white;
-
+    color: var(--orangeColor);
 }
-.TeacherALL .teacherALLContent{
-    width: 100%;
-    min-height: 200px;
-    height: 85%;
+.CreateStudents .CreateContent{
+    width: 60%;
+    height: 400px;
     display: flex;
     align-items: center;
+    flex-direction: row;
     justify-content: center;
+    gap: 50px;
+}
+
+.CreateStudents .CreateContent > div{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
     flex-direction: column;
 }
-.TeacherALL .teacherALLContent .seacheTeacher{
+.CreateStudents .CreateContent > div > input{
     width: 80%;
-    height: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.TeacherALL .teacherALLContent .seacheTeacher > input{
-    width: 20%;
     height: 40px;
     border-radius: 10px;
     padding: 0 , 10px;
     text-align: center;
     font-size: 17px;
 }
-.TeacherALL .teacherALLContent .btbSearche{
+.CreateStudents .CreateContent > div > div > input{
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 , 10px;
+    text-align: center;
+    font-size: 17px;
+}
+.CreateStudents .CreateContent > div > div{
     width: 100%;
-    height: 15%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.CreateStudents .CreateContent .imgesoo{
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: 200Px;
+    top: 100Px;
+}
+.CreateStudents .CreateContent .imgesoo >img{
+    width: 100%;
+}
+.CreateStudents .buttonBlocj{
+    width: 50%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.TeacherALL .teacherALLContent .btbSearche > button{
+.CreateStudents .buttonBlocj > button{
     width: 180px;
     height: 40px;
     position: relative;
@@ -59,16 +86,6 @@
     font-weight: bold;
     transition: 0.3s;
 }
-.TeacherALL .teacherALLContent .btbSearche > button:hover{
+.CreateStudents .buttonBlocj > button:hover{
     background-color: white;
 }
-
-.TeacherALL .teacherALLContent .seatcheResults{
-    width: 80%;
-    height: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-

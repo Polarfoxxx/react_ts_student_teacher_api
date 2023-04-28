@@ -16,17 +16,22 @@ function CreateTeacher(): JSX.Element {
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
     const [teacher, setTeacher] = useState<typeNewTeacher>({ name: '', subject: '' })
 
-    /* funkcia services pre tvorbu objektu pre API */
+    /* odoslanie formullara do API */
     const handleCreateTeacher = (event: React.MouseEvent<HTMLButtonElement>): void => {
     const JWTToken = localStorage.getItem("authenticationKey") as string
-        const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
+
         /* osetrenie prazdnoty cakanie na potvrdenie*/
+        const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
+
         newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(JWTToken, newTeacher)
-            .then(data => {
+            .then((data : any) => {
                 console.log(data)
-                setVerification({success: true,stats: false})
+                if(data) {
+                    setVerification({success: true,stats: true})
+                }else {setVerification({success: true,stats: false}); localStorage.clear()}
             })
             .catch(err => console.log(err))
+
 
         /* clear */
         setInputFields([{ name: '', class: '' }])

@@ -4,21 +4,22 @@ import apiServicesAllTeacher from "../../API/AllTeacher.API"
 
 function TeacherALL(): JSX.Element {
 
-React.useEffect(() => {
+    React.useEffect(() => {
+        const JWTToken = localStorage.getItem("authenticationKey") as string
+        apiServicesAllTeacher.apiAllTeacher(JWTToken)
+            .then((data: any) => {
+                console.log(data)
+               /*  if (data) {
+                    localStorage.clear()
+                } */
+            })
+            .catch(err => console.log(err))
+    }, [])
 
-const JWTToken = localStorage.getItem("authenticationKey") as string
-
-    apiServicesAllTeacher.apiAllTeacher(JWTToken)
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
-
-        
-}, [])
-
-    return(
+    return (
         <div className="TeacherALL">
             <div className="teacherALLHeader">
-            <h1>All list Teacher</h1>
+                <h1>All list Teacher</h1>
             </div>
             <div className="teacherALLContent">
                 zgxvszgxvzsvxz
@@ -28,4 +29,4 @@ const JWTToken = localStorage.getItem("authenticationKey") as string
 }
 
 
- export default TeacherALL
+export default TeacherALL

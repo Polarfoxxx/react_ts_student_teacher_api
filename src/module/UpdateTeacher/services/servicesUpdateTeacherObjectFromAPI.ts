@@ -1,7 +1,7 @@
 
-import { typeNewStudents } from "../../../CreateTeacher/types"
-import { typeUpdateTeacher } from "../../types"
-import { typeUpdateTeacherFromAPI } from "../../types"
+import { typeNewStudents } from "../../CreateTeacher/types"
+import { typeUpdateTeacher } from "../types"
+import { typeUpdateTeacherFromAPI } from "../types"
 
 const servicesUpdateTeacherObjectFromAPI = {
     updateTeacherObjectFromAPI

@@ -25,9 +25,7 @@
     justify-content: center;
     gap: 50px;
 }
-.CreateStudents .CreateContent .createnewStudents{
-    border-left: 1px solid rgba(255, 255, 255, 0.363);
-}
+
 
 .CreateStudents .CreateContent > div{
     width: 100%;
@@ -69,7 +67,7 @@
     top: 100Px;
 }
 .CreateStudents .CreateContent .imges >img{
-    width: 220%;
+    width: 150%;
 }
 .CreateStudents .buttonBlocj{
     width: 50%;

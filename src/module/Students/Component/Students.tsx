@@ -10,7 +10,6 @@ function Students(): JSX.Element {
                     < Link className="Tlink " to="CreateStudents">Create students</Link>
                     < Link className="Tlink " to="StudentsALL">Students</Link>
                     < Link className="Tlink " to="UpdateStudents">Update students</Link>
-                  
                 </div>
             </div>
             <div className="contentRoute">

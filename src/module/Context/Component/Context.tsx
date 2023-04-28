@@ -23,6 +23,7 @@ function Context(): JSX.Element {
     /* authentif.. kontrola pri kazdom pohybe*/
     useEffect(() => {
         localStorage.getItem("authenticationKey") === null && loginPG("/LoginPage")
+        console.log("contextMove");
     }, [loginPG, logOut])
 
     return (
@@ -47,7 +48,6 @@ function Context(): JSX.Element {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="Teacher/*" element={<Teacher />}>
-                          
                         </Route>
                         <Route path="Students" element={<Students />}>
                             <Route path="CreateStudents" element={<CreateStudents />} />

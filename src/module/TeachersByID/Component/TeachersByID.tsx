@@ -14,7 +14,12 @@ const handleChancheTeacherID = (event:  React.FormEvent<HTMLInputElement>): void
 const handleSendTeacherID = (event:  React.MouseEvent<HTMLButtonElement>): void => {
     const JWTToken = localStorage.getItem("authenticationKey") as string
         apiServicesTeacherById.apiTeacherById(JWTToken, teacherID)
-        .then(data => console.log(data))
+        .then((data: any) => {
+            console.log(data)
+         /*    if (data) {
+                localStorage.clear()
+            } */
+        })
         .catch(err => console.log(err))
 }
 

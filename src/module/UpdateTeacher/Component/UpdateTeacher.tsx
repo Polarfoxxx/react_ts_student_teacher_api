@@ -1,13 +1,16 @@
 import {useState} from "react"
 
-import servicesUpdateTeacherObjectFromAPI from "./services/servicesUpdateTeacherObjectFromAPI"
+import servicesUpdateTeacherObjectFromAPI from "../services/servicesUpdateTeacherObjectFromAPI"
 import { typeUpdateTeacher } from "../types"
 import { typeNewStudents } from "../../CreateTeacher/types"
+import { typeVerification } from "../../ConfirmationResp/type"
 import apiServicesUpdateTeacher from "../../API/UpdateTeacher.API"
+import { ConfirmationResp } from "../../ConfirmationResp"
 import "../style/UpdateTeacher.style.css"
 
 
 function UpdateTeacher(): JSX.Element {
+    const [verification, setVerification] = useState<typeVerification>({success: false,stats: false}) /* overovanie */
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
     const [teacher, setTeacher] = useState<typeUpdateTeacher>({id: "", name: '', subject: '' })
 
@@ -16,8 +19,14 @@ function UpdateTeacher(): JSX.Element {
     const JWTToken = localStorage.getItem("authenticationKey") as string
         /* osetrenie prazdnoty cakanie na potvrdenie*/
         const updateData = servicesUpdateTeacherObjectFromAPI.updateTeacherObjectFromAPI(teacher, inputFields)
+
         updateData.name && apiServicesUpdateTeacher.apiUpdateTeacher(JWTToken, updateData)
-        .then(data => {console.log(data)})
+        .then((data : any) => {
+                console.log(data)
+                if(data) {
+                    setVerification({success: true,stats: true})
+                }else {setVerification({success: true,stats: false}); localStorage.clear()}
+            })
         .catch(err => console.log(err))
 
         /* clear */
@@ -49,6 +58,10 @@ function UpdateTeacher(): JSX.Element {
 
     return (
         <div className="CreateTeacher">
+              <ConfirmationResp 
+                    verification = {verification}
+                    setVerification = {setVerification}
+                    />
             <div className="createTeacherHeader">
                 <h1>Create new Teacher</h1>
             </div>
