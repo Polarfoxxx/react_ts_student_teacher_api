@@ -1,38 +1,40 @@
 import React from "react"
 import apiServicesTeacherById from "../../API/TeacherById.API"
+import { useNavigate } from "react-router-dom"
 
 function TeachersByID(): JSX.Element {
-const [ teacherID, setTeacherID ] = React.useState("")
+    const location = useNavigate()
+    const [teacherID, setTeacherID] = React.useState("")
 
 
-/* values z inputu */
-const handleChancheTeacherID = (event:  React.FormEvent<HTMLInputElement>): void => {
-    setTeacherID(event.currentTarget.value)
-}
+    /* values z inputu */
+    const handleChancheTeacherID = (event: React.FormEvent<HTMLInputElement>): void => {
+        setTeacherID(event.currentTarget.value)
+    }
 
-/* odoslanie formulara do API a jwt JWTToken*/
-const handleSendTeacherID = (event:  React.MouseEvent<HTMLButtonElement>): void => {
-    const JWTToken = localStorage.getItem("authenticationKey") as string
+    /* odoslanie formulara do API a jwt JWTToken*/
+    const handleSendTeacherID = (event: React.MouseEvent<HTMLButtonElement>): void => {
+        const JWTToken = localStorage.getItem("authenticationKey") as string
         apiServicesTeacherById.apiTeacherById(JWTToken, teacherID)
-        .then((data: any) => {
-            console.log(data)
-         /*    if (data) {
-                localStorage.clear()
-            } */
-        })
-        .catch(err => console.log(err))
-}
+            .then((data: any) => {
+                console.log(data)
+                /*    if (data) {
+                       localStorage.clear(); location("LoginPage")
+                   } */
+            })
+            .catch(err => console.log(err))
+    }
 
-    return(
+    return (
         <div className="TeacherALL">
             <div className="teacherALLHeader">
-            <h1>Search teacher by ID</h1>
+                <h1>Search teacher by ID</h1>
             </div>
             <div className="teacherALLContent">
                 <div className="seacheTeacher">
-                    <input 
-                    onChange={handleChancheTeacherID}
-                    type="search" />
+                    <input
+                        onChange={handleChancheTeacherID}
+                        type="search" />
                 </div>
                 <div className="/* btbSearche */">
                     <button onClick={handleSendTeacherID}>Search</button>
@@ -45,4 +47,4 @@ const handleSendTeacherID = (event:  React.MouseEvent<HTMLButtonElement>): void 
     )
 }
 
- export default TeachersByID
+export default TeachersByID

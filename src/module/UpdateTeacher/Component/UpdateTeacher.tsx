@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useState } from "react"
 
 import servicesUpdateTeacherObjectFromAPI from "../services/servicesUpdateTeacherObjectFromAPI"
 import { typeUpdateTeacher } from "../types"
@@ -7,35 +7,37 @@ import { typeVerification } from "../../ConfirmationResp/type"
 import apiServicesUpdateTeacher from "../../API/UpdateTeacher.API"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import "../style/UpdateTeacher.style.css"
+import { useNavigate } from "react-router-dom"
 
 
 function UpdateTeacher(): JSX.Element {
-    const [verification, setVerification] = useState<typeVerification>({success: false,stats: false}) /* overovanie */
+    const location = useNavigate()
+    const [verification, setVerification] = useState<typeVerification>({ success: false, stats: false }) /* overovanie */
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
-    const [teacher, setTeacher] = useState<typeUpdateTeacher>({id: "", name: '', subject: '' })
+    const [teacher, setTeacher] = useState<typeUpdateTeacher>({ id: "", name: '', subject: '' })
 
     /* hlavny button na vytvorenie objektu do APIs */
     const handleUpdateTeacher = () => {
-    const JWTToken = localStorage.getItem("authenticationKey") as string
+        const JWTToken = localStorage.getItem("authenticationKey") as string
         /* osetrenie prazdnoty cakanie na potvrdenie*/
         const updateData = servicesUpdateTeacherObjectFromAPI.updateTeacherObjectFromAPI(teacher, inputFields)
 
         updateData.name && apiServicesUpdateTeacher.apiUpdateTeacher(JWTToken, updateData)
-        .then((data : any) => {
+            .then((data: any) => {
                 console.log(data)
-                if(data) {
-                    setVerification({success: true,stats: true})
-                }else {setVerification({success: true,stats: false}); localStorage.clear()}
+                if (data) {
+                    setVerification({ success: true, stats: true })
+                } else { setVerification({ success: true, stats: false }); localStorage.clear(); location("LoginPage") }
             })
-        .catch(err => console.log(err))
+            .catch(err => console.log(err))
 
         /* clear */
         setInputFields([{ name: '', class: '' }])
-        setTeacher({id: "", name: '', subject: '' })
+        setTeacher({ id: "", name: '', subject: '' })
     }
 
     /* vytvoranie noveho inputu pre studentov */
-    const addFields = (event: React.FocusEvent<HTMLInputElement>): void  => {
+    const addFields = (event: React.FocusEvent<HTMLInputElement>): void => {
         const targetValue = event.currentTarget.value
         if (!targetValue) {
             let newfield = { name: '', class: '' }
@@ -44,7 +46,7 @@ function UpdateTeacher(): JSX.Element {
     }
 
     /* vytvaranie objectov studentov */
-    const handleStidentsChange = (index: number, event: React.FormEvent<HTMLInputElement>): void  => {
+    const handleStidentsChange = (index: number, event: React.FormEvent<HTMLInputElement>): void => {
         let data: any = [...inputFields];
         data[index][event.currentTarget.name] = event.currentTarget.value;
         setInputFields(data)
@@ -58,10 +60,10 @@ function UpdateTeacher(): JSX.Element {
 
     return (
         <div className="CreateTeacher">
-              <ConfirmationResp 
-                    verification = {verification}
-                    setVerification = {setVerification}
-                    />
+            <ConfirmationResp
+                verification={verification}
+                setVerification={setVerification}
+            />
             <div className="createTeacherHeader">
                 <h1>Create new Teacher</h1>
             </div>
@@ -69,7 +71,7 @@ function UpdateTeacher(): JSX.Element {
             <div className="createTeacherContent">
                 <div className="techerById">
                     <h1>ID teacher</h1>
-                    <input 
+                    <input
                         name="TeacherId"
                         placeholder="Teacher ID"
                         type="text" />
@@ -133,4 +135,4 @@ function UpdateTeacher(): JSX.Element {
 
 }
 
- export default UpdateTeacher
+export default UpdateTeacher

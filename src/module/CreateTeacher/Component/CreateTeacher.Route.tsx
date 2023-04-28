@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import "../style/CreateTeacher.style.css"
 
@@ -12,6 +13,7 @@ import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
 
 
 function CreateTeacher(): JSX.Element {
+    const location = useNavigate()
     const [verification, setVerification] = useState<typeVerification>({success: false,stats: false}) /* overovanie */
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
     const [teacher, setTeacher] = useState<typeNewTeacher>({ name: '', subject: '' })
@@ -28,7 +30,7 @@ function CreateTeacher(): JSX.Element {
                 console.log(data)
                 if(data) {
                     setVerification({success: true,stats: true})
-                }else {setVerification({success: true,stats: false}); localStorage.clear()}
+                }else {setVerification({success: true,stats: false}); localStorage.clear(); location("LoginPage")}
             })
             .catch(err => console.log(err))
 

@@ -2,18 +2,15 @@
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useContext } from "react"
 import "../style/Context.style.css"
-
 import { Home } from "../../Home";
 import { Teacher } from "../../Teacher";
 import { Students } from "../../Students";
-
-
 import { CreateStudents } from "../../CreateStudents";
 import { StudentsALL } from "../../StudentsALL";
 import { UpdateStudents } from "../../UpdateStudents";
-
 import { LogOutButton } from "../../LogOutButton";
 import { Container } from '../../Container';
+import apiServicesValidityAuthen from '../../API/ValidityAuthen.API';
 
 
 function Context(): JSX.Element {
@@ -22,8 +19,15 @@ function Context(): JSX.Element {
 
     /* authentif.. kontrola pri kazdom pohybe*/
     useEffect(() => {
+        const JWTToken = localStorage.getItem("authenticationKey") as string
         localStorage.getItem("authenticationKey") === null && loginPG("/LoginPage")
-        console.log("contextMove");
+        apiServicesValidityAuthen.apiValidityAuthen(JWTToken)
+        .then((data: number) => {
+            console.log("OK");
+            if (data !== 200) {
+                loginPG("/LoginPage")
+            }})
+        .catch(err => console.log(err))
     }, [loginPG, logOut])
 
     return (

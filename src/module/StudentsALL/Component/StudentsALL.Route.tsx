@@ -1,10 +1,11 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import apiServicesAllStudents from "../../API/AllStudents.API"
 import { typeALLStudents } from "../types"
 import "../style/StudentsALL.style.css"
 
 function StudentsALL(): JSX.Element {
-
+    const location = useNavigate()
     const [ ALLStudents, setALLStudents] = React.useState<typeALLStudents>({
         TeacherID: "",
         StudentsID: ""
@@ -25,8 +26,8 @@ function StudentsALL(): JSX.Element {
         apiServicesAllStudents.apiAllStudents(JWTToken, ALLStudents)
             .then((data: any) => {
                 console.log(data)
-             /*    if (data) {
-                    localStorage.clear()} */
+             /*    if (!data) {
+                    localStorage.clear(); location("LoginPage")} */
             })
             .catch(err => console.log(err))
 

@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import "../style/CreateStudents.style.css"
 import { typeCreateStudents } from "../types"
 import { ConfirmationResp } from "../../ConfirmationResp"
@@ -6,6 +7,7 @@ import { typeVerification } from "../../ConfirmationResp/type"
 import apiServicesCreateStudents from "../../API/CreateStudents.API"
 
 function CreateStudents(): JSX.Element {
+    const location = useNavigate()
     const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: false }) /* overovanie */
     const [createStudents, setCreateStudents] = React.useState<typeCreateStudents>({
         TeacherID: "",
@@ -31,7 +33,7 @@ function CreateStudents(): JSX.Element {
                 console.log(data)
                 if (data) {
                     setVerification({ success: true, stats: true })
-                } else { setVerification({ success: true, stats: false }); localStorage.clear() }
+                } else { setVerification({ success: true, stats: false }); localStorage.clear(); location("LoginPage") }
             })
             .catch(err => console.log(err))
 

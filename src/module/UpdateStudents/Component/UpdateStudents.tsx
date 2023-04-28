@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import "../style/UpdateStudents.style.css"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import { typeUpdateStudents } from "../type"
@@ -6,6 +7,7 @@ import apiServicesUpdateStudents from "../../API/UpdateStudents"
 import { typeVerification } from "../../ConfirmationResp/type"
 
 function UpdateStudents(): JSX.Element { 
+    const location = useNavigate()
     const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: false }) /* overovanie */
     const [updateStudents, setupdateStudents] = React.useState<typeUpdateStudents>({
     TeacherID: "",
@@ -32,7 +34,7 @@ function UpdateStudents(): JSX.Element {
                 console.log(data)
                 if(data) {
                     setVerification({success: true,stats: true})
-                }else {setVerification({success: true,stats: false}); localStorage.clear()}
+                }else {setVerification({success: true,stats: false}); localStorage.clear(); location("LoginPage")}
             })
         .catch(err => console.log(err))
 

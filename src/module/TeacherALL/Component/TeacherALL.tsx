@@ -1,16 +1,17 @@
 import React from "react"
 import "../style/TeacherALL.style.css"
 import apiServicesAllTeacher from "../../API/AllTeacher.API"
+import { useNavigate } from "react-router-dom"
 
 function TeacherALL(): JSX.Element {
-
+const location = useNavigate
     React.useEffect(() => {
         const JWTToken = localStorage.getItem("authenticationKey") as string
         apiServicesAllTeacher.apiAllTeacher(JWTToken)
             .then((data: any) => {
-                console.log(data)
-               /*  if (data) {
-                    localStorage.clear()
+               /*  if (!data) {
+                    localStorage.clear(); location("LoginPage")
+                    
                 } */
             })
             .catch(err => console.log(err))
