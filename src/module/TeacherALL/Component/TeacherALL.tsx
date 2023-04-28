@@ -3,8 +3,8 @@ import "../style/TeacherALL.style.css"
 import "../style/RespoTable.style.css"
 import apiServicesAllTeacher from "../../API/AllTeacher.API"
 import { useNavigate } from "react-router-dom"
-import { typeResponzeALLTechers } from "../../API/types.API"
-import { typeResponzeALLTechersObject } from "../../API/types.API"
+import { typeResponzeALLTechers } from "../../API/types"
+import { typeResponzeALLTechersObject } from "../../API/types"
 
 
 function TeacherALL(): JSX.Element {
@@ -15,7 +15,7 @@ function TeacherALL(): JSX.Element {
         apiServicesAllTeacher.apiAllTeacher(JWTToken)
             .then((data: typeResponzeALLTechers) => {
                 if (!data) {
-                    localStorage.clear(); location("LoginPage")
+                    /* localStorage.clear(); location("LoginPage") */
                 } else { setAllReachersResponzeDATA(data) }
             })
             .catch(err => console.log(err))

@@ -26,11 +26,11 @@ function CreateTeacher(): JSX.Element {
         const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
 
         newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(JWTToken, newTeacher)
-            .then((data : any) => {
+            .then((data : number) => {
                 console.log(data)
-                if(data) {
+              if(data === 201) {
                     setVerification({success: true,stats: true})
-                }else {setVerification({success: true,stats: false}); localStorage.clear(); location("LoginPage")}
+                }else {setVerification({success: true,stats: false}); /* localStorage.clear(); location("LoginPage") */}
             })
             .catch(err => console.log(err))
 

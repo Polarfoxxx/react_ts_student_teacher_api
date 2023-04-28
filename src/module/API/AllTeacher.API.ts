@@ -1,5 +1,5 @@
 import axios from "axios"
-import { typeResponzeALLTechers } from "./types.API"
+import { typeResponzeALLTechers } from "./types"
 
 const apiServicesAllTeacher = {
     apiAllTeacher

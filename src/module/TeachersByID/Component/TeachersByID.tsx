@@ -1,9 +1,11 @@
 import React from "react"
 import apiServicesTeacherById from "../../API/TeacherById.API"
 import { useNavigate } from "react-router-dom"
+import { typeResponzeALLTechersObject } from "../../API/types"
 
 function TeachersByID(): JSX.Element {
     const location = useNavigate()
+    const [responzeDATA , setResponzeDATA] = React.useState<typeResponzeALLTechersObject>({ id: "",name: "",subject: ""})
     const [teacherID, setTeacherID] = React.useState("")
 
 
@@ -16,11 +18,10 @@ function TeachersByID(): JSX.Element {
     const handleSendTeacherID = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const JWTToken = localStorage.getItem("authenticationKey") as string
         apiServicesTeacherById.apiTeacherById(JWTToken, teacherID)
-            .then((data: any) => {
-                console.log(data)
-                /*    if (data) {
+            .then((data: typeResponzeALLTechersObject) => {
+                  if (!data.id) {
                        localStorage.clear(); location("LoginPage")
-                   } */
+                   }else {setResponzeDATA(data)}
             })
             .catch(err => console.log(err))
     }
@@ -40,7 +41,15 @@ function TeachersByID(): JSX.Element {
                     <button onClick={handleSendTeacherID}>Search</button>
                 </div>
                 <div className="seatcheResults">
-                    fdsfdfsdfds
+                {
+                  
+                        <div 
+                        className="respoDATA">
+                            <div className="ResId"><h1>{responzeDATA.id}</h1></div>
+                            <div className="Resname"><h1>{responzeDATA.name}</h1></div>
+                            <div className="Ressubject"><h1>{responzeDATA.subject}</h1></div>
+                        </div>
+                }
                 </div>
             </div>
         </div>

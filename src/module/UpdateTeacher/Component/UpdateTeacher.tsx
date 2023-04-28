@@ -23,11 +23,10 @@ function UpdateTeacher(): JSX.Element {
         const updateData = servicesUpdateTeacherObjectFromAPI.updateTeacherObjectFromAPI(teacher, inputFields)
 
         updateData.name && apiServicesUpdateTeacher.apiUpdateTeacher(JWTToken, updateData)
-            .then((data: any) => {
-                console.log(data)
-                if (data) {
-                    setVerification({ success: true, stats: true })
-                } else { setVerification({ success: true, stats: false }); localStorage.clear(); location("LoginPage") }
+            .then((data: number) => {
+                if (data === 204) {
+                      setVerification({ success: true, stats: true })
+                  } else { setVerification({ success: true, stats: false }); /* localStorage.clear(); location("LoginPage") */ } 
             })
             .catch(err => console.log(err))
 
@@ -54,8 +53,10 @@ function UpdateTeacher(): JSX.Element {
 
     /* vytvorenie objectu ucitela */
     const handleTeacherChange = (event: React.FormEvent<HTMLInputElement>): void => {
-        let valuesTeacherInputs = event.currentTarget.value as string
-        event.currentTarget.name === "name" ? setTeacher(prew => ({ ...prew, name: valuesTeacherInputs })) : setTeacher(prew => ({ ...prew, subject: valuesTeacherInputs }))
+        type objectKEY = keyof typeUpdateTeacher
+        const keys = event.currentTarget.name as objectKEY
+        teacher[keys] = event.currentTarget.value
+        setTeacher({...teacher})
     }
 
     return (
@@ -72,7 +73,9 @@ function UpdateTeacher(): JSX.Element {
                 <div className="techerById">
                     <h1>ID teacher</h1>
                     <input
-                        name="TeacherId"
+                        onChange={handleTeacherChange}
+                        value={teacher.id}
+                        name="id"
                         placeholder="Teacher ID"
                         type="text" />
                 </div>

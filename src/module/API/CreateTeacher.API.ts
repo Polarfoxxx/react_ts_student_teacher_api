@@ -8,24 +8,26 @@ const apiServicesCreateTeacher = {
 export default apiServicesCreateTeacher
 
 
-async function apiCreateTeacher(JWTToken : string, newTeacher: typeNewTeacher) {
-    console.log(newTeacher);
-    
-/* 
+async function apiCreateTeacher(JWTToken: string, newTeacher: typeNewTeacher): Promise<number> {
+    let responseCreateteacherDATA : number = 0
+
     const options = {
         method: 'POST',
         url: 'https://tadeasburda.sk/api/teachers',
         headers: {
-             'content-type': 'application/json'
-            Authorization: `Bearer ${JWTToken}`,
+            'content-type': 'application/json',
+            "Authorization": `Bearer ${JWTToken}`
         },
         data: newTeacher
     };
 
     try {
         const response = await axios.request(options);
-        console.log(response.data);
+        responseCreateteacherDATA = response.status;
     } catch (error) {
         console.error(error);
-    } */
+    }
+    return(
+        responseCreateteacherDATA
+    )
 }
