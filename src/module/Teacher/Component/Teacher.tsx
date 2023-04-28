@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom"
-import { Outlet } from "react-router-dom"
 import "../style/Teacher.style.css"
+import { CreateTeacher } from "../../CreateTeacher";
+import { TeacherALL } from "../../TeacherALL";
+import { TeachersByID } from "../../TeachersByID";
+import { UpdateTeacher } from "../../UpdateTeacher";
+import { Route, Routes } from "react-router-dom";
+
 
 function Teacher(): JSX.Element {
     return (
@@ -13,10 +18,13 @@ function Teacher(): JSX.Element {
                     < Link className="Tlink " to="UpdateTeacher">Update teacher</Link>
                 </div>
             </div>
-        
             <div className="contentRoute">
-                <Outlet />
-               
+                <Routes>
+                    <Route path="CreateTeacher" element={<CreateTeacher />} />
+                    <Route path="TeacherALL" element={<TeacherALL />} />
+                    <Route path="TeachersByID" element={<TeachersByID />} />
+                    <Route path="UpdateTeacher" element={<UpdateTeacher />} />
+                </Routes>
             </div>
         </div>
     )

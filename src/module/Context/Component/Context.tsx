@@ -7,10 +7,6 @@ import { Home } from "../../Home";
 import { Teacher } from "../../Teacher";
 import { Students } from "../../Students";
 
-import { CreateTeacher } from "../../CreateTeacher";
-import { TeacherALL } from "../../TeacherALL";
-import { TeachersByID } from "../../TeachersByID";
-import { UpdateTeacher } from "../../UpdateTeacher";
 
 import { CreateStudents } from "../../CreateStudents";
 import { StudentsALL } from "../../StudentsALL";
@@ -50,11 +46,8 @@ function Context(): JSX.Element {
                 <div className="routes-block">
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="Teacher" element={<Teacher />}>
-                            <Route path="CreateTeacher" element={<CreateTeacher />} />
-                            <Route path="TeacherALL" element={<TeacherALL />} />
-                            <Route path="TeachersByID" element={<TeachersByID />} />
-                            <Route path="UpdateTeacher" element={<UpdateTeacher />} />
+                        <Route path="Teacher/*" element={<Teacher />}>
+                          
                         </Route>
                         <Route path="Students" element={<Students />}>
                             <Route path="CreateStudents" element={<CreateStudents />} />
