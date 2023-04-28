@@ -6,21 +6,25 @@ const apiServicesSignIn = {
 }
 export default apiServicesSignIn
 
-async function apiSignIn(signInData: typeSignIn) {
-console.log(signInData);
+async function apiSignIn(signInData: typeSignIn): Promise<string | undefined> {
+    console.log(signInData);
+    let JWTkey: string = ""
 
-   /*  const options = {
+    const options = {
         method: 'POST',
-        url: 'https://tadeasburda.sk/api/userauthentication',
+        url: 'https://tadeasburda.sk/api/userauthentication/login',
         headers: {
-            'content-type': 'application/json'},
-        data: signUpData
+            'content-type': 'application/json'
+        },
+        data: signInData
     };
-
     try {
         const response = await axios.request(options);
-        console.log(response);
+        JWTkey = response.data.token;
     } catch (error) {
         console.error(error);
-    }  */
+    }
+    return (
+        JWTkey
+    )
 }

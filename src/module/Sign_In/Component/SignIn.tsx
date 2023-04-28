@@ -1,5 +1,6 @@
 
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "../style/SignIn.style.css"
 import apiServicesSignIn from "../../API/SignIn.API"
 
@@ -9,6 +10,8 @@ export type typeSignIn = {
 }
 
 function SignIn(): JSX.Element {
+    let navigate = useNavigate()
+    
     const [signIn, setSignIn] = useState<typeSignIn>({
         userName: "",
         password: ""
@@ -19,17 +22,22 @@ function SignIn(): JSX.Element {
         let keyName = event.currentTarget.name as TYPEObjectKey
         signIn[keyName] = event.currentTarget.value
         setSignIn({ ...signIn })
-
    
     }
     /* odoslanie form. pre prihlasenie */
     const handleLoginButton = (event: React.MouseEvent<HTMLButtonElement>): void => {
         apiServicesSignIn.apiSignIn(signIn)
+            .then(data => { data ?  localStorage.setItem("authenticationKey" , data) : localStorage.setItem("authenticationKey" , "")
+            navigate(-1) /* poslanie na predchazdajucu localitu */
+        })
+            .catch(err => console.log(err))
+
+
              /* clear */
-             setSignIn({
+          /*    setSignIn({
                 userName: "",
                 password: ""
-            })
+            }) */
     }
 
     return (

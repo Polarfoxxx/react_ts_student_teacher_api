@@ -11,15 +11,12 @@ type props = {
 
 function ConfirmationResp({ verification, setVerification }: props): JSX.Element {
 
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setVerification({ success: false, stats: false })
-        }, 3000)
+        }, 5000)
         return (() => clearTimeout(timer))
     }, [verification])
-
-
 
     if (!verification.success) {
         return (
@@ -27,7 +24,6 @@ function ConfirmationResp({ verification, setVerification }: props): JSX.Element
             </div>
         )
     }
-
     return (
         <div className="ConfirmationResp">
             {

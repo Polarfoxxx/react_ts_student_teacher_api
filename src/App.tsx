@@ -11,7 +11,9 @@ function App(): JSX.Element {
   const loginPG = useNavigate()
 
   useEffect(() => {
-    localStorage.getItem("authenticationKey") !== null ? loginPG("LoginPage") : loginPG("/")
+    localStorage.getItem("authenticationKey") === null ? loginPG("LoginPage") : loginPG("Context")
+console.log(localStorage.getItem("authenticationKey"));
+
   }, [])
 
   return (
@@ -19,7 +21,7 @@ function App(): JSX.Element {
       <Container.Provider>
         <Routes>
           <Route path='LoginPage' element={<LoginPage />} />
-          <Route path='*' element={<Context />} />
+          <Route path='Context/*' element={<Context />} />
         </Routes>
       </Container.Provider>
     </div>

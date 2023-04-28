@@ -28,27 +28,32 @@ function SignUp(): JSX.Element {
         signUp[nameKey] = event.currentTarget.value
         setSignUp({ ...signUp })
     }
-    /* odoslanie registracneho formulara */
+    /* odoslanie registracneho formulara do API*/
     const handleSignUp = (event: React.MouseEvent<HTMLButtonElement>): void => {
         apiServicesSignUp.apiSignUp(signUp)
             .then(data => {
                 console.log(data)
-                setVerification({
-                    success: false,
-                    stats: false
-                })
+                if (data === 201 || data === 200) {         /* nastavenie statusu odpovede */
+                    setVerification({
+                        success: true, stats: true
+                    })
+                } else {
+                    setVerification({
+                        success: true, stats: false
+                    })
+                }
             })
             .catch(err => console.log(err))
 
         /* clear */
-    /*     setSignUp({
+        setSignUp({
             firstName: "",
             lastName: "",
             userName: "",
             password: "",
             email: "",
             phoneNumber: "",
-        }) */
+        })
     }
 
     return (

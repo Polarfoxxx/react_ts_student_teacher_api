@@ -6,9 +6,10 @@ const apiServicesSignUp = {
 }
 export default apiServicesSignUp
 
-async function apiSignUp(signUpData: typeSignUp) {
+async function apiSignUp(signUpData: typeSignUp): Promise<number | undefined> {
 console.log(signUpData);
-/* 
+let responseSignUpData : number | undefined = 0
+
  const options = {
         method: 'POST',
         url: 'https://tadeasburda.sk/api/userauthentication',
@@ -19,8 +20,11 @@ console.log(signUpData);
 
     try {
         const response = await axios.request(options);
-        console.log(response);
+        responseSignUpData = response.status 
     } catch (error) {
         console.error(error);
-    }   */
+    }   
+    return(
+        responseSignUpData
+    )
 }
