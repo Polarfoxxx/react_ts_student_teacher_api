@@ -23,7 +23,7 @@ function Context(): JSX.Element {
         localStorage.getItem("authenticationKey") === null && loginPG("/LoginPage")
         apiServicesValidityAuthen.apiValidityAuthen(JWTToken)
         .then((data: number) => {
-            console.log("OK");
+            console.log(data);
             if (data !== 200) {
                 loginPG("/LoginPage")
             }})

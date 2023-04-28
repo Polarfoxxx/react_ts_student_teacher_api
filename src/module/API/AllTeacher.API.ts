@@ -1,24 +1,30 @@
 import axios from "axios"
+import { typeResponzeALLTechers } from "./types.API"
 
 const apiServicesAllTeacher = {
     apiAllTeacher
 }
 export default apiServicesAllTeacher
 
-async function apiAllTeacher(JWTToken: string) {
-    
-      /*  const options = {
+
+
+async function apiAllTeacher(JWTToken: string): Promise<typeResponzeALLTechers> {
+    let responzeALLtecherDATA: typeResponzeALLTechers = [{id: "", name: "",subject: ""}]
+
+    const options = {
         method: 'GET',
         url: 'https://tadeasburda.sk/api/teachers',
         headers: {
-             "Authorization": `Bearer ${JWTToken}`
+             "Authorization": `Bearer ${JWTToken}`,
             'content-type': 'application/json'}
     };
-
     try {
         const response = await axios.request(options);
-        console.log(response);
+      responzeALLtecherDATA = response.data;
     } catch (error) {
         console.error(error);
-    }  */
+    }  
+    return(
+        responzeALLtecherDATA
+    )
 }

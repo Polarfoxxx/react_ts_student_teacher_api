@@ -1,0 +1,20 @@
+.respoDATA{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: 1px solid rgba(255, 255, 255, 0.219);
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: rgba(192, 192, 192, 0.192);
+}
+.respoDATA >div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.288);
+}
