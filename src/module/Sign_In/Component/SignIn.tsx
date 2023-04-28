@@ -30,10 +30,7 @@ function SignIn(): JSX.Element {
             .then((data: string | undefined) => {
                 if (data) {
                     localStorage.setItem("authenticationKey", data);
-                    setTimeout(() => {
-                        navigate(-1) /* poslanie na predchazdajucu localitu */
-                    }, 1500)
-                 
+                        navigate("/Context") /* poslanie na predchazdajucu localitu */
                 } else { localStorage.clear() }
             }
             )
