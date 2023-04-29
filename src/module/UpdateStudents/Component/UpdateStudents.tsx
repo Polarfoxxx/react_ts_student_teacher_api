@@ -54,7 +54,7 @@ function UpdateStudents(): JSX.Element {
             />
             <div className="CreateStudents">
                 <div className="CreateStudentsHeader">
-                    <h1>Create Students</h1>
+                    <h1>Update Students</h1>
                 </div>
                 <div className="CreateContent">
                     <div className="searcheTeacherID">

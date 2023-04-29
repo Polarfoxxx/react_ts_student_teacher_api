@@ -66,7 +66,7 @@ function UpdateTeacher(): JSX.Element {
                 setVerification={setVerification}
             />
             <div className="createTeacherHeader">
-                <h1>Create new Teacher</h1>
+                <h1>Update Teacher</h1>
             </div>
 
             <div className="createTeacherContent">
