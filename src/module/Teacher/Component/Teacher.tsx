@@ -4,6 +4,7 @@ import { CreateTeacher } from "../../CreateTeacher";
 import { TeacherALL } from "../../TeacherALL";
 import { TeachersByID } from "../../TeachersByID";
 import { UpdateTeacher } from "../../UpdateTeacher";
+import { TeacherHome } from "../../TeacherHome";
 import { Route, Routes } from "react-router-dom";
 
 
@@ -20,6 +21,7 @@ function Teacher(): JSX.Element {
             </div>
             <div className="contentRoute">
                 <Routes>
+                    <Route path="/" element={<TeacherHome />}/>
                     <Route path="CreateTeacher" element={<CreateTeacher />} />
                     <Route path="TeacherALL" element={<TeacherALL />} />
                     <Route path="TeachersByID" element={<TeachersByID />} />

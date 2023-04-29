@@ -15,10 +15,10 @@ async function apiValidityAuthen(JWTToken: string): Promise<number> {
              "Authorization": `Bearer ${JWTToken}`,
             'content-type': 'application/json'}
     };
-
     try {
         const response = await axios.request(options);
         authStatus = response.status;
+        console.log(authStatus);
     } catch (error) {
         console.error(error);
     }  

@@ -6,6 +6,7 @@ import { Home } from "../../Home";
 import { Teacher } from "../../Teacher";
 import { Students } from "../../Students";
 import { CreateStudents } from "../../CreateStudents";
+import { StudentsHome } from '../../StudentsHome';
 import { StudentsALL } from "../../StudentsALL";
 import { UpdateStudents } from "../../UpdateStudents";
 import { LogOutButton } from "../../LogOutButton";
@@ -23,8 +24,7 @@ function Context(): JSX.Element {
         localStorage.getItem("authenticationKey") === null && loginPG("/LoginPage")
         apiServicesValidityAuthen.apiValidityAuthen(JWTToken)
         .then((data: number) => {
-            console.log(data);
-            if (data === 401) {
+            if (data !== 200) {
                 loginPG("/LoginPage")
             }})
         .catch(err => console.log(err))
@@ -54,6 +54,7 @@ function Context(): JSX.Element {
                         <Route path="Teacher/*" element={<Teacher />}>
                         </Route>
                         <Route path="Students" element={<Students />}>
+                            {/* <Route path='/' element={<StudentsHome />}/> */}
                             <Route path="CreateStudents" element={<CreateStudents />} />
                             <Route path="StudentsALL" element={<StudentsALL />} />
                             <Route path="UpdateStudents" element={<UpdateStudents />} />

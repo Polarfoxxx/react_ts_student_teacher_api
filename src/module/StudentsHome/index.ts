@@ -1,0 +1,1 @@
+export {default as StudentsHome} from "./Component/StudentsHome"
