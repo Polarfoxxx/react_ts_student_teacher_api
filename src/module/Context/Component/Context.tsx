@@ -54,7 +54,7 @@ function Context(): JSX.Element {
                         <Route path="Teacher/*" element={<Teacher />}>
                         </Route>
                         <Route path="Students" element={<Students />}>
-                            {/* <Route path='/' element={<StudentsHome />}/> */}
+                            <Route path='' element={<StudentsHome />}/>
                             <Route path="CreateStudents" element={<CreateStudents />} />
                             <Route path="StudentsALL" element={<StudentsALL />} />
                             <Route path="UpdateStudents" element={<UpdateStudents />} />
