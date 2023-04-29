@@ -38,6 +38,13 @@ background-size: 48%;
     font-weight: bold;
     font-size: 90px;
 }
+.LoginPage .logPageHeader .firstPsW{
+    color: var(--orangeColor);
+    font-weight: bold;
+    font-size: 90px;
+
+}
+
 .LoginPage .logPageHeader .lastePs{
     font-size: 60px;
 
@@ -63,6 +70,7 @@ background-size: 48%;
     overflow: hidden;
     border-radius: 40px;
     border: 1px solid rgb(170, 170, 170);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .LoginPage .loginPageContext > div .signHeader{
     color: rgb(0, 0, 0);

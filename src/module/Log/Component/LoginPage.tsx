@@ -24,7 +24,7 @@ function LoginPage(): JSX.Element {
                 <div className="LoginPage">
                         <div className="logPageHeader">
                                 <span>
-                                        <span className="firstPs">W</span>
+                                        <span className="firstPsW">W</span>
                                         <span className="lastePs">elcome</span>
                                 </span>
                                 <span>
@@ -32,16 +32,20 @@ function LoginPage(): JSX.Element {
                                         <span className="lastePs">o</span>
                                 </span>
                                 <span>
-                                        <span className="firstPs">T</span>
+                                        <span className="firstPs">t</span>
                                         <span className="lastePs">eacher</span>
                                 </span>
                                 <span>
+                                        <span className="firstPs">a</span>
+                                        <span className="lastePs">nd</span>
+                                </span>
+                                <span>
 
-                                        <span className="firstPs">S</span>
+                                        <span className="firstPs">s</span>
                                         <span className="lastePs">tudents</span>
                                 </span>
                                 <span>
-                                        <span className="firstPs">D</span>
+                                        <span className="firstPs">d</span>
                                         <span className="lastePs">atabaze</span>
                                 </span>
 
