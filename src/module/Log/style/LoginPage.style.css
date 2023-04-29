@@ -17,7 +17,18 @@ background-size: 48%;
     align-items: center;
     justify-content: center;
     color: white;
+    position: relative;
 }
+.LoginPage .logPageHeader::before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.466);
+    bottom: 0;
+    left: 70px;
+}
+
 .LoginPage .logPageHeader > span{
     margin-right: 15px;
 }

@@ -24,7 +24,7 @@ function Context(): JSX.Element {
         apiServicesValidityAuthen.apiValidityAuthen(JWTToken)
         .then((data: number) => {
             console.log(data);
-            if (data !== 200) {
+            if (data === 401) {
                 loginPG("/LoginPage")
             }})
         .catch(err => console.log(err))

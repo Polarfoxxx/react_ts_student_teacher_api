@@ -6,8 +6,8 @@ const apiServicesUpdateStudents = {
 }
 export default apiServicesUpdateStudents
 
-async function apiUpdateStudents(JWTToken: string, updateStudents: typeUpdateStudents) {
-    console.log(updateStudents);
+async function apiUpdateStudents(JWTToken: string, updateStudents: typeUpdateStudents): Promise<number> {
+    let updateStudentRespStatus : number = 0
     
     const options = {
         method: 'PUT',
@@ -22,7 +22,11 @@ async function apiUpdateStudents(JWTToken: string, updateStudents: typeUpdateStu
     try {
         const response = await axios.request(options);
         console.log(response.data);
+        updateStudentRespStatus = response.status
     } catch (error) {
         console.error(error);
     } 
+    return(
+        updateStudentRespStatus
+    )
 }

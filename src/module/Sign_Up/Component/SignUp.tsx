@@ -2,7 +2,7 @@
 import { useState } from "react"
 import "../../Sign_In/style/SignIn.style.css"
 import { ConfirmationResp } from "../../ConfirmationResp"
-
+import servicesErrorResponze from "../../services/errorResponze"
 import apiServicesSignUp from "../../API/SignUp.API"
 import { typeVerification } from "../../ConfirmationResp/type"
 import { typeSignUp } from "../types"
@@ -10,7 +10,7 @@ import { typeSignUp } from "../types"
 function SignUp(): JSX.Element {
     const [verification, setVerification] = useState<typeVerification>({
         success: false,
-        stats: false
+        stats: ""
     })
     const [signUp, setSignUp] = useState<typeSignUp>({
         firstName: "",
@@ -31,18 +31,11 @@ function SignUp(): JSX.Element {
     /* odoslanie registracneho formulara do API*/
     const handleSignUp = (event: React.MouseEvent<HTMLButtonElement>): void => {
         apiServicesSignUp.apiSignUp(signUp)
-            .then(data => {
-                console.log(data)
-                if (data === 201 || data === 200) {         /* nastavenie statusu odpovede */
-                    setVerification({
-                        success: true, stats: true
-                    })
-                } else {
-                    setVerification({
-                        success: true, stats: false
-                    })
-                }
-            })
+        .then((data : number) => {
+            if(data !== 401) {
+                  setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
+              }
+          })
             .catch(err => console.log(err))
 
         /* clear */

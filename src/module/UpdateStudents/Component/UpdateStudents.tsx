@@ -5,10 +5,11 @@ import { ConfirmationResp } from "../../ConfirmationResp"
 import { typeUpdateStudents } from "../type"
 import apiServicesUpdateStudents from "../../API/UpdateStudents"
 import { typeVerification } from "../../ConfirmationResp/type"
+import servicesErrorResponze from "../../services/errorResponze"
 
 function UpdateStudents(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: false }) /* overovanie */
+    const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
     const [updateStudents, setupdateStudents] = React.useState<typeUpdateStudents>({
         teacherId: "",
         id: "",
@@ -29,12 +30,11 @@ function UpdateStudents(): JSX.Element {
     /* odoslanie formulara  do APIs */
     const handleSendForm = () => {
         apiServicesUpdateStudents.apiUpdateStudents(JWTToken, updateStudents)
-            .then((data: any) => {
-                console.log(data)
-                if (data) {
-                    setVerification({ success: true, stats: true })
-                } else { setVerification({ success: true, stats: false });/*  localStorage.clear(); location("LoginPage")  */}
-            })
+        .then((data : number) => {
+            if(data !== 401) {
+                  setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
+              }else {localStorage.clear(); location("LoginPage")}
+          })
             .catch(err => console.log(err))
 
         /* clear */

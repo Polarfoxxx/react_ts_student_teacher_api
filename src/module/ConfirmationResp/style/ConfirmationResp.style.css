@@ -1,13 +1,14 @@
 .ConfirmationResp{
     position: fixed;
-    width: 200px;
-    height: 40px;
+    width: 100vw;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 20px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
+    transition: 1s;
 }
 .ConfirmationResp > div{
     width: 100%;
@@ -18,5 +19,6 @@
     color: rgb(0, 0, 0);
     border-radius: 20px;
     opacity: 0.8;
-background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    font-size: 30px;
 }

@@ -7,11 +7,12 @@ import apiServicesUpdateTeacher from "../../API/UpdateTeacher.API"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import "../style/UpdateTeacher.style.css"
 import { useNavigate } from "react-router-dom"
+import servicesErrorResponze from "../../services/errorResponze"
 
 
 function UpdateTeacher(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = useState<typeVerification>({ success: false, stats: false }) /* overovanie */
+    const [verification, setVerification] = useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
     const [teacher, setTeacher] = useState<typeUpdateTeacher>({ id: "", name: '', subject: '' })
 
@@ -22,11 +23,11 @@ function UpdateTeacher(): JSX.Element {
         const updateData = servicesUpdateTeacherObjectFromAPI.updateTeacherObjectFromAPI(teacher, inputFields)
 
         updateData.name && apiServicesUpdateTeacher.apiUpdateTeacher(JWTToken, updateData)
-            .then((data: number) => {
-                if (data === 204) {
-                      setVerification({ success: true, stats: true })
-                  } else { setVerification({ success: true, stats: false }); /* localStorage.clear(); location("LoginPage") */ } 
-            })
+        .then((data : number) => {
+            if(data !== 401) {
+                  setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
+              }else {localStorage.clear(); location("LoginPage")}
+          })
             .catch(err => console.log(err))
 
         /* clear */

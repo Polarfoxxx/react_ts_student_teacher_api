@@ -6,11 +6,12 @@ import { typeNewTeacher,typeNewStudents } from "../types"
 import { typeVerification } from "../../ConfirmationResp/type"
 import servicesCreateTeacherObjectFromAPI from "../services/servicesCreateTeacherObjectFromAPI"
 import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
+import servicesErrorResponze from "../../services/errorResponze"
 
 
 function CreateTeacher(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = useState<typeVerification>({success: false,stats: false}) /* overovanie */
+    const [verification, setVerification] = useState<typeVerification>({success: false,stats: ""}) /* overovanie */
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
     const [teacher, setTeacher] = useState<typeNewTeacher>({ name: '', subject: '' })
 
@@ -23,9 +24,9 @@ function CreateTeacher(): JSX.Element {
 
         newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(JWTToken, newTeacher)
             .then((data : number) => {
-              if(data === 201) {
-                    setVerification({success: true,stats: true})
-                }else {setVerification({success: true,stats: false}); /* localStorage.clear(); location("LoginPage") */}
+              if(data !== 401) {
+                    setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
+                }else {localStorage.clear(); location("LoginPage")}
             })
             .catch(err => console.log(err))
 

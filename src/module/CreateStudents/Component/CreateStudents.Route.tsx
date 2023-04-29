@@ -5,10 +5,11 @@ import { typeCreateStudents } from "../types"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import { typeVerification } from "../../ConfirmationResp/type"
 import apiServicesCreateStudents from "../../API/CreateStudents.API"
+import servicesErrorResponze from "../../services/errorResponze"
 
 function CreateStudents(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: false }) /* overovanie */
+    const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
     const [createStudents, setCreateStudents] = React.useState<typeCreateStudents>({
         teacherId: "",
         name: "",
@@ -29,11 +30,11 @@ function CreateStudents(): JSX.Element {
         const JWTToken = localStorage.getItem("authenticationKey") as string
 
         apiServicesCreateStudents.apiCreateStudents(JWTToken, createStudents)
-            .then((data: number) => {
-                if (data === 200) {
-                    setVerification({ success: true, stats: true })
-                } else { setVerification({ success: true, stats: false });/*  localStorage.clear(); location("LoginPage")  */}
-            })
+        .then((data : number) => {
+            if(data !== 401) {
+                  setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
+              }else {localStorage.clear(); location("LoginPage")}
+          })
             .catch(err => console.log(err))
 
 
