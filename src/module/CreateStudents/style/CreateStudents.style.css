@@ -40,7 +40,7 @@
     border-radius: 10px;
     padding: 0 , 10px;
     text-align: center;
-    font-size: 17px;
+    font-size: 24px;
 }
 .CreateStudents .CreateContent > div > div > input{
     width: 80%;
@@ -48,7 +48,7 @@
     border-radius: 10px;
     padding: 0 , 10px;
     text-align: center;
-    font-size: 17px;
+    font-size: 4px;
 }
 .CreateStudents .CreateContent > div > div{
     width: 100%;

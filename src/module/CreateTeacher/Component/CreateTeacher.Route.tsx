@@ -1,12 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
 import "../style/CreateTeacher.style.css"
-
 import { ConfirmationResp } from "../../ConfirmationResp"
-
-import { typeNewTeacher } from "../types"
-import { typeNewStudents } from "../types"
+import { typeNewTeacher,typeNewStudents } from "../types"
 import { typeVerification } from "../../ConfirmationResp/type"
 import servicesCreateTeacherObjectFromAPI from "../services/servicesCreateTeacherObjectFromAPI"
 import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
@@ -27,7 +23,6 @@ function CreateTeacher(): JSX.Element {
 
         newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(JWTToken, newTeacher)
             .then((data : number) => {
-                console.log(data)
               if(data === 201) {
                     setVerification({success: true,stats: true})
                 }else {setVerification({success: true,stats: false}); /* localStorage.clear(); location("LoginPage") */}

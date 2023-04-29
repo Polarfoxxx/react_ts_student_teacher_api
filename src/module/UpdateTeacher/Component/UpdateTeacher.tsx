@@ -1,5 +1,4 @@
 import { useState } from "react"
-
 import servicesUpdateTeacherObjectFromAPI from "../services/servicesUpdateTeacherObjectFromAPI"
 import { typeUpdateTeacher } from "../types"
 import { typeNewStudents } from "../../CreateTeacher/types"

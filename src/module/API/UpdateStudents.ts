@@ -8,13 +8,13 @@ export default apiServicesUpdateStudents
 
 async function apiUpdateStudents(JWTToken: string, updateStudents: typeUpdateStudents) {
     console.log(updateStudents);
-    /* 
+    
     const options = {
         method: 'PUT',
-        url: 'https://tadeasburda.sk/api/teachers{teacherId}/students{id}',
+        url: `https://tadeasburda.sk/api/teachers/${updateStudents.teacherId}/students/${updateStudents.id}`,
         headers: {
-                "Authorization": `Bearer ${JWTToken}`
-                'content-type': 'application/json'},
+                "Authorization": `Bearer ${JWTToken}`,
+                'content-type': 'application/json',
         },
         data: updateStudents
     };
@@ -24,5 +24,5 @@ async function apiUpdateStudents(JWTToken: string, updateStudents: typeUpdateStu
         console.log(response.data);
     } catch (error) {
         console.error(error);
-    } */
+    } 
 }

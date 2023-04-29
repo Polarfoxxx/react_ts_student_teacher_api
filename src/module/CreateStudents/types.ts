@@ -1,6 +1,6 @@
 
 export type typeCreateStudents = {
-    TeacherID: string,
-    nameStudents: string,
-    classe: string
+    teacherId: string,
+    name: string,
+    class: string
 }

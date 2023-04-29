@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Ysabeau', sans-serif;
+    font-weight: bold;
 }
 
 :root{
@@ -14,6 +15,7 @@
     --silverColor: rgb(77, 77, 77);
     --silverContext: rgb(190, 190, 190);
 }
+
 
 .App{
     width: 100%;

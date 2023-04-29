@@ -7,8 +7,8 @@ import "../style/StudentsALL.style.css"
 function StudentsALL(): JSX.Element {
     const location = useNavigate()
     const [ ALLStudents, setALLStudents] = React.useState<typeALLStudents>({
-        TeacherID: "",
-        StudentsID: ""
+        teacherId : "",
+        studentId: ""
     })
 
 
@@ -33,7 +33,7 @@ function StudentsALL(): JSX.Element {
 
 
         /* clear */
-        setALLStudents({ TeacherID: "", StudentsID: ''})
+        setALLStudents({ teacherId: "", studentId: ''})
     }
 
     return (
@@ -47,17 +47,17 @@ function StudentsALL(): JSX.Element {
                     <h1>Teacher ID</h1>
                     <input
                         onChange={handleChangeinputElement}
-                        value={ALLStudents.TeacherID}
-                        name="TeacherID"
+                        value={ALLStudents.teacherId}
+                        name="teacherId"
                         type="text" />
                 </div>
                 <div className="createnewStudents">
                     <div className="inpNameStudent">
                         <h1>Student ID</h1>
                         <input
-                            value={ALLStudents.StudentsID}
+                            value={ALLStudents.studentId}
                             onChange={handleChangeinputElement}
-                            name="StudentsID"
+                            name="studentId"
                             type="text" />
                     </div>
                  
@@ -67,7 +67,7 @@ function StudentsALL(): JSX.Element {
                 </div>
             </div>
             <div className="buttonBlocj">
-                <button onClick={handleSendFormular}>Create..</button>
+                <button onClick={handleSendFormular}>Search..</button>
             </div>
         </div>
     )

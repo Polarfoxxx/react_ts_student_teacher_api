@@ -10,9 +10,9 @@ function CreateStudents(): JSX.Element {
     const location = useNavigate()
     const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: false }) /* overovanie */
     const [createStudents, setCreateStudents] = React.useState<typeCreateStudents>({
-        TeacherID: "",
-        nameStudents: "",
-        classe: "",
+        teacherId: "",
+        name: "",
+        class: "",
     })
 
 
@@ -29,17 +29,16 @@ function CreateStudents(): JSX.Element {
         const JWTToken = localStorage.getItem("authenticationKey") as string
 
         apiServicesCreateStudents.apiCreateStudents(JWTToken, createStudents)
-            .then((data: any) => {
-                console.log(data)
-                if (data) {
+            .then((data: number) => {
+                if (data === 200) {
                     setVerification({ success: true, stats: true })
-                } else { setVerification({ success: true, stats: false }); localStorage.clear(); location("LoginPage") }
+                } else { setVerification({ success: true, stats: false });/*  localStorage.clear(); location("LoginPage")  */}
             })
             .catch(err => console.log(err))
 
 
         /* clear */
-        setCreateStudents({ TeacherID: "", nameStudents: '', classe: '' })
+        setCreateStudents({ teacherId: "", name: '', class: '' })
     }
 
     return (
@@ -56,25 +55,25 @@ function CreateStudents(): JSX.Element {
                     <h1>Teacher ID</h1>
                     <input
                         onChange={handleChangeinputElement}
-                        value={createStudents.TeacherID}
-                        name="TeacherID"
+                        value={createStudents.teacherId}
+                        name="teacherId"
                         type="text" />
                 </div>
                 <div className="createnewStudents">
                     <div className="inpNameStudent">
                         <h1>Name student</h1>
                         <input
-                            value={createStudents.nameStudents}
+                            value={createStudents.name}
                             onChange={handleChangeinputElement}
-                            name="nameStudents"
+                            name="name"
                             type="text" />
                     </div>
                     <div className="inpClassStudent">
                         <h1>Class</h1>
                         <input
-                            value={createStudents.classe}
+                            value={createStudents.class}
                             onChange={handleChangeinputElement}
-                            name="classe"
+                            name="class"
                             type="text" />
                     </div>
                 </div>

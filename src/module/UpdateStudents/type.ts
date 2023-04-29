@@ -1,7 +1,7 @@
 
 export type typeUpdateStudents = {
-    TeacherID: string,
-    StudentsID: string,
-    nameStudents: string,
-    classe: string
+    teacherId : string,
+    id : string,
+    name: string,
+    class: string
 }
