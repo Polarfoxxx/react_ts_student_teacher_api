@@ -1,27 +1,20 @@
 
-import { useState, createContext, Dispatch, SetStateAction } from "react"
+import { useState, createContext } from "react"
+import { typeContext, Props } from "../types"
 
-type Props = {
-    children: JSX.Element | JSX.Element[] 
-}
-
-type typeContext = {
-    logOut: boolean,
-    setLogOut:  Dispatch<SetStateAction<boolean>>,
-}
 
 const Context = createContext<typeContext>({
     logOut: false,
-    setLogOut: ()=>{}
+    setLogOut: () => { }
 })
 
-function Provider({children} : Props): JSX.Element {
-    const [ logOut, setLogOut ] = useState<boolean>(false)
+function Provider({ children }: Props): JSX.Element {
+    const [logOut, setLogOut] = useState<boolean>(false)
 
-    return(
+    return (
         <div className="Container">
-            <Context.Provider value={{logOut , setLogOut}}>
-            {children}
+            <Context.Provider value={{ logOut, setLogOut }}>
+                {children}
             </Context.Provider>
         </div>
     )
@@ -31,4 +24,4 @@ const Container = {
     Provider,
     Context
 }
- export default Container
+export default Container

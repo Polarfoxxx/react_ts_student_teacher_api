@@ -6,25 +6,23 @@ const apiServicesAllTeacher = {
 }
 export default apiServicesAllTeacher
 
-
-
 async function apiAllTeacher(JWTToken: string): Promise<typeResponzeALLTechers> {
-    let responzeALLtecherDATA: typeResponzeALLTechers = [{id: "", name: "",subject: ""}]
-
+    let responzeALLtecherDATA: typeResponzeALLTechers = [{ id: "", name: "", subject: "" }]
     const options = {
         method: 'GET',
         url: 'https://tadeasburda.sk/api/teachers',
         headers: {
-             "Authorization": `Bearer ${JWTToken}`,
-            'content-type': 'application/json'}
+            "Authorization": `Bearer ${JWTToken}`,
+            'content-type': 'application/json'
+        }
     };
     try {
         const response = await axios.request(options);
-      responzeALLtecherDATA = response.data;
+        responzeALLtecherDATA = response.data;
     } catch (error) {
         console.error(error);
-    }  
-    return(
+    }
+    return (
         responzeALLtecherDATA
     )
 }

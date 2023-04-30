@@ -3,11 +3,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../style/SignIn.style.css"
 import apiServicesSignIn from "../../API/SignIn.API"
-
-export type typeSignIn = {
-    userName: string,
-    password: string
-}
+import { typeSignIn } from "../types"
 
 function SignIn(): JSX.Element {
     let navigate = useNavigate()

@@ -16,7 +16,6 @@ function CreateStudents(): JSX.Element {
         class: "",
     })
 
-
     const handleChangeinputElement = (event: React.FormEvent<HTMLInputElement>): void => {
         type keyinObject = keyof typeCreateStudents
         const keys = event.currentTarget.name as keyinObject
@@ -24,19 +23,17 @@ function CreateStudents(): JSX.Element {
         setCreateStudents({ ...createStudents })
     }
 
-
     /* odoslanie formullara do API */
     const handleSendFormular = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const JWTToken = localStorage.getItem("authenticationKey") as string
 
         apiServicesCreateStudents.apiCreateStudents(JWTToken, createStudents)
-        .then((data : number) => {
-            if(data !== 401) {
-                  setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
-              }else {localStorage.clear(); location("LoginPage")}
-          })
+            .then((data: number) => {
+                if (data !== 401) {
+                    setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) })
+                } else { localStorage.clear(); location("LoginPage") }
+            })
             .catch(err => console.log(err))
-
 
         /* clear */
         setCreateStudents({ teacherId: "", name: '', class: '' })

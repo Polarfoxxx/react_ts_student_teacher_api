@@ -21,7 +21,7 @@ function Teacher(): JSX.Element {
             </div>
             <div className="contentRoute">
                 <Routes>
-                    <Route path="" element={<TeacherHome />}/>
+                    <Route path="" element={<TeacherHome />} />
                     <Route path="CreateTeacher" element={<CreateTeacher />} />
                     <Route path="TeacherALL" element={<TeacherALL />} />
                     <Route path="TeachersByID" element={<TeachersByID />} />

@@ -7,13 +7,14 @@ const apiServicesTeacherById = {
 export default apiServicesTeacherById
 
 async function apiTeacherById(JWTToken: string, teacherID: string): Promise<typeResponzeALLTechersObject> {
-    let responzeTecherByIdDATA: typeResponzeALLTechersObject = {id: "", name: "",subject: ""}
+    let responzeTecherByIdDATA: typeResponzeALLTechersObject = { id: "", name: "", subject: "" }
     const options = {
         method: 'GET',
         url: `https://tadeasburda.sk/api/teachers/${teacherID}`,
         headers: {
-                "Authorization": `Bearer ${JWTToken}`,
-                'content-type': 'application/json'},
+            "Authorization": `Bearer ${JWTToken}`,
+            'content-type': 'application/json'
+        },
         data: teacherID
     };
 
@@ -22,8 +23,8 @@ async function apiTeacherById(JWTToken: string, teacherID: string): Promise<type
         responzeTecherByIdDATA = response.data;
     } catch (error) {
         console.error(error);
-    }  
-    return(
+    }
+    return (
         responzeTecherByIdDATA
     )
 }

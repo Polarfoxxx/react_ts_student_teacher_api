@@ -23,11 +23,12 @@ function Context(): JSX.Element {
         const JWTToken = localStorage.getItem("authenticationKey") as string
         localStorage.getItem("authenticationKey") === null && loginPG("/LoginPage")
         apiServicesValidityAuthen.apiValidityAuthen(JWTToken)
-        .then((data: number) => {
-            if (data !== 200) {
-                loginPG("/LoginPage")
-            }})
-        .catch(err => console.log(err))
+            .then((data: number) => {
+                if (data !== 200) {
+                    loginPG("/LoginPage")
+                }
+            })
+            .catch(err => console.log(err))
     }, [loginPG, logOut])
 
     return (
@@ -54,7 +55,7 @@ function Context(): JSX.Element {
                         <Route path="Teacher/*" element={<Teacher />}>
                         </Route>
                         <Route path="Students" element={<Students />}>
-                            <Route path='' element={<StudentsHome />}/>
+                            <Route path='' element={<StudentsHome />} />
                             <Route path="CreateStudents" element={<CreateStudents />} />
                             <Route path="StudentsALL" element={<StudentsALL />} />
                             <Route path="UpdateStudents" element={<UpdateStudents />} />

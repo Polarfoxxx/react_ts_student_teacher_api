@@ -11,7 +11,6 @@ function StudentsALL(): JSX.Element {
         studentId: ""
     })
 
-
     const handleChangeinputElement = (event: React.FormEvent<HTMLInputElement>): void => {
         type keyinObject = keyof typeALLStudents
         const keys = event.currentTarget.name as keyinObject

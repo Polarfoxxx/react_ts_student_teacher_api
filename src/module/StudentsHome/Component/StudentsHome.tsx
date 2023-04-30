@@ -1,7 +1,6 @@
 import "../style/TeacherHome.style.css"
 import { Link } from "react-router-dom"
 
-
 function StudentsHome(): JSX.Element {
 
     return (

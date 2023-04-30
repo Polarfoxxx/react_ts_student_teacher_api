@@ -20,7 +20,7 @@ function ConfirmationResp({ verification, setVerification }: props): JSX.Element
 
 
     return (
-        <div style={verification.success ? {top: "0px"} : {top: "-200px"}} className="ConfirmationResp">
+        <div style={verification.success ? { top: "0px" } : { top: "-200px" }} className="ConfirmationResp">
             <div>
                 <h1>{verification.stats}</h1>
             </div>

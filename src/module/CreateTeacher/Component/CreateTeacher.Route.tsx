@@ -2,34 +2,32 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../style/CreateTeacher.style.css"
 import { ConfirmationResp } from "../../ConfirmationResp"
-import { typeNewTeacher,typeNewStudents } from "../types"
+import { typeNewTeacher, typeNewStudents } from "../types"
 import { typeVerification } from "../../ConfirmationResp/type"
 import servicesCreateTeacherObjectFromAPI from "../services/servicesCreateTeacherObjectFromAPI"
 import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
 import servicesErrorResponze from "../../services/errorResponze"
 
-
 function CreateTeacher(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = useState<typeVerification>({success: false,stats: ""}) /* overovanie */
+    const [verification, setVerification] = useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
     const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
     const [teacher, setTeacher] = useState<typeNewTeacher>({ name: '', subject: '' })
 
     /* odoslanie formullara do API */
     const handleCreateTeacher = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    const JWTToken = localStorage.getItem("authenticationKey") as string
+        const JWTToken = localStorage.getItem("authenticationKey") as string
 
         /* osetrenie prazdnoty cakanie na potvrdenie*/
         const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
 
         newTeacher.name && apiServicesCreateTeacher.apiCreateTeacher(JWTToken, newTeacher)
-            .then((data : number) => {
-              if(data !== 401) {
-                    setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
-                }else {localStorage.clear(); location("LoginPage")}
+            .then((data: number) => {
+                if (data !== 401) {
+                    setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) })
+                } else { localStorage.clear(); location("LoginPage") }
             })
             .catch(err => console.log(err))
-
 
         /* clear */
         setInputFields([{ name: '', class: '' }])
@@ -58,10 +56,10 @@ function CreateTeacher(): JSX.Element {
 
     return (
         <div className="CreateTeacher">
-            <ConfirmationResp 
-                    verification = {verification}
-                    setVerification = {setVerification}
-                    />
+            <ConfirmationResp
+                verification={verification}
+                setVerification={setVerification}
+            />
             <div className="createTeacherHeader">
                 <h1>Create new Teacher</h1>
             </div>

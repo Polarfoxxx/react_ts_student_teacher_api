@@ -18,7 +18,6 @@ function UpdateStudents(): JSX.Element {
     })
     const JWTToken = localStorage.getItem("authenticationKey") as string
 
-
     /* vytvorenie objectu */
     const handleInputChange = (event: React.FormEvent<HTMLInputElement>): void => {
         type keyinObject = keyof typeUpdateStudents
@@ -30,11 +29,11 @@ function UpdateStudents(): JSX.Element {
     /* odoslanie formulara  do APIs */
     const handleSendForm = () => {
         apiServicesUpdateStudents.apiUpdateStudents(JWTToken, updateStudents)
-        .then((data : number) => {
-            if(data !== 401) {
-                  setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
-              }else {localStorage.clear(); location("LoginPage")}
-          })
+            .then((data: number) => {
+                if (data !== 401) {
+                    setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) })
+                } else { localStorage.clear(); location("LoginPage") }
+            })
             .catch(err => console.log(err))
 
         /* clear */
@@ -60,7 +59,7 @@ function UpdateStudents(): JSX.Element {
                     <div className="searcheTeacherID">
                         <h1>Teacher ID</h1>
                         <input
-                        value={updateStudents.teacherId}
+                            value={updateStudents.teacherId}
                             name="teacherId"
                             onChange={handleInputChange}
                             type="text" />
@@ -68,7 +67,7 @@ function UpdateStudents(): JSX.Element {
                     <div className="searcheStudentsID">
                         <h1>Student ID</h1>
                         <input
-                        value={updateStudents.id}
+                            value={updateStudents.id}
                             name="id"
                             onChange={handleInputChange}
                             type="text" />
@@ -77,7 +76,7 @@ function UpdateStudents(): JSX.Element {
                         <div className="inpNameStudent">
                             <h1>Name student</h1>
                             <input
-                            value={updateStudents.name}
+                                value={updateStudents.name}
                                 name="name"
                                 onChange={handleInputChange}
                                 type="text" />
@@ -85,7 +84,7 @@ function UpdateStudents(): JSX.Element {
                         <div className="inpClassStudent">
                             <h1>Class</h1>
                             <input
-                            value={updateStudents.class}
+                                value={updateStudents.class}
                                 name="class"
                                 onChange={handleInputChange}
                                 type="text" />

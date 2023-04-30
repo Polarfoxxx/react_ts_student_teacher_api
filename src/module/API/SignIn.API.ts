@@ -1,5 +1,5 @@
 import axios from "axios"
-import { typeSignIn } from "../Sign_In/Component/SignIn";
+import { typeSignIn } from "../Sign_In/types"
 
 const apiServicesSignIn = {
     apiSignIn
@@ -7,7 +7,6 @@ const apiServicesSignIn = {
 export default apiServicesSignIn
 
 async function apiSignIn(signInData: typeSignIn): Promise<string | undefined> {
-    console.log(signInData);
     let JWTkey: string = ""
 
     const options = {

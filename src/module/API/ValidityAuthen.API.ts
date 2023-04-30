@@ -6,23 +6,22 @@ const apiServicesValidityAuthen = {
 export default apiServicesValidityAuthen
 
 async function apiValidityAuthen(JWTToken: string): Promise<number> {
-    let authStatus: number = 0 
-
-       const options = {
+    let authStatus: number = 0
+    const options = {
         method: 'GET',
         url: 'https://tadeasburda.sk/api/teachers',
         headers: {
-             "Authorization": `Bearer ${JWTToken}`,
-            'content-type': 'application/json'}
+            "Authorization": `Bearer ${JWTToken}`,
+            'content-type': 'application/json'
+        }
     };
     try {
         const response = await axios.request(options);
         authStatus = response.status;
-        console.log(authStatus);
     } catch (error) {
         console.error(error);
-    }  
-    return(
+    }
+    return (
         authStatus
     )
 }

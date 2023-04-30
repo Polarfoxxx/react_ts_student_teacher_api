@@ -6,13 +6,11 @@ import { Container } from './module/Container';
 import { LoginPage } from './module/Log';
 import { Context } from './module/Context';
 
-
 function App(): JSX.Element {
   const loginPG = useNavigate()
 
   useEffect(() => {
     localStorage.getItem("authenticationKey") === null ? loginPG("LoginPage") : loginPG("Context")
-console.log(localStorage.getItem("authenticationKey"));
 
   }, [])
 

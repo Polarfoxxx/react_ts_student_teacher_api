@@ -7,10 +7,7 @@ function LoginPage(): JSX.Element {
         const [effect, setEffect] = React.useState(false)
         const effRefs = React.useRef<HTMLDivElement>(null)
 
-
         const handleClickEffect = (event: React.MouseEvent<HTMLDivElement>): void => {
-                console.log(event.currentTarget.className);
-
                 const nameEvent = event.currentTarget.className
                 if (nameEvent === "signInComponent") {
                         setEffect(true)
@@ -18,7 +15,6 @@ function LoginPage(): JSX.Element {
                         setEffect(false)
                 }
         }
-
 
         return (
                 <div className="LoginPage">

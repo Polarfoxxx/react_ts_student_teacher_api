@@ -7,10 +7,8 @@ const apiServicesCreateTeacher = {
 }
 export default apiServicesCreateTeacher
 
-
 async function apiCreateTeacher(JWTToken: string, newTeacher: typeNewTeacher): Promise<number> {
-    let responseCreateteacherDATA : number = 0
-
+    let responseCreateteacherDATA: number = 0
     const options = {
         method: 'POST',
         url: 'https://tadeasburda.sk/api/teachers',
@@ -27,7 +25,7 @@ async function apiCreateTeacher(JWTToken: string, newTeacher: typeNewTeacher): P
     } catch (error) {
         console.error(error);
     }
-    return(
+    return (
         responseCreateteacherDATA
     )
 }

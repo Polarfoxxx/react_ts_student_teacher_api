@@ -9,7 +9,6 @@ import "../style/UpdateTeacher.style.css"
 import { useNavigate } from "react-router-dom"
 import servicesErrorResponze from "../../services/errorResponze"
 
-
 function UpdateTeacher(): JSX.Element {
     const location = useNavigate()
     const [verification, setVerification] = useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
@@ -23,11 +22,11 @@ function UpdateTeacher(): JSX.Element {
         const updateData = servicesUpdateTeacherObjectFromAPI.updateTeacherObjectFromAPI(teacher, inputFields)
 
         updateData.name && apiServicesUpdateTeacher.apiUpdateTeacher(JWTToken, updateData)
-        .then((data : number) => {
-            if(data !== 401) {
-                  setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
-              }else {localStorage.clear(); location("LoginPage")}
-          })
+            .then((data: number) => {
+                if (data !== 401) {
+                    setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) })
+                } else { localStorage.clear(); location("LoginPage") }
+            })
             .catch(err => console.log(err))
 
         /* clear */
@@ -56,7 +55,7 @@ function UpdateTeacher(): JSX.Element {
         type objectKEY = keyof typeUpdateTeacher
         const keys = event.currentTarget.name as objectKEY
         teacher[keys] = event.currentTarget.value
-        setTeacher({...teacher})
+        setTeacher({ ...teacher })
     }
 
     return (

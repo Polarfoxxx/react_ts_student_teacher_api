@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom"
 import { typeResponzeALLTechers } from "../../API/types"
 import { typeResponzeALLTechersObject } from "../../API/types"
 
-
 function TeacherALL(): JSX.Element {
     const location = useNavigate()
     const [AllReachersResponzeDATA, setAllReachersResponzeDATA] = React.useState<typeResponzeALLTechers>()

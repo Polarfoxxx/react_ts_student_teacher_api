@@ -7,14 +7,13 @@ const apiServicesUpdateStudents = {
 export default apiServicesUpdateStudents
 
 async function apiUpdateStudents(JWTToken: string, updateStudents: typeUpdateStudents): Promise<number> {
-    let updateStudentRespStatus : number = 0
-    
+    let updateStudentRespStatus: number = 0
     const options = {
         method: 'PUT',
         url: `https://tadeasburda.sk/api/teachers/${updateStudents.teacherId}/students/${updateStudents.id}`,
         headers: {
-                "Authorization": `Bearer ${JWTToken}`,
-                'content-type': 'application/json',
+            "Authorization": `Bearer ${JWTToken}`,
+            'content-type': 'application/json',
         },
         data: updateStudents
     };
@@ -25,8 +24,8 @@ async function apiUpdateStudents(JWTToken: string, updateStudents: typeUpdateStu
         updateStudentRespStatus = response.status
     } catch (error) {
         console.error(error);
-    } 
-    return(
+    }
+    return (
         updateStudentRespStatus
     )
 }

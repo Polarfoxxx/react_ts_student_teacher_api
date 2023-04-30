@@ -7,7 +7,6 @@ const apiServicesSignUp = {
 export default apiServicesSignUp
 
 async function apiSignUp(signUpData: typeSignUp): Promise<number> {
-console.log(signUpData);
 let responseSignUpData : number = 0
 
  const options = {

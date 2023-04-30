@@ -31,9 +31,9 @@ function SignUp(): JSX.Element {
     /* odoslanie registracneho formulara do API*/
     const handleSignUp = (event: React.MouseEvent<HTMLButtonElement>): void => {
         apiServicesSignUp.apiSignUp(signUp)
-        .then((data : number) => {
-                  setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
-          })
+            .then((data: number) => {
+                setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) })
+            })
             .catch(err => console.log(err))
 
         /* clear */

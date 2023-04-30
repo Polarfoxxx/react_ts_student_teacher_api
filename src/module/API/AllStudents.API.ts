@@ -6,15 +6,14 @@ const apiServicesAllStudents = {
 }
 export default apiServicesAllStudents
 
-async function apiAllStudents(JWTToken: string, allStudents: typeALLStudents)  {
-
-    
-      const options = {
+async function apiAllStudents(JWTToken: string, allStudents: typeALLStudents) {
+    const options = {
         method: 'GET',
         url: `https://tadeasburda.sk/api/teachers/${allStudents.teacherId}/students`,
         headers: {
-             "Authorization": `Bearer ${JWTToken}`,
-            'content-type': 'application/json'}
+            "Authorization": `Bearer ${JWTToken}`,
+            'content-type': 'application/json'
+        }
     };
 
     try {
@@ -22,5 +21,5 @@ async function apiAllStudents(JWTToken: string, allStudents: typeALLStudents)  {
         console.log(response);
     } catch (error) {
         console.error(error);
-    }  
+    }
 }
