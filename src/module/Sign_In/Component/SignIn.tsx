@@ -11,7 +11,6 @@ export type typeSignIn = {
 
 function SignIn(): JSX.Element {
     let navigate = useNavigate()
-
     const [signIn, setSignIn] = useState<typeSignIn>({
         userName: "",
         password: ""
@@ -30,17 +29,17 @@ function SignIn(): JSX.Element {
             .then((data: string | undefined) => {
                 if (data) {
                     localStorage.setItem("authenticationKey", data);
-                        navigate("/Context") /* poslanie na predchazdajucu localitu */
+                    navigate("/Context") /* poslanie na predchazdajucu localitu */
                 } else { localStorage.clear() }
             }
             )
             .catch(err => console.log(err))
 
         /* clear */
-        /*    setSignIn({
-              userName: "",
-              password: ""
-          }) */
+        setSignIn({
+            userName: "",
+            password: ""
+        })
     }
 
     return (
@@ -64,7 +63,7 @@ function SignIn(): JSX.Element {
                             value={signIn.password}
                             onChange={handleChangeSignIn}
                             name="password"
-                            type="text"
+                            type="password"
                             placeholder="Password" />
                     </div>
                 </form>

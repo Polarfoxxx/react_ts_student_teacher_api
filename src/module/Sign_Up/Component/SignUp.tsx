@@ -32,9 +32,7 @@ function SignUp(): JSX.Element {
     const handleSignUp = (event: React.MouseEvent<HTMLButtonElement>): void => {
         apiServicesSignUp.apiSignUp(signUp)
         .then((data : number) => {
-            if(data !== 401) {
                   setVerification({success: true, stats: servicesErrorResponze.errorResponze(data)})
-              }
           })
             .catch(err => console.log(err))
 
