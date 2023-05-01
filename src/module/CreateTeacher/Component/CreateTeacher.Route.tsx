@@ -6,7 +6,7 @@ import { typeNewTeacher, typeNewStudents } from "../types"
 import { typeVerification } from "../../ConfirmationResp/type"
 import servicesCreateTeacherObjectFromAPI from "../services/servicesCreateTeacherObjectFromAPI"
 import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
-import servicesErrorResponze from "../../services/errorResponze"
+import servicesErrorResponze from "../../services/errorResponze" // NOTE: nemas API modul? vsetko ostatne su moduly len API nie
 
 function CreateTeacher(): JSX.Element {
     const location = useNavigate()
@@ -16,7 +16,7 @@ function CreateTeacher(): JSX.Element {
 
     /* odoslanie formullara do API */
     const handleCreateTeacher = (event: React.MouseEvent<HTMLButtonElement>): void => {
-        const JWTToken = localStorage.getItem("authenticationKey") as string
+        const JWTToken = localStorage.getItem("authenticationKey") as string // BAD: preco as string ked to moze byt aj null?
 
         /* osetrenie prazdnoty cakanie na potvrdenie*/
         const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, inputFields)
@@ -25,9 +25,9 @@ function CreateTeacher(): JSX.Element {
             .then((data: number) => {
                 if (data !== 401) {
                     setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) })
-                } else { localStorage.clear(); location("LoginPage") }
+                } else { localStorage.clear(); location("LoginPage") } // BAD: formatovanie, preco to mas v jednom riadku ked inde to tak nemas?
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err)) 
 
         /* clear */
         setInputFields([{ name: '', class: '' }])
@@ -44,13 +44,13 @@ function CreateTeacher(): JSX.Element {
     }
     /* vytvaranie objectov studentov */
     const handleStidentsChange = (index: number, event: React.FormEvent<HTMLInputElement>): void => {
-        let data: any = [...inputFields];
+        let data: any = [...inputFields]; // BAD: preco any? len preto ze ti o riadok nizsie vyhodi error? tuto predsa vies typ
         data[index][event.currentTarget.name] = event.currentTarget.value;
         setInputFields(data)
     }
     /* vytvorenie objectu ucitela */
     const handleTeacherChange = (event: React.FormEvent<HTMLInputElement>): void => {
-        let valuesTeacherInputs = event.currentTarget.value as string
+        let valuesTeacherInputs = event.currentTarget.value as string // NOTe: preco tu aj as string ked uz vies ze to je string?
         event.currentTarget.name === "name" ? setTeacher(prew => ({ ...prew, name: valuesTeacherInputs })) : setTeacher(prew => ({ ...prew, subject: valuesTeacherInputs }))
     }
 
@@ -98,9 +98,9 @@ function CreateTeacher(): JSX.Element {
                                     <div className="mapsInputs">
                                         <h1>Student name</h1>
                                         <input
-                                            name='name'
+                                            name='name' // BAD: preco tu mas '' a inde ""?
                                             placeholder='Name'
-                                            onFocus={addFields}
+                                            onFocus={addFields} // BAD: preco nepouzivas konvenciu a nieje to handle? vsade inde mas handle
                                             onChange={event => handleStidentsChange(index, event)} />
                                     </div>
                                     <div className="mapsInputs">

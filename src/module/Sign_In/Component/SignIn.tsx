@@ -7,7 +7,7 @@ import { typeSignIn } from "../types"
 
 function SignIn(): JSX.Element {
     let navigate = useNavigate()
-    const [signIn, setSignIn] = useState<typeSignIn>({
+    const [signIn, setSignIn] = useState<typeSignIn>({ // BAD: pouzi ref, neukladaj do state formularove data, ak nepotrabujes kontrolovat vzdy zmenu
         userName: "",
         password: ""
     })
@@ -15,8 +15,8 @@ function SignIn(): JSX.Element {
     const handleChangeSignIn = (event: React.FormEvent<HTMLInputElement>): void => {
         type TYPEObjectKey = keyof typeSignIn
         let keyName = event.currentTarget.name as TYPEObjectKey
-        signIn[keyName] = event.currentTarget.value
-        setSignIn({ ...signIn })
+      signIn[keyName] = event.currentTarget.value // BAD: pouzi setSignIn, nemen state priamo!!!
+      setSignIn({ ...signIn, [keyName]: event.currentTarget.value })
 
     }
     /* odoslanie form. pre prihlasenie */
@@ -24,12 +24,12 @@ function SignIn(): JSX.Element {
         apiServicesSignIn.apiSignIn(signIn)
             .then((data: string | undefined) => {
                 if (data) {
-                    localStorage.setItem("authenticationKey", data);
-                    navigate("/Context") /* poslanie na predchazdajucu localitu */
-                } else { localStorage.clear() }
+                    localStorage.setItem("authenticationKey", data); // BAD: ukladas token nie kluc, pouzi lepsie nazvy
+                    navigate("/Context") /* poslanie na predchazdajucu localitu */ // BAD: pouzi navigate(-1) alebo implementurj returnUrl, takto to neni na predchadzajucu ale na Context
+                } else { localStorage.clear() } // BAD: preco clear localStorage ak sa nepodari prihlasit? zmaz len klucm nie celi storage
             }
             )
-            .catch(err => console.log(err))
+            .catch(err => console.log(err)) // BAD: nezobrazuj chyby v konzole, pouzi alert alebo nejaky modal + ked uz tak aspon pouzi console.error()
 
         /* clear */
         setSignIn({
@@ -43,7 +43,7 @@ function SignIn(): JSX.Element {
             <div className="formBox">
                 <form
                     className="SignInSubmit"
-                    action="submit">
+                    action="submit"> // BAD: nepouzivaj action="submit" na formulari, pouzi onSubmit={}
                     <div className="inputUserName">
                         <h4>Username</h4>
                         <input
@@ -65,7 +65,7 @@ function SignIn(): JSX.Element {
                 </form>
             </div>
             <div className="buttonBox">
-                <button onClick={handleLoginButton}>Login</button>
+                <button onClick={handleLoginButton}>Login</button> // BAD: nepouzivaj onClick na button, pouzi type="submit" na formulari
             </div>
         </div>
     )

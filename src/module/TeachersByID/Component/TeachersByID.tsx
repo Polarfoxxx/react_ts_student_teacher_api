@@ -18,7 +18,7 @@ function TeachersByID(): JSX.Element {
         const JWTToken = localStorage.getItem("authenticationKey") as string
         apiServicesTeacherById.apiTeacherById(JWTToken, teacherID)
             .then((data: typeResponzeALLTechersObject) => {
-                if (!data.id) {
+                if (!data.id) { // NOTE: ak nedostanes odpoved to neznaci ze je neautorizovani, moze to byt aj neexistujuci ucitel
                     localStorage.clear(); location("LoginPage")
                 } else { setResponzeDATA(data) }
             })
@@ -36,7 +36,7 @@ function TeachersByID(): JSX.Element {
                         onChange={handleChancheTeacherID}
                         type="search" />
                 </div>
-                <div className="/* btbSearche */">
+                <div className="/* btbSearche */"> // NOTE: co je toto?
                     <button onClick={handleSendTeacherID}>Search</button>
                 </div>
                 <div className="seatcheResults">

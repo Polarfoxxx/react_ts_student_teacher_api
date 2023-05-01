@@ -19,9 +19,9 @@ function Context(): JSX.Element {
     const loginPG = useNavigate();
 
     /* authentif.. kontrola pri kazdom pohybe*/
-    useEffect(() => {
-        const JWTToken = localStorage.getItem("authenticationKey") as string
-        localStorage.getItem("authenticationKey") === null && loginPG("/LoginPage")
+    useEffect(() => { // NOTE: validitu kotrolujes popredu alebo pri requeste nie takto
+        const JWTToken = localStorage.getItem("authenticationKey") as string // BAD: moze to byt aj null nie len string
+        localStorage.getItem("authenticationKey") === null && loginPG("/LoginPage") // BAD: tu si mal kontrolovat ten JWTToken
         apiServicesValidityAuthen.apiValidityAuthen(JWTToken)
             .then((data: number) => {
                 if (data !== 200) {
@@ -50,7 +50,7 @@ function Context(): JSX.Element {
                     </div>
                 </div>
                 <div className="routes-block">
-                    <Routes>
+                    <Routes> // NOTE: tie routy by sa dali napisat vsetky do App, nemusel by si tolko zanorovat
                         <Route path="/" element={<Home />} />
                         <Route path="Teacher/*" element={<Teacher />}>
                         </Route>

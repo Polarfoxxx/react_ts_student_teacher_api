@@ -25,7 +25,7 @@ function UpdateTeacher(): JSX.Element {
             .then((data: number) => {
                 if (data !== 401) {
                     setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) })
-                } else { localStorage.clear(); location("LoginPage") }
+                } else { localStorage.clear(); location("LoginPage") } // GOOD: toto je dobre
             })
             .catch(err => console.log(err))
 

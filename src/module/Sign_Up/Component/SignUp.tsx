@@ -1,3 +1,5 @@
+// GOOD> lepsie formatovanie
+
 
 import { useState } from "react"
 import "../../Sign_In/style/SignIn.style.css"
@@ -32,7 +34,7 @@ function SignUp(): JSX.Element {
     const handleSignUp = (event: React.MouseEvent<HTMLButtonElement>): void => {
         apiServicesSignUp.apiSignUp(signUp)
             .then((data: number) => {
-                setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) })
+                setVerification({ success: true, stats: servicesErrorResponze.errorResponze(data) }) // BAD: vracia to aj OK kody takze zle pomenovane + nastavujes to ako OK ajked je to error
             })
             .catch(err => console.log(err))
 
@@ -65,7 +67,7 @@ function SignUp(): JSX.Element {
                             type="text"
                             placeholder="First name" />
                     </div>
-                    <div className="inputPassword">
+                    <div className="inputPassword"> // BAD: zle className, nema to logiku
                         <h4>Last name</h4>
                         <input
                             value={signUp.lastName}
@@ -112,7 +114,7 @@ function SignUp(): JSX.Element {
                     </div>
                 </form>
             </div>
-            <div className="buttonBox">
+            <div className="buttonBox"> // BAD: zle className, nema to logiku
                 <button
                     onClick={handleSignUp}
                 >Create
