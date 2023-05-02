@@ -29,5 +29,5 @@ async function apiCreateStudents(JWTToken: string, newStudents: TypeCreateStuden
     }
     return (
         responseCreateStudentsrDATA
-    )
+    ) 
 }

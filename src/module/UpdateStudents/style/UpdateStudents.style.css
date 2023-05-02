@@ -1,4 +1,4 @@
-.CreateStudents{
+.updateStudents{
     width: 100%;
     height: 100%;
     min-height: 400px;
@@ -7,7 +7,7 @@
     justify-content: center;
     flex-direction: column;
 }
-.CreateStudents .CreateStudentsHeader{
+.updateStudents .updateStudentsHeader{
     width: 70%;
     height: 80px;
     display: flex;
@@ -16,7 +16,7 @@
     border-bottom: 1px solid white;
     color: var(--orangeColor);
 }
-.CreateStudents .CreateContent{
+.updateStudents .updateStudentContent{
     width: 60%;
     height: 400px;
     display: flex;
@@ -25,18 +25,18 @@
     justify-content: center;
     gap: 50px;
 }
-.CreateStudents .CreateContent .searcheStudentsID{
+.updateStudents .updateStudentContent .searcheStudentsID{
     border-left: 1px solid rgba(255, 255, 255, 0.363);
 }
 
-.CreateStudents .CreateContent > div{
+.updateStudents .updateStudentContent > div{
     width: 100%;
     height: 400px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.CreateStudents .CreateContent > div > input{
+.updateStudents .updateStudentContent > div > input{
     width: 80%;
     height: 40px;
     border-radius: 10px;
@@ -44,7 +44,7 @@
     text-align: center;
     font-size: 17px;
 }
-.CreateStudents .CreateContent > div > div > input{
+.updateStudents .updateStudentContent > div > div > input{
     width: 80%;
     height: 40px;
     border-radius: 10px;
@@ -52,33 +52,21 @@
     text-align: center;
     font-size: 17px;
 }
-.CreateStudents .CreateContent > div > div{
+.updateStudents .updateStudentContent > div > div{
     width: 100%;
     height: 100px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-
-
-.CreateStudents .CreateContent .imges{
-    width: 100%;
-    height: auto;
-    position: relative;
-    left: 200Px;
-    top: 100Px;
-}
-.CreateStudents .CreateContent .imges >img{
-    width: 220%;
-}
-.CreateStudents .buttonBlocj{
+.updateStudents .buttonBlock{
     width: 50%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.CreateStudents .buttonBlocj > button{
+.updateStudents .buttonBlock > button{
     width: 180px;
     height: 40px;
     position: relative;
@@ -89,6 +77,6 @@
     font-weight: bold;
     transition: 0.3s;
 }
-.CreateStudents .buttonBlocj > button:hover{
+.updateStudents .buttonBlock > button:hover{
     background-color: white;
 }

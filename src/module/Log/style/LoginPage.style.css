@@ -1,4 +1,4 @@
-.LoginPage{
+.loginPage{
     width: 100%;
     height: 100vh;
     display: flex;
@@ -10,7 +10,7 @@ background-repeat: no-repeat;
 background-position: right 50px ;
 background-size: 48%;
 }
-.LoginPage .logPageHeader{
+.loginPage .logPageHeader{
     width: 100%;
     height: 20%;
     display: flex;
@@ -19,7 +19,7 @@ background-size: 48%;
     color: white;
     position: relative;
 }
-.LoginPage .logPageHeader::before{
+.loginPage .logPageHeader::before{
     content: "";
     position: absolute;
     width: 50%;
@@ -29,28 +29,28 @@ background-size: 48%;
     left: 70px;
 }
 
-.LoginPage .logPageHeader > span{
+.loginPage .logPageHeader > span{
     margin-right: 15px;
 }
 
-.LoginPage .logPageHeader .firstPs{
+.loginPage .logPageHeader .firstPs{
     color: var(--orangeColor);
     font-weight: bold;
     font-size: 90px;
 }
-.LoginPage .logPageHeader .firstPsW{
+.loginPage .logPageHeader .firstPsW{
     color: var(--orangeColor);
     font-weight: bold;
     font-size: 90px;
 
 }
 
-.LoginPage .logPageHeader .lastePs{
+.loginPage .logPageHeader .lastePs{
     font-size: 60px;
 
 }
 
-.LoginPage .loginPageContext{
+.loginPage .loginPageContext{
     width: 90%;
     height: 80%;
     display: flex;
@@ -59,7 +59,7 @@ background-size: 48%;
     gap: 50px;
     padding-top: 60px;
 }
-.LoginPage .loginPageContext > div{
+.loginPage .loginPageContext > div{
     width: 500px;
     height: 600px;
     min-height: 100px;
@@ -72,7 +72,7 @@ background-size: 48%;
     border: 1px solid rgb(170, 170, 170);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
-.LoginPage .loginPageContext > div .signHeader{
+.loginPage .loginPageContext > div .signHeader{
     color: rgb(0, 0, 0);
     width: 100%;
     min-height: 100px;
@@ -86,11 +86,11 @@ background-size: 48%;
     z-index: 3;
     cursor: pointer;
 }
-.LoginPage .loginPageContext > div .signHeader.SignIN{
+.loginPage .loginPageContext > div .signHeader.SignIN{
     color: var(--orangeColor);
 }
 
-.LoginPage .loginPageContext > div .signFormBox{
+.loginPage .loginPageContext > div .signFormBox{
     width: 100%;
     height: 500px;
     display: flex;

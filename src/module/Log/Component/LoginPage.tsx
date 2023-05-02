@@ -8,17 +8,13 @@ function LoginPage(): JSX.Element {
   const elementSignIn = React.useRef<HTMLDivElement>(null)
   const elementSignUp = React.useRef<HTMLDivElement>(null)
   const [respoEffect, setRespoEffect] = React.useState(false)
-
-  const handleClickRespoStatusEffect = (event: React.MouseEvent<HTMLDivElement>): void => {
-  const signInElementname = elementSignIn.current?.className
-  console.log(signInElementname);
-  console.log( elementSignIn.current);
   
-  signInElementname === "signInComponent" ? setRespoEffect(true) : setRespoEffect(false)
+  const handleClickRespoStatusEffect = (event: React.MouseEvent<HTMLDivElement>): void => {
+elementSignIn.current === event.currentTarget ? setRespoEffect(true) : setRespoEffect(false)
   }
 
   return (
-    <div className="LoginPage"> // BAD: raz mas className vekim, potom malym pismenom... bud konzistetny
+    <div className="loginPage">
       <div className="logPageHeader">
         <span>
           <span className="firstPsW">W</span>
@@ -51,7 +47,6 @@ function LoginPage(): JSX.Element {
           style={respoEffect ? { height: "600px" } : { height: "0px" }}
           ref={elementSignIn}
           onClick={handleClickRespoStatusEffect}
-
           className="signInComponent">
           <div
             className="signHeader SignIN">

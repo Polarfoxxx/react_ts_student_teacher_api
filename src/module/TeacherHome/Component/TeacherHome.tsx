@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function TeacherHome(): JSX.Element {
 
     return (
-        <div className="TeacherHome">
+        <div className="teacherHome">
             <div className="techerContext">
                 <h1>Here is the database of teachers.. In this site you can add, edit or just display the list of teachers...</h1>
             </div>

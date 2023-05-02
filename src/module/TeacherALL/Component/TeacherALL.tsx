@@ -10,7 +10,7 @@ function TeacherALL(): JSX.Element {
     const location = useNavigate()
     const [AllReachersResponzeDATA, setAllReachersResponzeDATA] = React.useState<TypeResponzeALLTechers>() // BAD: pouzi lepsie nazvy + nedodrzavas naming convention
     React.useEffect(() => { // NOTE: preco tu pouzivas React. ked inde nie?
-        const JWTToken = localStorage.getItem("authenticationKey") as string
+        const JWTToken = localStorage.getItem("authenticationToken") as string
         apiServicesAllTeacher.apiAllTeacher(JWTToken)
             .then((data: TypeResponzeALLTechers) => {
                 if (!data) {

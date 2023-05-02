@@ -1,52 +1,47 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+/* import { useNavigate } from "react-router-dom" */
 import apiServicesAllStudents from "../../API/AllStudents.API"
 import { TypeALLStudents } from "../types"
 import "../style/StudentsALL.style.css"
 
 function StudentsALL(): JSX.Element {
-    const location = useNavigate()
-    const [ ALLStudents, setALLStudents] = React.useState<TypeALLStudents>({
-        teacherId : "",
-        studentId: ""
-    })
-
-    const handleChangeinputElement = (event: React.FormEvent<HTMLInputElement>): void => {
-        type keyinObject = keyof TypeALLStudents
-        const keys = event.currentTarget.name as keyinObject
-        ALLStudents[keys] = event.currentTarget.value
-        setALLStudents({ ...ALLStudents })
-    }
+    const InputsTeacherIdRefs = React.useRef<HTMLInputElement>(null)
+    const InputsStudentIdRefs = React.useRef<HTMLInputElement>(null)
+   /*  const location = useNavigate() */
 
     /* odoslanie formullara do API */
     const handleSendFormular = (event: React.MouseEvent<HTMLButtonElement>): void => {
-        const JWTToken = localStorage.getItem("authenticationKey") as string
+        const JWTToken = localStorage.getItem("authenticationToken")
 
-        apiServicesAllStudents.apiAllStudents(JWTToken, ALLStudents)
-            .then((data: any) => {
-                console.log(data)
-             /*    if (!data) {
-                    localStorage.clear(); location("LoginPage")} */
-            })
-            .catch(err => console.log(err))
+        const students: TypeALLStudents = {
+            teacherId: InputsTeacherIdRefs.current?.value ? InputsTeacherIdRefs.current?.value : "",
+            studentId: InputsStudentIdRefs.current?.value ? InputsStudentIdRefs.current?.value : "",
+        }
+        if (JWTToken !== null) {
+            apiServicesAllStudents.apiAllStudents(JWTToken, students)
+                .then((data: any) => {  /* Cors nefunguje */
+                    console.log(data)
+                    /*    if (!data) {
+                           localStorage.clear(); location("LoginPage")} */
+                })
+                .catch(err => console.error(err))
 
-
-        /* clear */
-        setALLStudents({ teacherId: "", studentId: ''})
+            /* clear input*/
+            InputsTeacherIdRefs.current!.value = ""
+            InputsStudentIdRefs.current!.value = ""
+        }
     }
 
     return (
-        <div className="CreateStudents">
-           
-            <div className="CreateStudentsHeader">
+        <div className="studentsByID">
+            <div className="studentsByIDHeader">
                 <h1>Students</h1>
             </div>
-            <div className="CreateContent">
+            <div className="studentsByIDContent">
                 <div className="searcheTeacherID">
                     <h1>Teacher ID</h1>
                     <input
-                        onChange={handleChangeinputElement}
-                        value={ALLStudents.teacherId}
+                        ref={InputsTeacherIdRefs}
                         name="teacherId"
                         type="text" />
                 </div>
@@ -54,19 +49,19 @@ function StudentsALL(): JSX.Element {
                     <div className="inpNameStudent">
                         <h1>Student ID</h1>
                         <input
-                            value={ALLStudents.studentId}
-                            onChange={handleChangeinputElement}
+                            ref={InputsStudentIdRefs}
                             name="studentId"
                             type="text" />
                     </div>
-                 
                 </div>
-                <div className="imgesoo">
-                    <img src="../../../../img/favpng_lesson-cartoon-student.png" alt="" />
+                <div className="studentsimg">
+                    <img src="/img/favpng_lesson-cartoon-student.png" alt="student" />
                 </div>
             </div>
-            <div className="buttonBlocj">
-                <button onClick={handleSendFormular}>Search..</button>
+            <div className="buttonBlok">
+                <button onClick={handleSendFormular}>
+                    Search..
+                </button>
             </div>
         </div>
     )

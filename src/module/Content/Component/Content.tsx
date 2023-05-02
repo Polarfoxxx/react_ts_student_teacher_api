@@ -24,15 +24,15 @@ function Content(): JSX.Element {
     })
 
     return (
-        <div className="Context">
-            <div className="contextBox">
-                <div className="ContextHeader">
+        <div className="content">
+            <div className="contentBox">
+                <div className="contentHeader">
                     <span className="first">W</span><h1>elcome to Teacher and Students Databaze</h1>
                     <span className="logoutBTN"><LogOutButton /></span>  {/* logOut buttton */}
                 </div>
                 <div className='toogle-link-container'>
                     <div className="link-block">
-                        <Link className="link home" to="/Context">Home</Link>
+                        <Link className="link home" to="/Content">Home</Link>
                     </div>
                     <div className="link-block">
                         <Link className="link " to="Teacher">Teacher</Link>

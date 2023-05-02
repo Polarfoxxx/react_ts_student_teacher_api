@@ -1,11 +1,11 @@
-.Context{
+.content{
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.Context .contextBox{
+.content .contentBox{
     width: 95%;
     height: 100%;
     display: flex;
@@ -14,7 +14,7 @@
     flex-direction: column;
     overflow: hidden;
 }
-.Context .contextBox .ContextHeader{
+.content .contentBox .contentHeader{
     width: 100%;
     height: 100px;
     display: flex;
@@ -22,14 +22,14 @@
     justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.452);
 }
-.Context .contextBox .ContextHeader > h1{
+.content .contentBox .contentHeader > h1{
     font-size: 36px;
 }
-.Context .contextBox .ContextHeader .first{
+.content .contentBox .contentHeader .first{
     font-size: 80px;
     color: var(--orangeColor);
 }
-.Context .contextBox .ContextHeader .logoutBTN{
+.content .contentBox .contentHeader .logoutBTN{
     width: 50px;
     height: 50px;
     position: absolute;
@@ -37,18 +37,18 @@
     top: 30px;
 }
 
-.Context .contextBox .toogle-link-container{
+.content .contentBox .toogle-link-container{
     width: 100%;
     height: 40px;
     display: flex;
     flex-direction: row;
     background-image: linear-gradient(to right, rgba(216, 216, 216, 0.425), transparent 50%);
 }
-.Context .contextBox .toogle-link-container .link-block{
+.content .contentBox .toogle-link-container .link-block{
     width: 200px;
     height: 100%;
 }
-.Context .contextBox .toogle-link-container .link-block .link{
+.content .contentBox .toogle-link-container .link-block .link{
     width: 100%;
     height: 100%;
     display: flex;
@@ -59,14 +59,14 @@
     color: rgb(0, 0, 0);
     transition: 0.4s;
 }
-.Context .contextBox .toogle-link-container .link-block .link:hover{
+.content .contentBox .toogle-link-container .link-block .link:hover{
     color: white;
 }
 
-.Context .contextBox .toogle-link-container .link-block .home{
+.content .contentBox .toogle-link-container .link-block .home{
     color: var(--orangeColor);
 }
-.Context .contextBox .routes-block{
+.content .contentBox .routes-block{
     width: 100%;
     height: auto;
 }
