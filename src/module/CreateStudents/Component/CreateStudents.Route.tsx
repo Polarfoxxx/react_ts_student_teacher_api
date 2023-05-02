@@ -1,23 +1,23 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import "../style/CreateStudents.style.css"
-import { typeCreateStudents } from "../types"
+import { TypeCreateStudents } from "../types"
 import { ConfirmationResp } from "../../ConfirmationResp"
-import { typeVerification } from "../../ConfirmationResp/type"
+import { TypeVerification } from "../../ConfirmationResp/type"
 import apiServicesCreateStudents from "../../API/CreateStudents.API"
 import servicesErrorResponze from "../../services/errorResponze"
 
 function CreateStudents(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
-    const [createStudents, setCreateStudents] = React.useState<typeCreateStudents>({
+    const [verification, setVerification] = React.useState<TypeVerification>({ success: false, stats: "" }) /* overovanie */
+    const [createStudents, setCreateStudents] = React.useState<TypeCreateStudents>({
         teacherId: "",
         name: "",
         class: "",
     })
 
     const handleChangeinputElement = (event: React.FormEvent<HTMLInputElement>): void => {
-        type keyinObject = keyof typeCreateStudents
+        type keyinObject = keyof TypeCreateStudents
         const keys = event.currentTarget.name as keyinObject
         createStudents[keys] = event.currentTarget.value
         setCreateStudents({ ...createStudents })

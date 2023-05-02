@@ -1,8 +1,8 @@
 import { useState } from "react"
 import servicesUpdateTeacherObjectFromAPI from "../services/servicesUpdateTeacherObjectFromAPI"
-import { typeUpdateTeacher } from "../types"
-import { typeNewStudents } from "../../CreateTeacher/types"
-import { typeVerification } from "../../ConfirmationResp/type"
+import { TypeUpdateTeacher } from "../types"
+import { TypeNewStudents } from "../../CreateTeacher/types"
+import { TypeVerification } from "../../ConfirmationResp/type"
 import apiServicesUpdateTeacher from "../../API/UpdateTeacher.API"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import "../style/UpdateTeacher.style.css"
@@ -11,9 +11,9 @@ import servicesErrorResponze from "../../services/errorResponze"
 
 function UpdateTeacher(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
-    const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
-    const [teacher, setTeacher] = useState<typeUpdateTeacher>({ id: "", name: '', subject: '' })
+    const [verification, setVerification] = useState<TypeVerification>({ success: false, stats: "" }) /* overovanie */
+    const [inputFields, setInputFields] = useState<TypeNewStudents>([{ name: '', class: '' }])
+    const [teacher, setTeacher] = useState<TypeUpdateTeacher>({ id: "", name: '', subject: '' })
 
     /* hlavny button na vytvorenie objektu do APIs */
     const handleUpdateTeacher = () => {
@@ -52,7 +52,7 @@ function UpdateTeacher(): JSX.Element {
 
     /* vytvorenie objectu ucitela */
     const handleTeacherChange = (event: React.FormEvent<HTMLInputElement>): void => {
-        type objectKEY = keyof typeUpdateTeacher
+        type objectKEY = keyof TypeUpdateTeacher
         const keys = event.currentTarget.name as objectKEY
         teacher[keys] = event.currentTarget.value
         setTeacher({ ...teacher })

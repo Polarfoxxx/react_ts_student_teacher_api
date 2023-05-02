@@ -1,12 +1,12 @@
 import axios from "axios"
-import { typeSignIn } from "../Sign_In/types"
+import { TypeSignIn } from "../Sign_In/types"
 
 const apiServicesSignIn = {
     apiSignIn
 }
 export default apiServicesSignIn
 
-async function apiSignIn(signInData: typeSignIn): Promise<string | undefined> {
+async function apiSignIn(signInData: TypeSignIn): Promise<string | undefined> {
     let JWTkey: string = ""
 
     const options = {

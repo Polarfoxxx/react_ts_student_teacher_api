@@ -1,4 +1,4 @@
-export type typeSignUp = {
+export type TypeSignUp = {
     firstName: string,
     lastName: string,
     userName: string,

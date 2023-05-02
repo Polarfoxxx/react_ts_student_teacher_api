@@ -1,5 +1,5 @@
 import axios from "axios"
-import { typeNewTeacher } from "../CreateTeacher/types"
+import { TypeNewTeacher } from "../CreateTeacher/types"
 
 
 const apiServicesCreateTeacher = {
@@ -7,7 +7,7 @@ const apiServicesCreateTeacher = {
 }
 export default apiServicesCreateTeacher
 
-async function apiCreateTeacher(JWTToken: string, newTeacher: typeNewTeacher): Promise<number> {
+async function apiCreateTeacher(JWTToken: string, newTeacher: TypeNewTeacher): Promise<number> {
     let responseCreateteacherDATA: number = 0
     const options = {
         method: 'POST',

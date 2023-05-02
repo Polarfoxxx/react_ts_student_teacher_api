@@ -1,17 +1,17 @@
 
 
-export type typeNewStudents = {
+export type TypeNewStudents = {
     name: string,
     class: string
 }[]
 
-export type typeNewTeacher = {
+export type TypeNewTeacher = {
     name: string,
     subject: string
 }
 
-export type typeCreateTeacherfromAPIs = {
+export type TypeCreateTeacherfromAPIs = {
     name: string,
     subject: string,
-    students: typeNewStudents
+    students: TypeNewStudents
 }

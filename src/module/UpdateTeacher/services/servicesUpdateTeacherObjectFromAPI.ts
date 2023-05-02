@@ -1,7 +1,7 @@
 
-import { typeNewStudents } from "../../CreateTeacher/types"
-import { typeUpdateTeacher } from "../types"
-import { typeUpdateTeacherFromAPI } from "../types"
+import { TypeNewStudents } from "../../CreateTeacher/types"
+import { TypeUpdateTeacher } from "../types"
+import { TypeUpdateTeacherFromAPI } from "../types"
 
 const servicesUpdateTeacherObjectFromAPI = {
     updateTeacherObjectFromAPI
@@ -16,11 +16,11 @@ const defUpdateTeacher = {
     students: []
 }
 
-function updateTeacherObjectFromAPI(teacher: typeUpdateTeacher, studets: typeNewStudents): typeUpdateTeacherFromAPI {
-    let teacherUpdateForAPIS: typeUpdateTeacherFromAPI = defUpdateTeacher
+function updateTeacherObjectFromAPI(teacher: TypeUpdateTeacher, studets: TypeNewStudents): TypeUpdateTeacherFromAPI {
+    let teacherUpdateForAPIS: TypeUpdateTeacherFromAPI = defUpdateTeacher
 
     const allStObject = [...studets]
-    const newStArry: typeNewStudents = allStObject.filter(item => item.name)
+    const newStArry: TypeNewStudents = allStObject.filter(item => item.name)
 
     teacherUpdateForAPIS = {
         id: teacher.id,

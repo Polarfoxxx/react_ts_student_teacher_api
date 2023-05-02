@@ -1,5 +1,3 @@
-// BAD: formatovanie
-
 
 import { SignIn } from "../../Sign_In"
 import { SignUp } from "../../Sign_Up"
@@ -7,19 +5,16 @@ import "../style/LoginPage.style.css"
 import React from "react"
 
 function LoginPage(): JSX.Element {
-  const [effect, setEffect] = React.useState(false)
-  const effRefs = React.useRef<HTMLDivElement>(null)
+  const elementSignIn = React.useRef<HTMLDivElement>(null)
+  const elementSignUp = React.useRef<HTMLDivElement>(null)
+  const [respoEffect, setRespoEffect] = React.useState(false)
 
-  // BAD: efekt coho? pouzi lepsie nazvy
-  const handleClickEffect = (event: React.MouseEvent<HTMLDivElement>): void => {
-    const nameEvent = event.currentTarget.className
-
-    // BAD: puzi parameter pri kliknuti na element, nie className
-    if (nameEvent === "signInComponent") {
-      setEffect(true)
-    } else if (nameEvent === "signUpComponent") {
-      setEffect(false)
-    }
+  const handleClickRespoStatusEffect = (event: React.MouseEvent<HTMLDivElement>): void => {
+  const signInElementname = elementSignIn.current?.className
+  console.log(signInElementname);
+  console.log( elementSignIn.current);
+  
+  signInElementname === "signInComponent" ? setRespoEffect(true) : setRespoEffect(false)
   }
 
   return (
@@ -42,7 +37,6 @@ function LoginPage(): JSX.Element {
           <span className="lastePs">nd</span>
         </span>
         <span>
-
           <span className="firstPs">s</span>
           <span className="lastePs">tudents</span>
         </span>
@@ -54,9 +48,9 @@ function LoginPage(): JSX.Element {
       </div>
       <div className="loginPageContext">
         <div
-          style={effect ? { height: "600px" } : { height: "0px" }}
-          ref={effRefs}
-          onClick={handleClickEffect}
+          style={respoEffect ? { height: "600px" } : { height: "0px" }}
+          ref={elementSignIn}
+          onClick={handleClickRespoStatusEffect}
 
           className="signInComponent">
           <div
@@ -68,9 +62,9 @@ function LoginPage(): JSX.Element {
           </div>
         </div>
         <div
-          style={!effect ? { height: "600px" } : { height: "0px" }}
-          ref={effRefs}
-          onClick={handleClickEffect}
+          style={!respoEffect ? { height: "600px" } : { height: "0px" }}
+          ref={elementSignUp}
+          onClick={handleClickRespoStatusEffect}
           className="signUpComponent">
           <div
             className="signHeader">

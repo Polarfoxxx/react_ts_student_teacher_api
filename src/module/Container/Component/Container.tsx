@@ -1,9 +1,9 @@
 
 import { useState, createContext } from "react"
-import { typeContext, Props } from "../types"
+import { TypeContext, Props } from "../types"
 
 
-const Context = createContext<typeContext>({
+const Context = createContext<TypeContext>({
     logOut: false,
     setLogOut: () => { }
 })

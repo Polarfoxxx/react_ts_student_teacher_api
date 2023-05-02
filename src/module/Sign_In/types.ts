@@ -1,4 +1,4 @@
-export type typeSignIn = { // BAD PRACTICE: type name should be PascalCase
+export type TypeSignIn = { 
     userName: string,
     password: string
 }

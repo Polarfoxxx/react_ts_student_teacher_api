@@ -2,15 +2,15 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import "../style/UpdateStudents.style.css"
 import { ConfirmationResp } from "../../ConfirmationResp"
-import { typeUpdateStudents } from "../type"
+import { TypeUpdateStudents } from "../type"
 import apiServicesUpdateStudents from "../../API/UpdateStudents"
-import { typeVerification } from "../../ConfirmationResp/type"
+import { TypeVerification } from "../../ConfirmationResp/type"
 import servicesErrorResponze from "../../services/errorResponze"
 
 function UpdateStudents(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = React.useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
-    const [updateStudents, setupdateStudents] = React.useState<typeUpdateStudents>({
+    const [verification, setVerification] = React.useState<TypeVerification>({ success: false, stats: "" }) /* overovanie */
+    const [updateStudents, setupdateStudents] = React.useState<TypeUpdateStudents>({
         teacherId: "",
         id: "",
         name: "",
@@ -20,7 +20,7 @@ function UpdateStudents(): JSX.Element {
 
     /* vytvorenie objectu */
     const handleInputChange = (event: React.FormEvent<HTMLInputElement>): void => {
-        type keyinObject = keyof typeUpdateStudents
+        type keyinObject = keyof TypeUpdateStudents
         let keys = event.currentTarget.name as keyinObject
         updateStudents[keys] = event.currentTarget.value
         setupdateStudents({ ...updateStudents })

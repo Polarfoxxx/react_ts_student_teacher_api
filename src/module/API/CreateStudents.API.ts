@@ -1,13 +1,13 @@
 
 import axios from "axios"
-import { typeCreateStudents } from "../CreateStudents/types";
+import { TypeCreateStudents } from "../CreateStudents/types";
 
 const apiServicesCreateStudents = {
     apiCreateStudents
 }
 export default apiServicesCreateStudents
 
-async function apiCreateStudents(JWTToken: string, newStudents: typeCreateStudents): Promise<number> {
+async function apiCreateStudents(JWTToken: string, newStudents: TypeCreateStudents): Promise<number> {
     let responseCreateStudentsrDATA: number = 0
     const options = {
         method: 'POST',

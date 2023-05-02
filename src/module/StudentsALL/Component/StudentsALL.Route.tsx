@@ -1,18 +1,18 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import apiServicesAllStudents from "../../API/AllStudents.API"
-import { typeALLStudents } from "../types"
+import { TypeALLStudents } from "../types"
 import "../style/StudentsALL.style.css"
 
 function StudentsALL(): JSX.Element {
     const location = useNavigate()
-    const [ ALLStudents, setALLStudents] = React.useState<typeALLStudents>({
+    const [ ALLStudents, setALLStudents] = React.useState<TypeALLStudents>({
         teacherId : "",
         studentId: ""
     })
 
     const handleChangeinputElement = (event: React.FormEvent<HTMLInputElement>): void => {
-        type keyinObject = keyof typeALLStudents
+        type keyinObject = keyof TypeALLStudents
         const keys = event.currentTarget.name as keyinObject
         ALLStudents[keys] = event.currentTarget.value
         setALLStudents({ ...ALLStudents })

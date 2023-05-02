@@ -3,16 +3,16 @@ import "../style/TeacherALL.style.css"
 import "../style/RespoTable.style.css"
 import apiServicesAllTeacher from "../../API/AllTeacher.API"
 import { useNavigate } from "react-router-dom"
-import { typeResponzeALLTechers } from "../../API/types"
-import { typeResponzeALLTechersObject } from "../../API/types"
+import { TypeResponzeALLTechers } from "../../API/types"
+import { TypeResponzeALLTechersObject } from "../../API/types"
 
 function TeacherALL(): JSX.Element {
     const location = useNavigate()
-    const [AllReachersResponzeDATA, setAllReachersResponzeDATA] = React.useState<typeResponzeALLTechers>() // BAD: pouzi lepsie nazvy + nedodrzavas naming convention
+    const [AllReachersResponzeDATA, setAllReachersResponzeDATA] = React.useState<TypeResponzeALLTechers>() // BAD: pouzi lepsie nazvy + nedodrzavas naming convention
     React.useEffect(() => { // NOTE: preco tu pouzivas React. ked inde nie?
         const JWTToken = localStorage.getItem("authenticationKey") as string
         apiServicesAllTeacher.apiAllTeacher(JWTToken)
-            .then((data: typeResponzeALLTechers) => {
+            .then((data: TypeResponzeALLTechers) => {
                 if (!data) {
                     /* localStorage.clear(); location("LoginPage") */ // NOTE:??? toto je co? ak nedostanem data alebo mi token prepadne tak co ma odhlasi?
                 } else { setAllReachersResponzeDATA(data) }
@@ -27,7 +27,7 @@ function TeacherALL(): JSX.Element {
             </div>
             <div className="teacherALLContent">
                 {
-                    AllReachersResponzeDATA?.map((item: typeResponzeALLTechersObject, key: number) => (
+                    AllReachersResponzeDATA?.map((item: TypeResponzeALLTechersObject, key: number) => (
                         <div 
                         key={key}
                         className="respoDATA">

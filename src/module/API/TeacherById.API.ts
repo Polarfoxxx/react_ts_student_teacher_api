@@ -1,13 +1,13 @@
 import axios from "axios"
-import { typeResponzeALLTechersObject } from "./types"
+import { TypeResponzeALLTechersObject } from "./types"
 
 const apiServicesTeacherById = {
     apiTeacherById
 }
 export default apiServicesTeacherById
 
-async function apiTeacherById(JWTToken: string, teacherID: string): Promise<typeResponzeALLTechersObject> {
-    let responzeTecherByIdDATA: typeResponzeALLTechersObject = { id: "", name: "", subject: "" }
+async function apiTeacherById(JWTToken: string, teacherID: string): Promise<TypeResponzeALLTechersObject> {
+    let responzeTecherByIdDATA: TypeResponzeALLTechersObject = { id: "", name: "", subject: "" }
     const options = {
         method: 'GET',
         url: `https://tadeasburda.sk/api/teachers/${teacherID}`,

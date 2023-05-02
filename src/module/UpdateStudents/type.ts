@@ -1,5 +1,5 @@
 
-export type typeUpdateStudents = {
+export type TypeUpdateStudents = {
     teacherId : string,
     id : string,
     name: string,

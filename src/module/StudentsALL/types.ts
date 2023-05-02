@@ -1,5 +1,5 @@
 
-export type typeALLStudents = {
+export type TypeALLStudents = {
     teacherId: string,
     studentId: string
 }

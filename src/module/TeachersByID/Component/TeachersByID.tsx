@@ -1,11 +1,11 @@
 import React from "react"
 import apiServicesTeacherById from "../../API/TeacherById.API"
 import { useNavigate } from "react-router-dom"
-import { typeResponzeALLTechersObject } from "../../API/types"
+import { TypeResponzeALLTechersObject } from "../../API/types"
 
 function TeachersByID(): JSX.Element {
     const location = useNavigate()
-    const [responzeDATA, setResponzeDATA] = React.useState<typeResponzeALLTechersObject>({ id: "", name: "", subject: "" })
+    const [responzeDATA, setResponzeDATA] = React.useState<TypeResponzeALLTechersObject>({ id: "", name: "", subject: "" })
     const [teacherID, setTeacherID] = React.useState("")
 
     /* values z inputu */
@@ -17,7 +17,7 @@ function TeachersByID(): JSX.Element {
     const handleSendTeacherID = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const JWTToken = localStorage.getItem("authenticationKey") as string
         apiServicesTeacherById.apiTeacherById(JWTToken, teacherID)
-            .then((data: typeResponzeALLTechersObject) => {
+            .then((data: TypeResponzeALLTechersObject) => {
                 if (!data.id) { // NOTE: ak nedostanes odpoved to neznaci ze je neautorizovani, moze to byt aj neexistujuci ucitel
                     localStorage.clear(); location("LoginPage")
                 } else { setResponzeDATA(data) }

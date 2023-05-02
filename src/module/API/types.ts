@@ -1,12 +1,12 @@
 
 
 
-export type typeResponzeALLTechersObject = {
+export type TypeResponzeALLTechersObject = {
     id: string,
     name: string,
     subject: string
 }
 
-export type typeResponzeALLTechers = [
-    typeResponzeALLTechersObject
+export type TypeResponzeALLTechers = [
+    TypeResponzeALLTechersObject
 ]

@@ -1,12 +1,12 @@
 import axios from "axios"
-import { typeALLStudents } from "../StudentsALL/types"
+import { TypeALLStudents } from "../StudentsALL/types"
 
 const apiServicesAllStudents = {
     apiAllStudents
 }
 export default apiServicesAllStudents
 
-async function apiAllStudents(JWTToken: string, allStudents: typeALLStudents) {
+async function apiAllStudents(JWTToken: string, allStudents: TypeALLStudents) {
     const options = {
         method: 'GET',
         url: `https://tadeasburda.sk/api/teachers/${allStudents.teacherId}/students`,

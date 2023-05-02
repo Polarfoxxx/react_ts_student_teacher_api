@@ -1,12 +1,12 @@
 import axios from "axios"
-import { typeSignUp } from "../Sign_Up/types";
+import { TypeSignUp } from "../Sign_Up/types";
 
 const apiServicesSignUp = {
     apiSignUp
 }
 export default apiServicesSignUp
 
-async function apiSignUp(signUpData: typeSignUp): Promise<number> {
+async function apiSignUp(signUpData: TypeSignUp): Promise<number> {
 let responseSignUpData : number = 0
 
  const options = {

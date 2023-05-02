@@ -3,7 +3,7 @@ import "./App.css";
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Container } from './module/Container';
 import { LoginPage } from './module/Log';
-import { Content } from "./module/Context";
+import { Content } from "./module/Content";
 
 function App(): JSX.Element {
   const loginPG = useNavigate()

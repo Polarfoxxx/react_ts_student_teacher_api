@@ -1,14 +1,14 @@
 
-import { typeNewStudents } from "../CreateTeacher/types"
+import { TypeNewStudents } from "../CreateTeacher/types"
 
-export type typeUpdateTeacher = {
+export type TypeUpdateTeacher = {
     id: string,
     name: string,
     subject: string
 }
-export type typeUpdateTeacherFromAPI = {
+export type TypeUpdateTeacherFromAPI = {
     id: string,
     name: string,
     subject: string,
-    students: typeNewStudents
+    students: TypeNewStudents
 }

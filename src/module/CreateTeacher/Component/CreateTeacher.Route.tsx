@@ -2,17 +2,17 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../style/CreateTeacher.style.css"
 import { ConfirmationResp } from "../../ConfirmationResp"
-import { typeNewTeacher, typeNewStudents } from "../types"
-import { typeVerification } from "../../ConfirmationResp/type"
+import { TypeNewTeacher, TypeNewStudents } from "../types"
+import { TypeVerification } from "../../ConfirmationResp/type"
 import servicesCreateTeacherObjectFromAPI from "../services/servicesCreateTeacherObjectFromAPI"
 import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
 import servicesErrorResponze from "../../services/errorResponze" // NOTE: nemas API modul? vsetko ostatne su moduly len API nie
 
 function CreateTeacher(): JSX.Element {
     const location = useNavigate()
-    const [verification, setVerification] = useState<typeVerification>({ success: false, stats: "" }) /* overovanie */
-    const [inputFields, setInputFields] = useState<typeNewStudents>([{ name: '', class: '' }])
-    const [teacher, setTeacher] = useState<typeNewTeacher>({ name: '', subject: '' })
+    const [verification, setVerification] = useState<TypeVerification>({ success: false, stats: "" }) /* overovanie */
+    const [inputFields, setInputFields] = useState<TypeNewStudents>([{ name: '', class: '' }])
+    const [teacher, setTeacher] = useState<TypeNewTeacher>({ name: '', subject: '' })
 
     /* odoslanie formullara do API */
     const handleCreateTeacher = (event: React.MouseEvent<HTMLButtonElement>): void => {

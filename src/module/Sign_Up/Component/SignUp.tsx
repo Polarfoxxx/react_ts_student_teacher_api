@@ -6,15 +6,15 @@ import "../../Sign_In/style/SignIn.style.css"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import servicesErrorResponze from "../../services/errorResponze"
 import apiServicesSignUp from "../../API/SignUp.API"
-import { typeVerification } from "../../ConfirmationResp/type"
-import { typeSignUp } from "../types"
+import { TypeVerification } from "../../ConfirmationResp/type"
+import { TypeSignUp } from "../types"
 
 function SignUp(): JSX.Element {
-    const [verification, setVerification] = useState<typeVerification>({
+    const [verification, setVerification] = useState<TypeVerification>({
         success: false,
         stats: ""
     })
-    const [signUp, setSignUp] = useState<typeSignUp>({
+    const [signUp, setSignUp] = useState<TypeSignUp>({
         firstName: "",
         lastName: "",
         userName: "",
@@ -25,7 +25,7 @@ function SignUp(): JSX.Element {
 
     /* vyplnenie formulara objektu pre registraciu*/
     const handleChangeInpSignUp = (event: React.FormEvent<HTMLInputElement>): void => {
-        type TYPEObjectKey = keyof typeSignUp;
+        type TYPEObjectKey = keyof TypeSignUp;
         let nameKey = event.currentTarget.name as TYPEObjectKey
         signUp[nameKey] = event.currentTarget.value
         setSignUp({ ...signUp })

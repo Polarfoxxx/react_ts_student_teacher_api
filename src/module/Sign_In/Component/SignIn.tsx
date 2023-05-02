@@ -3,17 +3,17 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../style/SignIn.style.css"
 import apiServicesSignIn from "../../API/SignIn.API"
-import { typeSignIn } from "../types"
+import { TypeSignIn } from "../types"
 
 function SignIn(): JSX.Element {
     let navigate = useNavigate()
-    const [signIn, setSignIn] = useState<typeSignIn>({ // BAD: pouzi ref, neukladaj do state formularove data, ak nepotrabujes kontrolovat vzdy zmenu
+    const [signIn, setSignIn] = useState<TypeSignIn>({ // BAD: pouzi ref, neukladaj do state formularove data, ak nepotrabujes kontrolovat vzdy zmenu
         userName: "",
         password: ""
     })
     /* vyplnenie formulara pre prihlasenie */
     const handleChangeSignIn = (event: React.FormEvent<HTMLInputElement>): void => {
-        type TYPEObjectKey = keyof typeSignIn
+        type TYPEObjectKey = keyof TypeSignIn
         let keyName = event.currentTarget.name as TYPEObjectKey
       signIn[keyName] = event.currentTarget.value // BAD: pouzi setSignIn, nemen state priamo!!!
       setSignIn({ ...signIn, [keyName]: event.currentTarget.value })

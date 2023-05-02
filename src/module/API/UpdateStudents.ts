@@ -1,12 +1,12 @@
 import axios from "axios"
-import { typeUpdateStudents } from "../UpdateStudents/type";
+import { TypeUpdateStudents } from "../UpdateStudents/type";
 
 const apiServicesUpdateStudents = {
     apiUpdateStudents
 }
 export default apiServicesUpdateStudents
 
-async function apiUpdateStudents(JWTToken: string, updateStudents: typeUpdateStudents): Promise<number> {
+async function apiUpdateStudents(JWTToken: string, updateStudents: TypeUpdateStudents): Promise<number> {
     let updateStudentRespStatus: number = 0
     const options = {
         method: 'PUT',
