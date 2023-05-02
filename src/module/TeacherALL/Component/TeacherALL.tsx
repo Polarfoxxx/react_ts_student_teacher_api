@@ -8,13 +8,13 @@ import { typeResponzeALLTechersObject } from "../../API/types"
 
 function TeacherALL(): JSX.Element {
     const location = useNavigate()
-    const [AllReachersResponzeDATA, setAllReachersResponzeDATA] = React.useState<typeResponzeALLTechers>()
-    React.useEffect(() => {
+    const [AllReachersResponzeDATA, setAllReachersResponzeDATA] = React.useState<typeResponzeALLTechers>() // BAD: pouzi lepsie nazvy + nedodrzavas naming convention
+    React.useEffect(() => { // NOTE: preco tu pouzivas React. ked inde nie?
         const JWTToken = localStorage.getItem("authenticationKey") as string
         apiServicesAllTeacher.apiAllTeacher(JWTToken)
             .then((data: typeResponzeALLTechers) => {
                 if (!data) {
-                    /* localStorage.clear(); location("LoginPage") */
+                    /* localStorage.clear(); location("LoginPage") */ // NOTE:??? toto je co? ak nedostanem data alebo mi token prepadne tak co ma odhlasi?
                 } else { setAllReachersResponzeDATA(data) }
             })
             .catch(err => console.log(err))

@@ -9,6 +9,7 @@ import { Context } from './module/Context';
 function App(): JSX.Element {
   const loginPG = useNavigate()
 
+  // BAD: pouzi https://react.dev/reference/react/useLayoutEffect ak ti ide len o prvotne vykreslenie
   useEffect(() => {
     localStorage.getItem("authenticationKey") === null ? loginPG("LoginPage") : loginPG("Context")
 

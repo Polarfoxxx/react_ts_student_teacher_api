@@ -1,3 +1,5 @@
+// BAD: formatovanie
+
 import { Link } from "react-router-dom"
 import "../style/Teacher.style.css"
 import { CreateTeacher } from "../../CreateTeacher";

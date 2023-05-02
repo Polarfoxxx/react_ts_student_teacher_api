@@ -4,13 +4,14 @@ import { Dispatch, SetStateAction, useEffect } from "react"
 import { typeVerification } from "../type"
 
 
-type props = {
+type props = { // BAD: pouzi PascalCase pre nazvy typov
     verification: typeVerification,
     setVerification: Dispatch<SetStateAction<typeVerification>>
 }
 
 function ConfirmationResp({ verification, setVerification }: props): JSX.Element {
 
+    // NOTE: toto by sa dalo napisat asi efektivnejsie
     useEffect(() => {
         const timer = setTimeout(() => {
             setVerification({ success: false, stats: "" })
