@@ -1,7 +1,7 @@
 
 import "../style/Home.style.css"
 
-function Home(): JSX.Element { // NOTE: pouzivaj konvenciu ze pages maju na konci Page
+function HomePage(): JSX.Element {
       return (
             <div className="Home">
                   <div className="homeTxt">
@@ -9,10 +9,10 @@ function Home(): JSX.Element { // NOTE: pouzivaj konvenciu ze pages maju na konc
                         <p>We ask all users to comply with the rules according to the applicable laws on privacy protection.. The administrator of the site is not responsible for the leakage of information..!</p>
                   </div>
                   <div className="homeImg">
-                        <img src="../../../../img/teacher.png" alt="" /> // BAD: cesta je /img/teacher.png pretoze to mas v public folderi + naco tam ams alt ked neni viplneni?
+                        <img src="/img/teacher.png" alt="teacher" /> 
                   </div>
             </div>
       )
 }
 
-export default Home
+export default HomePage

@@ -5,8 +5,6 @@ const apiServicesValidityAuthen = {
 }
 export default apiServicesValidityAuthen
 
-// BAD: cele zle...mas rozblit token a pozriet jeho expiraciu, nie volat na api a skusit ci mas odpoved 200
-// lebo ak ti treaz pride 200 tak to este neznamena ze je token validny, moze byt expired pri dalsom volani a takto to nezistis
 async function apiValidityAuthen(JWTToken: string): Promise<number> {
     let authStatus: number = 0
     const options = {
