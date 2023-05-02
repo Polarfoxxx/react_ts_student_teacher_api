@@ -1,1 +1,1 @@
-export { default as Context } from "./Component/Context"
+export { default as Content } from "./Component/Content"

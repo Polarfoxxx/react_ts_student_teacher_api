@@ -6,7 +6,7 @@ function LogOutButton(): JSX.Element {
     const { setLogOut, logOut } = useContext(Container.Context)
 
     const handleLogOut = (e: React.MouseEvent<HTMLElement>): void => {
-        localStorage.clear() // BAD: preco zase mazes cely localStorage?
+        localStorage.removeItem("authenticationToken") // BAD: preco zase mazes cely localStorage?
         setLogOut(!logOut) // BAD: ty sa logoutujes, takze by si mal nastavit logOut na true
     }
 

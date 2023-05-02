@@ -1,6 +1,6 @@
 
+import React from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
-import { useEffect, useContext } from "react"
 import "../style/Context.style.css"
 import { Home } from "../../Home";
 import { Teacher } from "../../Teacher";
@@ -10,26 +10,18 @@ import { StudentsHome } from '../../StudentsHome';
 import { StudentsALL } from "../../StudentsALL";
 import { UpdateStudents } from "../../UpdateStudents";
 import { LogOutButton } from "../../LogOutButton";
-import { Container } from '../../Container';
-import apiServicesValidityAuthen from '../../API/ValidityAuthen.API';
+import servicesValidityCheckJWTsToken from '../../services/validityCheckJWTsToken.services';
 
-
-function Context(): JSX.Element {
-    const { logOut } = useContext(Container.Context) /* pri buttne na odhlasenie */
+function Content(): JSX.Element {
     const loginPG = useNavigate();
+    const JWTToken = localStorage.getItem("authenticationToken")
 
     /* authentif.. kontrola pri kazdom pohybe*/
-    useEffect(() => { // NOTE: validitu kotrolujes popredu alebo pri requeste nie takto
-        const JWTToken = localStorage.getItem("authenticationKey") as string // BAD: moze to byt aj null nie len string
-        localStorage.getItem("authenticationKey") === null && loginPG("/LoginPage") // BAD: tu si mal kontrolovat ten JWTToken
-        apiServicesValidityAuthen.apiValidityAuthen(JWTToken)
-            .then((data: number) => {
-                if (data !== 200) {
-                    loginPG("/LoginPage")
-                }
-            })
-            .catch(err => console.log(err))
-    }, [loginPG, logOut])
+    React.useEffect(() => {
+        if (JWTToken !== null) {
+            !servicesValidityCheckJWTsToken(JWTToken) && loginPG("/LoginPage")
+        } else { loginPG("/LoginPage") }
+    })
 
     return (
         <div className="Context">
@@ -50,7 +42,7 @@ function Context(): JSX.Element {
                     </div>
                 </div>
                 <div className="routes-block">
-                    <Routes> // NOTE: tie routy by sa dali napisat vsetky do App, nemusel by si tolko zanorovat
+                    <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="Teacher/*" element={<Teacher />}>
                         </Route>
@@ -67,4 +59,4 @@ function Context(): JSX.Element {
     )
 }
 
-export default Context
+export default Content

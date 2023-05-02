@@ -3,14 +3,14 @@ import "./App.css";
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Container } from './module/Container';
 import { LoginPage } from './module/Log';
-import { Context } from './module/Context';
+import { Content } from "./module/Context";
 
 function App(): JSX.Element {
   const loginPG = useNavigate()
 
   /* useLayautEffect nefunguje zostane clear screen */
   React.useEffect(() => {             
-    localStorage.getItem("authenticationKey") === null ? loginPG("LoginPage") : loginPG("Context")
+    localStorage.getItem("authenticationToken") === null ? loginPG("LoginPage") : loginPG("Content")
   }, [])
 
   return (
@@ -18,7 +18,7 @@ function App(): JSX.Element {
       <Container.Provider>
         <Routes>
           <Route path= "LoginPage" element={<LoginPage />} />
-          <Route path= "Context/*" element={<Context />} />
+          <Route path= "Content/*" element={<Content />} />
         </Routes>
       </Container.Provider>
     </div>

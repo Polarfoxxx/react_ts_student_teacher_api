@@ -24,12 +24,12 @@ function SignIn(): JSX.Element {
         apiServicesSignIn.apiSignIn(signIn)
             .then((data: string | undefined) => {
                 if (data) {
-                    localStorage.setItem("authenticationKey", data); // BAD: ukladas token nie kluc, pouzi lepsie nazvy
-                    navigate("/Context") /* poslanie na predchazdajucu localitu */ // BAD: pouzi navigate(-1) alebo implementurj returnUrl, takto to neni na predchadzajucu ale na Context
-                } else { localStorage.clear() } // BAD: preco clear localStorage ak sa nepodari prihlasit? zmaz len klucm nie celi storage
+                    localStorage.setItem("authenticationToken", data);
+                    navigate("/Content") /* poslanie na predchazdajucu localitu */ // BAD: pouzi navigate(-1) alebo implementurj returnUrl, takto to neni na predchadzajucu ale na Context
+                } else { localStorage.removeItem("authenticationToken") } // BAD: preco clear localStorage ak sa nepodari prihlasit? zmaz len klucm nie celi storage
             }
             )
-            .catch(err => console.log(err)) // BAD: nezobrazuj chyby v konzole, pouzi alert alebo nejaky modal + ked uz tak aspon pouzi console.error()
+            .catch(err => console.error(err)) 
 
         /* clear */
         setSignIn({
