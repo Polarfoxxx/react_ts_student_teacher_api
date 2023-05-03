@@ -7,16 +7,24 @@ import "../style/StudentsALL.style.css"
 function StudentsALL(): JSX.Element {
     const InputsTeacherIdRefs = React.useRef<HTMLInputElement>(null)
     const InputsStudentIdRefs = React.useRef<HTMLInputElement>(null)
-   /*  const location = useNavigate() */
+    /*  const location = useNavigate() */
 
     /* odoslanie formullara do API */
     const handleSendFormular = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const JWTToken = localStorage.getItem("authenticationToken")
-
-        const students: TypeALLStudents = {
-            teacherId: InputsTeacherIdRefs.current?.value ? InputsTeacherIdRefs.current?.value : "",
-            studentId: InputsStudentIdRefs.current?.value ? InputsStudentIdRefs.current?.value : "",
+        let students: TypeALLStudents = {
+            teacherId: "",
+            studentId: "",
         }
+
+        if (InputsTeacherIdRefs.current && InputsStudentIdRefs.current) {
+            students = {
+                teacherId: InputsTeacherIdRefs.current.value,
+                studentId: InputsStudentIdRefs.current.value
+            }
+        }
+
+
         if (JWTToken !== null) {
             apiServicesAllStudents.apiAllStudents(JWTToken, students)
                 .then((data: any) => {  /* Cors nefunguje */

@@ -1,4 +1,4 @@
-.teacherALL{
+.teacherById {
     width: 100%;
     height: 100%;
     min-height: 400px;
@@ -7,7 +7,8 @@
     justify-content: center;
     flex-direction: column;
 }
-.teacherALL .teacherALLHeader{
+
+.teacherById .teacherByIDHeader {
     width: 70%;
     height: 15%;
     display: flex;
@@ -15,9 +16,9 @@
     justify-content: center;
     color: var(--orangeColor);
     border-bottom: 1px solid white;
-
 }
-.teacherALL .teacherALLContent{
+
+.teacherById .teacherByIDContent {
     width: 100%;
     min-height: 200px;
     height: 85%;
@@ -26,29 +27,33 @@
     justify-content: center;
     flex-direction: column;
 }
-.teacherALL .teacherALLContent .seacheTeacher{
+
+.teacherById .teacherByIDContent .seacheTeacher {
     width: 80%;
     height: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.teacherALL .teacherALLContent .seacheTeacher > input{
+
+.teacherById .teacherByIDContent .seacheTeacher>input {
     width: 20%;
     height: 40px;
     border-radius: 10px;
-    padding: 0 , 10px;
+    padding: 0, 10px;
     text-align: center;
     font-size: 17px;
 }
-.teacherALL .teacherALLContent .btbSearche{
+
+.teacherById .teacherByIDContent .btbSearche {
     width: 100%;
     height: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.teacherALL .teacherALLContent .btbSearche > button{
+
+.teacherById .teacherByIDContent .btbSearche>button {
     width: 180px;
     height: 40px;
     position: relative;
@@ -59,16 +64,15 @@
     font-weight: bold;
     transition: 0.3s;
 }
-.teacherALL .teacherALLContent .btbSearche > button:hover{
+
+.teacherById .teacherByIDContent .btbSearche>button:hover {
     background-color: white;
 }
 
-.teacherALL .teacherALLContent .seatcheResults{
+.teacherById .teacherByIDContent .seatcheResults {
     width: 80%;
     height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
-

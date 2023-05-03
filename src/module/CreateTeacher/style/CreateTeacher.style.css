@@ -1,4 +1,4 @@
-.CreateTeacher{
+.createTeacher{
     width: 100%;
     height: 100%;
     display: flex;
@@ -7,7 +7,7 @@
     justify-content: center;
     gap: 50px;
 }
-.CreateTeacher .createTeacherHeader{
+.createTeacher .createTeacherHeader{
     width: 70%;
     height: 80px;
     display: flex;
@@ -16,7 +16,7 @@
     border-bottom: 1px solid white;
     color: var(--orangeColor);
 }
-.CreateTeacher .createTeacherContent{
+.createTeacher .createTeacherContent{
     width: 100%;
     height: 400px;
     display: flex;
@@ -25,49 +25,44 @@
     justify-content: center;
     gap: 50px;
 }
-.CreateTeacher .createTeacherContent .createTeacgImage{
+.createTeacher .createTeacherContent .createTeacgImage{
     width: 100%;
     height: 170%;
     overflow: hidden;
     position: relative;
     top: 90px;
 }
-.CreateTeacher .createTeacherContent .createTeacgImage >img {
+.createTeacher .createTeacherContent .createTeacgImage >img {
     width: 100%;
 }
-
-.CreateTeacher .createTeacherContent > div{
+.createTeacher .createTeacherContent > div{
     width: 100%;
     height: 400px;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    overflow: auto
-    ;
+    overflow: auto;
 }
-.CreateTeacher .createTeacherContent > div > div{
+.createTeacher .createTeacherContent > div > div{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.CreateTeacher .createTeacherContent > div .createNewStudents{
+.createTeacher .createTeacherContent > div .createNewStudents{
     width: 100%;
     height: 50px;
 }
-.CreateTeacher .createTeacherContent > div .createNewStudents > button{
+.createTeacher .createTeacherContent > div .createNewStudents > button{
     width: 150px;
     height: 30px;
     border-radius: 10px;
     background-color: var(--orangeColor);
     cursor: pointer;
-
 }
-
-
-.CreateTeacher .createTeacherContent > div > div > input{
+.createTeacher .createTeacherContent > div > div > input{
     width: 80%;
     height: 40px;
     border-radius: 10px;
@@ -76,7 +71,7 @@
     font-size: 17px;
 }
 /* ----------------------------------------------- */
-.CreateTeacher .createTeacherContent > div .mapsBox{
+.createTeacher .createTeacherContent > div .mapsBox{
     width: 100%;
     height: 60px;
     display: flex;
@@ -89,19 +84,17 @@
     padding: 7px;
     margin: 4px;
 }
-.CreateTeacher .createTeacherContent > div .mapsBox .mapsInputs{
+.createTeacher .createTeacherContent > div .mapsBox .mapsInputs{
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.CreateTeacher .createTeacherContent > div .mapsBox .mapsInputs > h1{
+.createTeacher .createTeacherContent > div .mapsBox .mapsInputs > h1{
     font-size: 18px;
 }
-
-
-.CreateTeacher .createTeacherContent > div .mapsBox .mapsInputs > input{
+.createTeacher .createTeacherContent > div .mapsBox .mapsInputs > input{
     width: 80%;
     height: 30px;
     border-radius: 10px;
@@ -109,15 +102,14 @@
     text-align: center;
     font-size: 15px;
 }
-
-.CreateTeacher .AllcreateButton{
+.createTeacher .AllcreateButton{
     width: 70%;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.CreateTeacher .AllcreateButton > button{
+.createTeacher .AllcreateButton > button{
     width: 180px;
     height: 40px;
     position: relative;
@@ -128,6 +120,6 @@
     font-weight: bold;
     transition: 0.3s;
 }
-.CreateTeacher .AllcreateButton > button:hover{
+.createTeacher .AllcreateButton > button:hover{
     background-color: white;
 }

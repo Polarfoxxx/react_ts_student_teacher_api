@@ -14,10 +14,8 @@ const defCreateTeacher = {
 
 function createTeacherObjectFromAPI(teacher: TypeNewTeacher, studets: TypeNewStudents): TypeCreateTeacherfromAPIs {
     let teacherObjectForAPIS: TypeCreateTeacherfromAPIs = defCreateTeacher
-
     const allStObject = [...studets]
     const newStArry: TypeNewStudents = allStObject.filter(item => item.name)
-    
     teacherObjectForAPIS = {
         name: teacher.name,
         subject: teacher.subject,

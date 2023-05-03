@@ -1,7 +1,6 @@
 import axios from "axios"
 import { TypeNewTeacher } from "../CreateTeacher/types"
 
-
 const apiServicesCreateTeacher = {
     apiCreateTeacher
 }
@@ -18,7 +17,6 @@ async function apiCreateTeacher(JWTToken: string, newTeacher: TypeNewTeacher): P
         },
         data: newTeacher
     };
-
     try {
         const response = await axios.request(options);
         responseCreateteacherDATA = response.status;
@@ -27,5 +25,5 @@ async function apiCreateTeacher(JWTToken: string, newTeacher: TypeNewTeacher): P
     }
     return (
         responseCreateteacherDATA
-    )
+    ) 
 }

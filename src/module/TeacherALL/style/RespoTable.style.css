@@ -10,7 +10,7 @@
     border-radius: 10px;
     background-color: rgba(192, 192, 192, 0.192);
 }
-.respoDATA >div {
+.respoDATA > div {
     width: 100%;
     display: flex;
     align-items: center;

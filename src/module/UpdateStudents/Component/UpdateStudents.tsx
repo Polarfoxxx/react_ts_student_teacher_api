@@ -19,16 +19,25 @@ function UpdateStudents(): JSX.Element {
         stats: ""
     })
 
-
     /* odoslanie formulara  do APIs */
     const handleSendFormular = () => {
         const JWTToken = localStorage.getItem("authenticationKey")
-        const updateStudents: TypeUpdateStudents = {
-            teacherId: InputsTeacherIdRefs.current?.value ? InputsTeacherIdRefs.current?.value : "",
-            id: InputsStudentIdRefs.current?.value ? InputsStudentIdRefs.current?.value : "",
-            name: InputsNameRefs.current?.value ? InputsNameRefs.current?.value : "",
-            class: InputsClassRefs.current?.value ? InputsClassRefs.current?.value : "",
+        let updateStudents: TypeUpdateStudents = {
+            teacherId: "",
+            id: "",
+            name: "",
+            class: "",
         }
+
+        if (InputsTeacherIdRefs.current && InputsStudentIdRefs.current && InputsNameRefs.current && InputsClassRefs.current) {
+            updateStudents = {
+                teacherId: InputsTeacherIdRefs.current.value,
+                id: InputsStudentIdRefs.current.value,
+                name: InputsNameRefs.current.value,
+                class: InputsClassRefs.current.value,
+            }
+        }
+
         if (JWTToken !== null) {
             apiServicesUpdateStudents.apiUpdateStudents(JWTToken, updateStudents)
                 .then((data: number) => {
@@ -54,42 +63,42 @@ function UpdateStudents(): JSX.Element {
                 verification={verification}
                 setVerification={setVerification}
             />
-                <div className="updateStudentsHeader">
-                    <h1>Update Students</h1>
+            <div className="updateStudentsHeader">
+                <h1>Update Students</h1>
+            </div>
+            <div className="updateStudentContent">
+                <div className="searcheTeacherID">
+                    <h1>Teacher ID</h1>
+                    <input
+                        name="teacherId"
+                        type="text" />
                 </div>
-                <div className="updateStudentContent">
-                    <div className="searcheTeacherID">
-                        <h1>Teacher ID</h1>
+                <div className="searcheStudentsID">
+                    <h1>Student ID</h1>
+                    <input
+                        name="id"
+                        type="text" />
+                </div>
+                <div className="createnewStudents">
+                    <div className="inpNameStudent">
+                        <h1>Name student</h1>
                         <input
-                            name="teacherId"
+                            name="name"
                             type="text" />
                     </div>
-                    <div className="searcheStudentsID">
-                        <h1>Student ID</h1>
+                    <div className="inpClassStudent">
+                        <h1>Class</h1>
                         <input
-                            name="id"
+                            name="class"
                             type="text" />
                     </div>
-                    <div className="createnewStudents">
-                        <div className="inpNameStudent">
-                            <h1>Name student</h1>
-                            <input
-                                name="name"
-                                type="text" />
-                        </div>
-                        <div className="inpClassStudent">
-                            <h1>Class</h1>
-                            <input
-                                name="class"
-                                type="text" />
-                        </div>
-                    </div>
                 </div>
-                <div className="buttonBlock">
-                    <button onClick={handleSendFormular}>
-                        Update..
-                        </button>
-                </div>
+            </div>
+            <div className="buttonBlock">
+                <button onClick={handleSendFormular}>
+                    Update..
+                </button>
+            </div>
         </div>
     )
 }

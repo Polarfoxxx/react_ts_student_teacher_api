@@ -1,63 +1,58 @@
 import React from "react"
-import servicesUpdateTeacherObjectFromAPI from "../services/servicesUpdateTeacherObjectFromAPI"
-import { TypeUpdateTeacher } from "../types"
-import { TypeNewStudents } from "../../CreateTeacher/types"
-import { TypeVerification } from "../../ConfirmationResp/type"
-import { TypeOneStudents } from "../../CreateTeacher/types"
-import apiServicesUpdateTeacher from "../../API/UpdateTeacher.API"
-import { ConfirmationResp } from "../../ConfirmationResp"
-import "../style/UpdateTeacher.style.css"
 import { useNavigate } from "react-router-dom"
+import "../style/CreateTeacher.style.css"
+import { ConfirmationResp } from "../../ConfirmationResp"
+import { TypeNewTeacher, TypeNewStudents, TypeOneStudents } from "../types"
+import { TypeVerification } from "../../ConfirmationResp/type"
+import servicesCreateTeacherObjectFromAPI from "../services/servicesCreateTeacherObjectFromAPI"
+import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
 import servicesErrorResponze from "../../services/errorResponze"
 
-function UpdateTeacher(): JSX.Element {
+
+function CreateTeacher(): JSX.Element {
     const location = useNavigate()
-    const InputsTeacherIdRefs = React.useRef<HTMLInputElement>(null)
     const InputsTeacherNameRefs = React.useRef<HTMLInputElement>(null)
     const InputsSubjectRefs = React.useRef<HTMLInputElement>(null)
-    const [verification, setVerification] = React.useState<TypeVerification>({
-        success: false,
-        stats: ""
-    })
+
     const [students, setStudents] = React.useState<TypeNewStudents>([{
         name: "",
         class: ""
     }])
-
+    const [verification, setVerification] = React.useState<TypeVerification>({      /* overovanie */
+        success: false,
+        stats: ""
+    })
 
     /* vytvoranie noveho inputu pre studentov */
-    const addFields = (event: React.FocusEvent<HTMLInputElement>): void => {
+    const handlenewStudenstsForm = (event: React.FocusEvent<HTMLInputElement>): void => {
         const targetValue = event.currentTarget.value
         if (!targetValue) {
-            let newfield = {
-                name: '',
-                class: ''
+            const newForm = {
+                name: "",
+                class: ""
             }
-            setStudents([...students, newfield])
+            setStudents([...students, newForm])
         }
     }
 
-    /*vytvorenie formu updateucitela a osetrenie prazdneho inputu studentov a odoslanie formullara do API */
-    const handleUpdateTeacher = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    /*vytvorenie formu ucitela a osetrenie prazdneho inputu studentov a odoslanie formullara do API */
+    const handleCreateTeacher = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const JWTToken = localStorage.getItem("authenticationToken")
-        let UpdateTeacher: TypeUpdateTeacher = {
-            id: "",
+        let teacher: TypeNewTeacher = {
             name: "",
-            subject: ""
+            subject: "",
         }
-        if (InputsTeacherIdRefs.current && InputsTeacherNameRefs.current && InputsSubjectRefs.current) {
-            UpdateTeacher = {
-                id: InputsTeacherIdRefs.current.value,
+        if (InputsTeacherNameRefs.current && InputsSubjectRefs.current) {
+            teacher = {
                 name: InputsTeacherNameRefs.current.value,
-                subject: InputsSubjectRefs.current.value,
+                subject: InputsSubjectRefs.current.value
             }
         }
-
         /* osetrenie prazdnoty cakanie na potvrdenie*/
-        const updateData = servicesUpdateTeacherObjectFromAPI.updateTeacherObjectFromAPI(UpdateTeacher, students)
+        const newTeacher = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(teacher, students)
 
         if (JWTToken !== null) {
-            apiServicesUpdateTeacher.apiUpdateTeacher(JWTToken, updateData)
+            apiServicesCreateTeacher.apiCreateTeacher(JWTToken, newTeacher)
                 .then((data: number) => {
                     if (data !== 401) {
                         setVerification({
@@ -66,7 +61,6 @@ function UpdateTeacher(): JSX.Element {
                         })
                         if (data === 201) {
                             /* clear inputs*/
-                            InputsTeacherIdRefs.current!.value = ""
                             InputsTeacherNameRefs.current!.value = ""
                             InputsSubjectRefs.current!.value = ""
                             setStudents([{
@@ -83,46 +77,42 @@ function UpdateTeacher(): JSX.Element {
         }
     }
 
-
-    /* vytvaranie objectov studentov */
-    const handleStidentsChange = (index: number, event: React.FormEvent<HTMLInputElement>): void => {
-        const data = [...students]
-        type ObjectKey = keyof TypeOneStudents
-        const keys = event.currentTarget.name as ObjectKey
+    /* tvorba pole studentov */
+    const handleChangeNewStudent = (index: number, event: React.ChangeEvent<HTMLInputElement>): void => {
+        const data: TypeNewStudents = [...students]
+        type Typekey = keyof TypeOneStudents
+        const keys = event.currentTarget.name as Typekey
         data[index][keys] = event.currentTarget.value;
         setStudents(data)
     }
 
-
     return (
-        <div className="updateTeacher">
+        <div className="createTeacher">
             <ConfirmationResp
                 verification={verification}
                 setVerification={setVerification}
             />
-            <div className="updateTeacherHeader">
-                <h1>Update Teacher</h1>
+            <div className="createTeacherHeader">
+                <h1>Create new Teacher</h1>
             </div>
 
-            <div className="updateTeacherContent">
-                <div className="techerById">
-                    <h1>ID teacher</h1>
-                    <input
-                        name="id"
-                        placeholder="Teacher ID"
-                        type="text" />
+            <div className="createTeacherContent">
+                <div className="createTeacgImage">
+                    <img src="/img/techerman.png" alt="teacher" />
                 </div>
                 <div className="createTeacherSub">
                     <div>
                         <h1>Teacher name</h1>
                         <input
+                            ref={InputsTeacherNameRefs}
                             type="text"
                             name="name"
-                            placeholder="teacher name" />
+                            placeholder="Teacher name" />
                     </div>
                     <div>
                         <h1>Subject</h1>
                         <input
+                            ref={InputsSubjectRefs}
                             name="subject"
                             type="text"
                             placeholder="subject" />
@@ -138,18 +128,19 @@ function UpdateTeacher(): JSX.Element {
                                     <div className="mapsInputs">
                                         <h1>Student name</h1>
                                         <input
-                                            name='name'
-                                            placeholder='Name'
-                                            onFocus={addFields}
-                                            onChange={event => handleStidentsChange(index, event)} />
+                                            name="name"
+                                            placeholder="Name"
+                                            onFocus={handlenewStudenstsForm}
+                                            onChange={(e) => handleChangeNewStudent(index, e)}
+                                        />
                                     </div>
                                     <div className="mapsInputs">
                                         <h1>Class</h1>
-
                                         <input
-                                            name='class'
-                                            placeholder='class'
-                                            onChange={event => handleStidentsChange(index, event)} />
+                                            onChange={(e) => handleChangeNewStudent(index, e)}
+                                            name="class"
+                                            placeholder="Class"
+                                        />
                                     </div>
                                 </div>
                             )
@@ -159,9 +150,8 @@ function UpdateTeacher(): JSX.Element {
                 </div>
             </div>
             <div className="AllcreateButton">
-                <button
-                    onClick={handleUpdateTeacher}>
-                    Update..
+                <button onClick={handleCreateTeacher}>
+                    Create..
                 </button>
             </div>
         </div>
@@ -169,4 +159,4 @@ function UpdateTeacher(): JSX.Element {
 
 }
 
-export default UpdateTeacher
+export default CreateTeacher

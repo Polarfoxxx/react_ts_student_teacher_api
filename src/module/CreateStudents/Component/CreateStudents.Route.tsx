@@ -20,15 +20,23 @@ function CreateStudents(): JSX.Element {
     /* odoslanie formullara do API */
     const handleSendFormular = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const JWTToken = localStorage.getItem("authenticationToken")
-
-        const createStudents: TypeCreateStudents = {
-            teacherId: InputsTeacherIdRefs.current?.value ? InputsTeacherIdRefs.current?.value : "",
-            name: InputsNameRefs.current?.value ? InputsNameRefs.current?.value : "",
-            class: InputsClassRefs.current?.value ? InputsClassRefs.current?.value : ""
+        let createStudents: TypeCreateStudents = {
+            teacherId: "",
+            name: "",
+            class: ""
         }
+
+        if (InputsTeacherIdRefs.current && InputsNameRefs.current && InputsClassRefs.current) {
+            createStudents = {
+                teacherId: InputsTeacherIdRefs.current.value,
+                name: InputsNameRefs.current.value,
+                class: InputsClassRefs.current.value,
+            }
+        }
+
         if (JWTToken !== null) {
             apiServicesCreateStudents.apiCreateStudents(JWTToken, createStudents)
-                .then((data: number) => {
+                .then((data: any) => {
                     if (data !== 401) {
                         setVerification({
                             success: true,
@@ -59,6 +67,7 @@ function CreateStudents(): JSX.Element {
                 <div className="searcheTeacherID">
                     <h1>Teacher ID</h1>
                     <input
+                        defaultValue=""
                         ref={InputsTeacherIdRefs}
                         name="teacherId"
                         type="text" />
@@ -67,6 +76,7 @@ function CreateStudents(): JSX.Element {
                     <div className="inpNameStudent">
                         <h1>Name student</h1>
                         <input
+                            defaultValue=""
                             ref={InputsNameRefs}
                             name="name"
                             type="text" />
@@ -74,6 +84,7 @@ function CreateStudents(): JSX.Element {
                     <div className="inpClassStudent">
                         <h1>Class</h1>
                         <input
+                            defaultValue=""
                             ref={InputsClassRefs}
                             name="class"
                             type="text" />

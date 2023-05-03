@@ -1,4 +1,7 @@
-
+export type TypeOneStudents = {
+    name: string;
+    class: string;
+}
 
 export type TypeNewStudents = {
     name: string,

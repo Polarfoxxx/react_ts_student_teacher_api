@@ -1,51 +1,77 @@
 import React from "react"
+import "../style/TeacherById.style.css"
 import apiServicesTeacherById from "../../API/TeacherById.API"
 import { useNavigate } from "react-router-dom"
-import { TypeResponzeALLTechersObject } from "../../API/types"
+import { TyperesponseTeacherByIdAndstatus, TypeResponzeALLTechersObject } from "../../API/types"
 
 function TeachersByID(): JSX.Element {
     const location = useNavigate()
-    const [responzeDATA, setResponzeDATA] = React.useState<TypeResponzeALLTechersObject>({ id: "", name: "", subject: "" })
-    const [teacherID, setTeacherID] = React.useState("")
+    const InputsTeacherIdRefs = React.useRef<HTMLInputElement>(null)
+    const [responzeDATA, setResponzeDATA] = React.useState<TypeResponzeALLTechersObject>({
+        id: "",
+        name: "",
+        subject: ""
+    })
 
-    /* values z inputu */
-    const handleChancheTeacherID = (event: React.FormEvent<HTMLInputElement>): void => {
-        setTeacherID(event.currentTarget.value)
-    }
 
     /* odoslanie formulara do API a jwt JWTToken*/
     const handleSendTeacherID = (event: React.MouseEvent<HTMLButtonElement>): void => {
-        const JWTToken = localStorage.getItem("authenticationKey") as string
-        apiServicesTeacherById.apiTeacherById(JWTToken, teacherID)
-            .then((data: TypeResponzeALLTechersObject) => {
-                if (!data.id) { // NOTE: ak nedostanes odpoved to neznaci ze je neautorizovani, moze to byt aj neexistujuci ucitel
-                    localStorage.clear(); location("LoginPage")
-                } else { setResponzeDATA(data) }
-            })
-            .catch(err => console.log(err))
+        const JWTToken = localStorage.getItem("authenticationKey")
+        const teacherID = InputsTeacherIdRefs.current ? InputsTeacherIdRefs.current.value : ""
+
+        if (JWTToken !== null) {
+            apiServicesTeacherById.apiTeacherById(JWTToken, teacherID)
+                .then((data: TyperesponseTeacherByIdAndstatus) => {
+                    if (data.status !== 401) {
+                        setResponzeDATA(data.responzeTecherByIdDATA)
+                    } else {
+                        localStorage.removeItem("authenticationToken");
+                        location("LoginPage")
+                    }
+                })
+                .catch(err => console.error(err))
+        }
     }
 
     return (
-        <div className="TeacherALL">
-            <div className="teacherALLHeader">
-                <h1>Search teacher by ID</h1>
+        <div className="teacherById">
+            <div className="teacherByIDHeader">
+                <h1>
+                    Search teacher by ID
+                </h1>
             </div>
-            <div className="teacherALLContent">
+            <div className="teacherByIDContent">
                 <div className="seacheTeacher">
                     <input
-                        onChange={handleChancheTeacherID}
+                        ref={InputsTeacherIdRefs}
+                        placeholder="Teacher ID"
                         type="search" />
                 </div>
-                <div className="/* btbSearche */"> // NOTE: co je toto?
-                    <button onClick={handleSendTeacherID}>Search</button>
+                <div className="btbSearche">
+                    <button
+                        onClick={handleSendTeacherID}>
+                        Search
+                    </button>
                 </div>
                 <div className="seatcheResults">
                     {
                         <div
                             className="respoDATA">
-                            <div className="ResId"><h1>{responzeDATA.id}</h1></div>
-                            <div className="Resname"><h1>{responzeDATA.name}</h1></div>
-                            <div className="Ressubject"><h1>{responzeDATA.subject}</h1></div>
+                            <div className="ResId">
+                                <h1>
+                                    {responzeDATA.id}
+                                </h1>
+                            </div>
+                            <div className="Resname">
+                                <h1>
+                                    {responzeDATA.name}
+                                </h1>
+                            </div>
+                            <div className="Ressubject">
+                                <h1>
+                                    {responzeDATA.subject}
+                                </h1>
+                            </div>
                         </div>
                     }
                 </div>
