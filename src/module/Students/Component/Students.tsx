@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { Outlet } from "react-router-dom"
-import "../../Teacher/style/Teacher.style.css"
+
 
 function Students(): JSX.Element {
     return (

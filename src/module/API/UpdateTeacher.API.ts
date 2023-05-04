@@ -1,5 +1,5 @@
 import axios from "axios"
-import { TypeUpdateTeacherFromAPI } from "../UpdateTeacher/types"
+import { TypeUpdateTeacherFromAPI } from "../Teacher.module/types"
 
 const apiServicesUpdateTeacher = {
     apiUpdateTeacher

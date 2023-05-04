@@ -1,11 +1,11 @@
 
 import { Link } from "react-router-dom"
 import "../style/Teacher.style.css"
-import { CreateTeacher } from "../../CreateTeacher";
-import { TeacherALL } from "../../TeacherALL";
-import { TeachersByID } from "../../TeachersByID";
-import { UpdateTeacher } from "../../UpdateTeacher";
-import { TeacherHome } from "../../TeacherHome";
+import { CreateTeacher } from "..";
+import { TeacherALL } from "..";
+import { TeachersByID } from "..";
+import { UpdateTeacher } from "..";
+import { TeacherHome } from "..";
 import { Route, Routes } from "react-router-dom";
 
 

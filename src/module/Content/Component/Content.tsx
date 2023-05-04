@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import "../style/Context.style.css"
 import { Home } from "../../Home";
-import { Teacher } from "../../Teacher";
+import { Teacher } from '../../Teacher.module';
 import { Students } from "../../Students";
 import { CreateStudents } from "../../CreateStudents";
 import { StudentsHome } from '../../StudentsHome';
