@@ -1,14 +1,7 @@
 
 import React from 'react';
-import { Route, Routes, Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Outlet } from 'react-router-dom';
 import "../style/Context.style.css"
-import { Home } from "../";
-import { Teacher } from '../../Teacher.module';
-import { Students } from '../../Student.module';
-import { CreateStudents } from "../../Student.module";
-import { StudentsHome } from '../../Student.module';
-import { StudentsALL } from '../../Student.module';
-import { UpdateStudents } from "../../Student.module";
 import { LogOutButton } from "../../LogOutButton";
 import servicesValidityCheckJWTsToken from '../../services/validityCheckJWTsToken.services';
 import { Container } from '../../Container';
@@ -23,7 +16,7 @@ function Content(): JSX.Element {
         if (JWTToken !== null) {
             !servicesValidityCheckJWTsToken(JWTToken) && loginPG("/LoginPage")
         } else { loginPG("/LoginPage") }
-    },[logOut])
+    }, [logOut])
 
     return (
         <div className="content">
@@ -44,17 +37,7 @@ function Content(): JSX.Element {
                     </div>
                 </div>
                 <div className="routes-block">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="Teacher/*" element={<Teacher />}>
-                        </Route>
-                        <Route path="Students" element={<Students />}>
-                            <Route path='' element={<StudentsHome />} />
-                            <Route path="CreateStudents" element={<CreateStudents />} />
-                            <Route path="StudentsALL" element={<StudentsALL />} />
-                            <Route path="UpdateStudents" element={<UpdateStudents />} />
-                        </Route>
-                    </Routes>
+                    <Outlet />
                 </div>
             </div>
         </div>

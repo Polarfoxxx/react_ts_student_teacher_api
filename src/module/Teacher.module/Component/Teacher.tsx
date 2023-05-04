@@ -1,12 +1,6 @@
 
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import "../style/Teacher.style.css"
-import { CreateTeacher } from "..";
-import { TeacherALL } from "..";
-import { TeachersByID } from "..";
-import { UpdateTeacher } from "..";
-import { TeacherHome } from "..";
-import { Route, Routes } from "react-router-dom";
 
 
 function Teacher(): JSX.Element {
@@ -21,18 +15,11 @@ function Teacher(): JSX.Element {
                 </div>
             </div>
             <div className="contentRoute">
-                <Routes>
-                    <Route path="" element={<TeacherHome />} />
-                    <Route path="CreateTeacher" element={<CreateTeacher />} />
-                    <Route path="TeacherALL" element={<TeacherALL />} />
-                    <Route path="TeachersByID" element={<TeachersByID />} />
-                    <Route path="UpdateTeacher" element={<UpdateTeacher />} />
-                </Routes>
+                <Outlet />
             </div>
         </div>
     )
 }
-
 
 export default Teacher
 
