@@ -1,0 +1,72 @@
+.signInBlock {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--silverContext);
+    box-shadow: inset 6px 6px 7px 0px rgba(0, 0, 0, 0.75);
+    position: relative;
+}
+
+.signInBlock .formBox {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signInBlock .formBox>div {
+    width: 100%;
+    height: 100%;
+}
+
+.signInBlock .formBox>div>div {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signInBlock .formBox>div>div>h4 {
+    font-size: 16px;
+    color: white;
+    margin: 8px;
+}
+
+.signInBlock .formBox>div>div>input {
+    width: 70%;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.signInBlock .buttonBox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signInBlock .buttonBox>button {
+    width: 200px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--orangeColor);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.signInBlock .buttonBox>button:hover {
+    background-color: white;
+}

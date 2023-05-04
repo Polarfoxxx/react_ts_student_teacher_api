@@ -1,7 +1,7 @@
 import React from "react"
 /* import { useNavigate } from "react-router-dom" */
 import apiServicesAllStudents from "../../API/AllStudents.API"
-import { TypeALLStudents } from "../types"
+import { TypeALLStudents } from "../type"
 import "../style/StudentsALL.style.css"
 
 function StudentsALL(): JSX.Element {

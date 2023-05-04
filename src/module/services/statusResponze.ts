@@ -1,10 +1,10 @@
 
-const servicesErrorResponze = {
-    errorResponze
+const servicesStatusResponze = {
+    statusResponze
 }
-export default servicesErrorResponze
+export default servicesStatusResponze
 
-function errorResponze(status: number): string {
+function statusResponze(status: number): string {
 let stringStatus: string = ""
     if(status === 200) {
         stringStatus = "OK"

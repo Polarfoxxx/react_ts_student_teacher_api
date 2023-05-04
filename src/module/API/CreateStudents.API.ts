@@ -1,6 +1,5 @@
-
 import axios from "axios"
-import { TypeCreateStudents } from "../CreateStudents/types";
+import { TypeCreateStudents } from "../Student.module/type"
 
 const apiServicesCreateStudents = {
     apiCreateStudents

@@ -1,3 +1,8 @@
+export type TypeSignIn = { 
+    userName: string,
+    password: string
+}
+
 export type TypeSignUp = {
     firstName: string,
     lastName: string,
@@ -7,3 +12,7 @@ export type TypeSignUp = {
     phoneNumber: string,
 }
 
+export type TypeResponseLoginIn = {
+    JWTkey: string,
+    status: number
+}

@@ -6,7 +6,7 @@ import { TypeNewTeacher, TypeNewStudents, TypeOneStudents } from "../types"
 import { TypeVerification } from "../../ConfirmationResp/type"
 import servicesCreateTeacherObjectFromAPI from "../services/servicesCreateTeacherObjectFromAPI"
 import apiServicesCreateTeacher from "../../API/CreateTeacher.API"
-import servicesErrorResponze from "../../services/errorResponze"
+import servicesErrorResponze from "../../services/statusResponze"
 
 
 function CreateTeacher(): JSX.Element {
@@ -57,7 +57,7 @@ function CreateTeacher(): JSX.Element {
                     if (data !== 401) {
                         setVerification({
                             success: true,
-                            stats: servicesErrorResponze.errorResponze(data)
+                            stats: servicesErrorResponze.statusResponze(data)
                         })
                         if (data === 201) {
                             /* clear inputs*/

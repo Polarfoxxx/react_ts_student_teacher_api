@@ -6,7 +6,7 @@ import apiServicesUpdateTeacher from "../../API/UpdateTeacher.API"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import "../style/UpdateTeacher.style.css"
 import { useNavigate } from "react-router-dom"
-import servicesErrorResponze from "../../services/errorResponze"
+import servicesErrorResponze from "../../services/statusResponze"
 
 function UpdateTeacher(): JSX.Element {
     const location = useNavigate()
@@ -60,7 +60,7 @@ function UpdateTeacher(): JSX.Element {
                     if (data !== 401) {
                         setVerification({
                             success: true,
-                            stats: servicesErrorResponze.errorResponze(data)
+                            stats: servicesErrorResponze.statusResponze(data)
                         })
                         if (data === 201) {
                             /* clear inputs*/

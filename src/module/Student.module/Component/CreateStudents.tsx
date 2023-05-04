@@ -1,11 +1,11 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import "../style/CreateStudents.style.css"
-import { TypeCreateStudents } from "../types"
+import { TypeCreateStudents } from "../type"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import { TypeVerification } from "../../ConfirmationResp/type"
 import apiServicesCreateStudents from "../../API/CreateStudents.API"
-import servicesErrorResponze from "../../services/errorResponze"
+import servicesErrorResponze from "../../services/statusResponze"
 
 function CreateStudents(): JSX.Element {
     const location = useNavigate()
@@ -40,7 +40,7 @@ function CreateStudents(): JSX.Element {
                     if (data !== 401) {
                         setVerification({
                             success: true,
-                            stats: servicesErrorResponze.errorResponze(data)
+                            stats: servicesErrorResponze.statusResponze(data)
                         })
                         /* clear input */
                         InputsTeacherIdRefs.current!.value = ""

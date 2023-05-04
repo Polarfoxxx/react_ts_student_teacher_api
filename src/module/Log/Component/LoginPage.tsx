@@ -1,6 +1,6 @@
 
-import { SignIn } from "../../Sign_In"
-import { SignUp } from "../../Sign_Up"
+import { SignIn } from "../"
+import { SignUp } from "../"
 import "../style/LoginPage.style.css"
 import React from "react"
 

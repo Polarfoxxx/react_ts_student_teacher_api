@@ -2,17 +2,19 @@
 import React from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import "../style/Context.style.css"
-import { Home } from "../../Home";
+import { Home } from "../";
 import { Teacher } from '../../Teacher.module';
-import { Students } from "../../Students";
-import { CreateStudents } from "../../CreateStudents";
-import { StudentsHome } from '../../StudentsHome';
-import { StudentsALL } from "../../StudentsALL";
-import { UpdateStudents } from "../../UpdateStudents";
+import { Students } from '../../Student.module';
+import { CreateStudents } from "../../Student.module";
+import { StudentsHome } from '../../Student.module';
+import { StudentsALL } from '../../Student.module';
+import { UpdateStudents } from "../../Student.module";
 import { LogOutButton } from "../../LogOutButton";
 import servicesValidityCheckJWTsToken from '../../services/validityCheckJWTsToken.services';
+import { Container } from '../../Container';
 
 function Content(): JSX.Element {
+    const { logOut } = React.useContext(Container.Context)
     const loginPG = useNavigate();
     const JWTToken = localStorage.getItem("authenticationToken")
 
@@ -21,7 +23,7 @@ function Content(): JSX.Element {
         if (JWTToken !== null) {
             !servicesValidityCheckJWTsToken(JWTToken) && loginPG("/LoginPage")
         } else { loginPG("/LoginPage") }
-    })
+    },[logOut])
 
     return (
         <div className="content">

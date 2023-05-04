@@ -5,7 +5,7 @@ import { ConfirmationResp } from "../../ConfirmationResp"
 import { TypeUpdateStudents } from "../type"
 import apiServicesUpdateStudents from "../../API/UpdateStudents.API"
 import { TypeVerification } from "../../ConfirmationResp/type"
-import servicesErrorResponze from "../../services/errorResponze"
+import servicesErrorResponze from "../../services/statusResponze"
 
 function UpdateStudents(): JSX.Element {
     const location = useNavigate()
@@ -44,7 +44,7 @@ function UpdateStudents(): JSX.Element {
                     if (data !== 401) {
                         setVerification({
                             success: true,
-                            stats: servicesErrorResponze.errorResponze(data)
+                            stats: servicesErrorResponze.statusResponze(data)
                         })
                     } else { localStorage.clear(); location("LoginPage") }
                 })

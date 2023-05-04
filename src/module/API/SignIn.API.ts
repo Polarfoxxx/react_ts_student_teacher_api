@@ -1,14 +1,17 @@
 import axios from "axios"
-import { TypeSignIn } from "../Sign_In/types"
+import { TypeSignIn } from "../Log/types"
+import { TypeResponseLoginIn } from "../Log/types"
 
 const apiServicesSignIn = {
     apiSignIn
 }
 export default apiServicesSignIn
 
-async function apiSignIn(signInData: TypeSignIn): Promise<string | undefined> {
-    let JWTkey: string = ""
-
+async function apiSignIn(signInData: TypeSignIn): Promise<TypeResponseLoginIn> {
+    let responseLoginIn: TypeResponseLoginIn = {
+        JWTkey: "",
+        status: 0
+    }
     const options = {
         method: 'POST',
         url: 'https://tadeasburda.sk/api/userauthentication/login',
@@ -19,11 +22,14 @@ async function apiSignIn(signInData: TypeSignIn): Promise<string | undefined> {
     };
     try {
         const response = await axios.request(options);
-        JWTkey = response.data.token;
+        responseLoginIn = {
+            JWTkey: response.data.token,
+            status: response.status
+        }
     } catch (error) {
         console.error(error);
     }
     return (
-        JWTkey
+        responseLoginIn
     )
 }
