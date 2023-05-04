@@ -7,8 +7,6 @@ import { Content, Home } from "./module/Content";
 import { Students, StudentsHome, CreateStudents, StudentsALL, UpdateStudents } from "./module/Student.module";
 import { Teacher, TeacherHome, CreateTeacher, TeacherALL, TeachersByID, UpdateTeacher } from "./module/Teacher.module";
 
-
-
 function App(): JSX.Element {
   const loginPG = useNavigate()
 

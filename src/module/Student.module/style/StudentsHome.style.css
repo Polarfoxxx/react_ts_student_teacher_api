@@ -1,4 +1,4 @@
-.TeacherHome{
+.studentHome{
     width: 100%;
     height: 700px;
     display: flex;
@@ -10,28 +10,28 @@
     background-size: 30%;
     background-repeat: no-repeat;
 }
-.TeacherHome > div{
+.studentHome > div{
     width: 50%;
     height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.TeacherHome .techerContext{
+.studentHome .studentContext{
     padding: 50px;
     align-items: end;
     top: 70px;
     font-size: 30px;
     color: rgba(255, 255, 255, 0.74);
 }
-.TeacherHome .teacherLinks{
+.studentHome .studentLinks{
     align-items: start;
     height: 30%;
     justify-content: end;
     position: relative;
     left: 150px;
 }
-.TeacherHome .teacherLinks .Tlink{
+.studentHome .studentLinks .Tlink{
     font-size: 25px;
     margin-right: 29px;
     text-decoration: none;
