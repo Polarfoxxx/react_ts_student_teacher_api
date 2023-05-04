@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import "../style/UpdateStudents.style.css"
 import { ConfirmationResp } from "../../ConfirmationResp"
 import { TypeUpdateStudents } from "../type"
-import apiServicesUpdateStudents from "../../API/UpdateStudents"
+import apiServicesUpdateStudents from "../../API/UpdateStudents.API"
 import { TypeVerification } from "../../ConfirmationResp/type"
 import servicesErrorResponze from "../../services/errorResponze"
 

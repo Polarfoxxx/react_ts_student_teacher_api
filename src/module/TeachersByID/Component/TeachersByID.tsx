@@ -13,10 +13,9 @@ function TeachersByID(): JSX.Element {
         subject: ""
     })
 
-
     /* odoslanie formulara do API a jwt JWTToken*/
     const handleSendTeacherID = (event: React.MouseEvent<HTMLButtonElement>): void => {
-        const JWTToken = localStorage.getItem("authenticationKey")
+        const JWTToken = localStorage.getItem("authenticationToken")
         const teacherID = InputsTeacherIdRefs.current ? InputsTeacherIdRefs.current.value : ""
 
         if (JWTToken !== null) {
