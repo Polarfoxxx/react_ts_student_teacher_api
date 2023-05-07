@@ -53,9 +53,7 @@ function TeachersByID(): JSX.Element {
                     </button>
                 </div>
                 <div className="seatcheResults">
-                    {
-                        <div
-                            className="respoDATA">
+                        <div className="respoDATA">
                             <div className="ResId">
                                 <h1>
                                     {responzeDATA.id}
@@ -72,7 +70,6 @@ function TeachersByID(): JSX.Element {
                                 </h1>
                             </div>
                         </div>
-                    }
                 </div>
             </div>
         </div>

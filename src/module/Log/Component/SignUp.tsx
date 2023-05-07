@@ -35,14 +35,14 @@ function SignUp(): JSX.Element {
                 firstName: InputsFirstNameRefs.current.value,
                 lastName: InputsLastNameRefs.current.value,
                 userName: InputsUserNameRefs.current.value,
-                password: InputsEmailRefs.current.value,
-                email: InputsPasswordRefs.current.value,
+                email: InputsEmailRefs.current.value,
+                password: InputsPasswordRefs.current.value,
                 phoneNumber: InputsPhoneRefs.current.value,
             }
         }
         apiServicesSignUp.apiSignUp(signUp)
             .then((data: number) => {
-                if (data === 200) {
+                if (data === 201) {
                     setVerification({
                         statusdisplay: true,
                         stats: servicesStatusResponze.statusResponze(data)

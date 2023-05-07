@@ -76,3 +76,19 @@
     align-items: center;
     justify-content: center;
 }
+.teacherById .teacherByIDContent .seatcheResults .respoDATA{
+    width: 90%;
+    height: 70px;
+    background-color: rgba(204, 204, 204, 0.493);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 30px;
+}
+.teacherById .teacherByIDContent .seatcheResults .respoDATA > div {
+    width: 100%;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
