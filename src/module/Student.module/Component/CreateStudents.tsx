@@ -13,7 +13,7 @@ function CreateStudents(): JSX.Element {
     const InputsNameRefs = React.useRef<HTMLInputElement>(null)
     const InputsClassRefs = React.useRef<HTMLInputElement>(null)
     const [verification, setVerification] = React.useState<TypeVerification>({  /* overovanie */
-        success: false,
+        statusdisplay: false,
         stats: ""
     })
 
@@ -39,7 +39,7 @@ function CreateStudents(): JSX.Element {
                 .then((data: number) => {
                     if (data !== 401) {
                         setVerification({
-                            success: true,
+                            statusdisplay: true,
                             stats: servicesErrorResponze.statusResponze(data)
                         })
                         /* clear input */

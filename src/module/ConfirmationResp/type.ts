@@ -1,5 +1,5 @@
 export type TypeVerification = {
-    success: boolean,
+    statusdisplay: boolean,
     stats: string
 }
 

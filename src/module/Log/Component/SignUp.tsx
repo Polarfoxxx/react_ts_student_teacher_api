@@ -16,7 +16,7 @@ function SignUp(): JSX.Element {
     const InputsPhoneRefs = React.useRef<HTMLInputElement>(null)
 
     const [verification, setVerification] = React.useState<TypeVerification>({
-        success: false,
+        statusdisplay: false,
         stats: ""
     })
 
@@ -44,7 +44,7 @@ function SignUp(): JSX.Element {
             .then((data: number) => {
                 if (data === 200) {
                     setVerification({
-                        success: true,
+                        statusdisplay: true,
                         stats: servicesStatusResponze.statusResponze(data)
                     })
                     /* clear input*/
@@ -56,7 +56,7 @@ function SignUp(): JSX.Element {
                     InputsPhoneRefs.current!.value = ""
                 } else {
                     setVerification({
-                        success: true,
+                        statusdisplay: true,
                         stats: servicesStatusResponze.statusResponze(data)
                     })
                 }

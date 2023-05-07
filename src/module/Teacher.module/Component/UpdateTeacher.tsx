@@ -14,7 +14,7 @@ function UpdateTeacher(): JSX.Element {
     const InputsTeacherNameRefs = React.useRef<HTMLInputElement>(null)
     const InputsSubjectRefs = React.useRef<HTMLInputElement>(null)
     const [verification, setVerification] = React.useState<TypeVerification>({
-        success: false,
+        statusdisplay: false,
         stats: ""
     })
     const [students, setStudents] = React.useState<TypeNewStudents>([{
@@ -59,7 +59,7 @@ function UpdateTeacher(): JSX.Element {
                 .then((data: number) => {
                     if (data !== 401) {
                         setVerification({
-                            success: true,
+                            statusdisplay: true,
                             stats: servicesErrorResponze.statusResponze(data)
                         })
                         if (data === 204) {

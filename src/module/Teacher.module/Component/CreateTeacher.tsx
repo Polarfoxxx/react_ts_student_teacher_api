@@ -18,7 +18,7 @@ function CreateTeacher(): JSX.Element {
         class: ""
     }])
     const [verification, setVerification] = React.useState<TypeVerification>({      /* overovanie */
-        success: false,
+        statusdisplay: false,
         stats: ""
     })
 
@@ -55,7 +55,7 @@ function CreateTeacher(): JSX.Element {
                 .then((data: number) => {
                     if (data !== 401) {
                         setVerification({
-                            success: true,
+                            statusdisplay: true,
                             stats: servicesErrorResponze.statusResponze(data)
                         })
                         if (data === 201) {

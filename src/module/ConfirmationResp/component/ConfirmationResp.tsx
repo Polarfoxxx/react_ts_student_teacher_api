@@ -11,9 +11,12 @@ type Props = {
 function ConfirmationResp({ verification, setVerification }: Props): JSX.Element {
 
     useEffect(() => {
-        if(verification.success) {
+        if(verification.statusdisplay) {
             setTimeout(() => {
-                setVerification({ success: false, stats: "" })
+                setVerification({ 
+                    statusdisplay: false, 
+                    stats: "" 
+                })
             }, 5000)
         }
     }, [verification])
@@ -22,7 +25,7 @@ function ConfirmationResp({ verification, setVerification }: Props): JSX.Element
 
 
     return (
-        <div style={verification.success ? { top: "0px" } : { top: "-200px" }} className="confirmationResp">
+        <div style={verification.statusdisplay ? { top: "0px" } : { top: "-200px" }} className="confirmationResp">
             <div>
                 <h1>{verification.stats}</h1>
             </div>
