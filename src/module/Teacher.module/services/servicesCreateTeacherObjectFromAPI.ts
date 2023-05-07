@@ -21,7 +21,6 @@ function createTeacherObjectFromAPI(teacher: TypeNewTeacher, studets: TypeNewStu
         subject: teacher.subject,
         students: newStArry
     }
-    console.log(teacherObjectForAPIS);
     return (
         teacherObjectForAPIS
     )

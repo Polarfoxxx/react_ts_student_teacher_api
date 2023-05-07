@@ -8,6 +8,8 @@
     font-weight: bold;
 }
 :root{
+    --RTUI-color-background-primary: rgba(221, 221, 221, 0.363);
+    --RTUI-color-background-secondary: rgba(255, 255, 255, 0.151);
     --bacgGroudColor: rgb(20, 19, 63);
     --bacgColorContext: rgb(3, 2, 56);
     --orangeColor: rgb(241, 157, 0);

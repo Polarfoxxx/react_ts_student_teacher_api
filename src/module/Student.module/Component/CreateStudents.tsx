@@ -36,7 +36,7 @@ function CreateStudents(): JSX.Element {
 
         if (JWTToken !== null) {
             apiServicesCreateStudents.apiCreateStudents(JWTToken, createStudents)
-                .then((data: any) => {
+                .then((data: number) => {
                     if (data !== 401) {
                         setVerification({
                             success: true,

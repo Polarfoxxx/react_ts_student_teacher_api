@@ -1,14 +1,18 @@
 import React from "react"
 import "../style/TeacherALL.style.css"
-import "../style/RespoTable.style.css"
 import apiServicesAllTeacher from "../../API/AllTeacher.API"
 import { useNavigate } from "react-router-dom"
-import { TypeResponzeALLTechers, TypeResponzeALLTechersObject, TypeRespoAllTeacherAndStatus } from "../../API/types"
+import { TypeResponzeALLTechers, TypeRespoAllTeacherAndStatus } from "../../API/types"
+import { TeacherTable } from "../"
 
 function TeacherALL(): JSX.Element {
     const JWTToken = localStorage.getItem("authenticationToken")
     const location = useNavigate()
-    const [allTeacher, setAllTeacher] = React.useState<TypeResponzeALLTechers>()
+    const [allTeacher, setAllTeacher] = React.useState<TypeResponzeALLTechers>([{
+        id: "",
+        name: "",
+        subject: ""
+    }])
 
     React.useEffect(() => {
         if (JWTToken !== null) {
@@ -31,17 +35,7 @@ function TeacherALL(): JSX.Element {
                 <h1>All list Teacher</h1>
             </div>
             <div className="teacherALLContent">
-                {
-                    allTeacher?.map((item: TypeResponzeALLTechersObject, key: number) => (
-                        <div
-                            key={key}
-                            className="respoDATA">
-                            <div className="ResId"><h1>{item.id}</h1></div>
-                            <div className="Resname"><h1>{item.name}</h1></div>
-                            <div className="Ressubject"><h1>{item.subject}</h1></div>
-                        </div>
-                    ))
-                }
+                <TeacherTable allTeacher={allTeacher} />
             </div>
         </div>
     )

@@ -13,7 +13,6 @@ function CreateTeacher(): JSX.Element {
     const location = useNavigate()
     const InputsTeacherNameRefs = React.useRef<HTMLInputElement>(null)
     const InputsSubjectRefs = React.useRef<HTMLInputElement>(null)
-
     const [students, setStudents] = React.useState<TypeNewStudents>([{
         name: "",
         class: ""

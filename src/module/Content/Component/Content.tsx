@@ -16,7 +16,7 @@ function Content(): JSX.Element {
         if (JWTToken !== null) {
             !servicesValidityCheckJWTsToken(JWTToken) && loginPG("/LoginPage")
         } else { loginPG("/LoginPage") }
-    }, [logOut])
+    }, [logOut, loginPG])
 
     return (
         <div className="content">

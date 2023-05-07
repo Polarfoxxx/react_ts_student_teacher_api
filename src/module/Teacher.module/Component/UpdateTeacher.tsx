@@ -62,7 +62,7 @@ function UpdateTeacher(): JSX.Element {
                             success: true,
                             stats: servicesErrorResponze.statusResponze(data)
                         })
-                        if (data === 201) {
+                        if (data === 204) {
                             /* clear inputs*/
                             InputsTeacherIdRefs.current!.value = ""
                             InputsTeacherNameRefs.current!.value = ""
@@ -106,6 +106,7 @@ function UpdateTeacher(): JSX.Element {
                 <div className="techerById">
                     <h1>ID teacher</h1>
                     <input
+                        ref={InputsTeacherIdRefs}
                         name="id"
                         placeholder="Teacher ID"
                         type="text" />
@@ -114,6 +115,7 @@ function UpdateTeacher(): JSX.Element {
                     <div>
                         <h1>Teacher name</h1>
                         <input
+                            ref={InputsTeacherNameRefs}
                             type="text"
                             name="name"
                             placeholder="teacher name" />
@@ -121,9 +123,11 @@ function UpdateTeacher(): JSX.Element {
                     <div>
                         <h1>Subject</h1>
                         <input
+                            ref={InputsSubjectRefs}
                             name="subject"
                             type="text"
                             placeholder="subject" />
+
                     </div>
                 </div>
                 <div className="createStudentsSub">

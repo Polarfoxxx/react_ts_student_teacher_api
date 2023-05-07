@@ -6,7 +6,6 @@ const servicesUpdateTeacherObjectFromAPI = {
 }
 export default servicesUpdateTeacherObjectFromAPI
 
-
 const defUpdateTeacher = {
     id: "",
     name: "",
@@ -25,8 +24,7 @@ function updateTeacherObjectFromAPI(teacher: TypeUpdateTeacher, studets: TypeNew
         name: teacher.name,
         subject: teacher.subject,
         students: newStArry
-    } 
-    console.log(teacherUpdateForAPIS);
+    }
     return (
         teacherUpdateForAPIS
     )

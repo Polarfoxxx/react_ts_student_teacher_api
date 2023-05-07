@@ -21,7 +21,7 @@ function UpdateStudents(): JSX.Element {
 
     /* odoslanie formulara  do APIs */
     const handleSendFormular = () => {
-        const JWTToken = localStorage.getItem("authenticationKey")
+        const JWTToken = localStorage.getItem("authenticationToken")
         let updateStudents: TypeUpdateStudents = {
             teacherId: "",
             id: "",
