@@ -2,8 +2,8 @@
 import React from 'react';
 import { Link, useNavigate, Outlet } from 'react-router-dom';
 import "../style/Context.style.css"
-import { LogOutButton } from "../../LogOutButton";
-import servicesValidityCheckJWTsToken from '../../services/validityCheckJWTsToken.services';
+import { LogOutButton } from '../../Authentication';
+import { servicesValidityCheckJWTsToken } from '../../utils';
 import { Container } from '../../Container';
 
 function Content(): JSX.Element {

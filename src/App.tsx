@@ -2,10 +2,11 @@ import React from "react"
 import "./App.css";
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Container } from './module/Container';
-import { LoginPage } from './module/Log';
-import { Content, Home } from "./module/Content";
-import { Students, StudentsHome, CreateStudents, StudentsALL, UpdateStudents } from "./module/Student.module";
-import { Teacher, TeacherHome, CreateTeacher, TeacherALL, TeachersByID, UpdateTeacher } from "./module/Teacher.module";
+import { LoginPage } from "./module/Authentication";
+import { Content } from "./module/Content";
+import { Home } from "./module/Content";
+import { Students, StudentsHome, CreateStudents, StudentsALL, UpdateStudents } from "./module/Student";
+import { Teacher, TeacherHome, CreateTeacher, TeacherALL, TeachersByID, UpdateTeacher } from "./module/Teacher";
 
 function App(): JSX.Element {
   const loginPG = useNavigate()

@@ -1,0 +1,7 @@
+export { default as UpdateTeacher } from "../Teacher/Component/UpdateTeacher"
+export { default as TeachersByID } from "../Teacher/Component/TeachersByID"
+export { default as TeacherHome } from "../Teacher/Component/TeacherHome"
+export { default as TeacherALL } from "../Teacher/Component/TeacherALL"
+export { default as CreateTeacher } from "../Teacher/Component/CreateTeacher"
+export { default as Teacher } from "../Teacher/Component/Teacher"
+export { default as TeacherTable } from "../Teacher/Component/TeacherTable"

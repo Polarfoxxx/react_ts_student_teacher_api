@@ -1,16 +1,15 @@
 
-import "../style/ConfirmationResp.style.css"
-import { Dispatch, SetStateAction, useEffect } from "react"
+import React from "react"
 import { TypeVerification } from "../type"
+import "../style/ConfirmationResp.style.css"
 
 type Props = { 
     verification: TypeVerification,
-    setVerification: Dispatch<SetStateAction<TypeVerification>>
+    setVerification: React.Dispatch<React.SetStateAction<TypeVerification>>
 }
 
 function ConfirmationResp({ verification, setVerification }: Props): JSX.Element {
-
-    useEffect(() => {
+    React.useEffect(() => {
         if(verification.statusdisplay) {
             setTimeout(() => {
                 setVerification({ 
@@ -21,9 +20,6 @@ function ConfirmationResp({ verification, setVerification }: Props): JSX.Element
         }
     }, [verification])
    
-      
-
-
     return (
         <div style={verification.statusdisplay ? { top: "0px" } : { top: "-200px" }} className="confirmationResp">
             <div>

@@ -1,15 +1,14 @@
 
-import { useState, createContext } from "react"
+import React from "react"
 import { TypeContext, Props } from "../types"
 
-
-const Context = createContext<TypeContext>({
+const Context = React.createContext<TypeContext>({
     logOut: false,
     setLogOut: () => { }
 })
 
 function Provider({ children }: Props): JSX.Element {
-    const [logOut, setLogOut] = useState<boolean>(false)
+    const [logOut, setLogOut] = React.useState<boolean>(false)
 
     return (
         <div className="Container">

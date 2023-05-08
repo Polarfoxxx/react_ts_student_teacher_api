@@ -1,0 +1,2 @@
+export { default as servicesCreateTeacherObjectFromAPI } from "./servicesCreateTeacherObjectFromAPI"
+export { default as servicesUpdateTeacherObjectFromAPI } from "./servicesUpdateTeacherObjectFromAPI"

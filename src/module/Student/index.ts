@@ -1,0 +1,5 @@
+export { default as UpdateStudents } from "../Student/Component/UpdateStudents"
+export { default as StudentsHome } from "../Student/Component/StudentsHome"
+export { default as StudentsALL } from "../Student/Component/StudentsALL"
+export { default as Students } from "../Student/Component/Students"
+export { default as CreateStudents } from "../Student/Component/CreateStudents"

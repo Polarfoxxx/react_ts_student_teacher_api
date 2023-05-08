@@ -1,5 +1,0 @@
-export { default as UpdateStudents } from "../Student.module/Component/UpdateStudents"
-export {default as StudentsHome} from "../Student.module/Component/StudentsHome"
-export { default as StudentsALL } from "./Component/StudentsALL"
-export { default as Students } from "../Student.module/Component/Students"
-export { default as CreateStudents } from "./Component/CreateStudents"
