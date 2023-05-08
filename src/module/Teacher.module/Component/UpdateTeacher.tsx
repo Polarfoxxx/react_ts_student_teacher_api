@@ -35,6 +35,18 @@ function UpdateTeacher(): JSX.Element {
         }
     }
 
+/* nacitanie IDucitela s sessionStorage pokial smerujeme z AllTechru */
+    React.useEffect(() => {
+        const dataInStorage = sessionStorage.getItem("teacherID")
+        if(dataInStorage !== null) {
+            InputsTeacherIdRefs.current!.value = dataInStorage
+        }
+        return(() => sessionStorage.removeItem("teacherID"))
+    }, [])
+
+
+
+
     /*vytvorenie formu updateucitela a osetrenie prazdneho inputu studentov a odoslanie formullara do API */
     const handleUpdateTeacher = (event: React.MouseEvent<HTMLButtonElement>): void => {
         const JWTToken = localStorage.getItem("authenticationToken")
