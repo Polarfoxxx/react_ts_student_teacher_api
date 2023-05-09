@@ -1,45 +1,23 @@
 
 import React from "react"
 import { SignIn, SignUp } from "../"
+import { LoginPageHeader } from "../"
 import "../style/LoginPage.style.css"
 
 function LoginPage(): JSX.Element {
   const elementSignIn = React.useRef<HTMLDivElement>(null)
   const elementSignUp = React.useRef<HTMLDivElement>(null)
   const [respoEffect, setRespoEffect] = React.useState(false)
-  
+
   const handleClickRespoStatusEffect = (event: React.MouseEvent<HTMLDivElement>): void => {
-elementSignIn.current === event.currentTarget ? setRespoEffect(true) : setRespoEffect(false)
+    setRespoEffect(elementSignIn.current === event.currentTarget)
   }
+
 
   return (
     <div className="loginPage">
       <div className="logPageHeader">
-        <span>
-          <span className="firstPsW">W</span>
-          <span className="lastePs">elcome</span>
-        </span>
-        <span>
-          <span className="firstPs">t</span>
-          <span className="lastePs">o</span>
-        </span>
-        <span>
-          <span className="firstPs">t</span>
-          <span className="lastePs">eacher</span>
-        </span>
-        <span>
-          <span className="firstPs">a</span>
-          <span className="lastePs">nd</span>
-        </span>
-        <span>
-          <span className="firstPs">s</span>
-          <span className="lastePs">tudents</span>
-        </span>
-        <span>
-          <span className="firstPs">d</span>
-          <span className="lastePs">atabaze</span>
-        </span>
-
+        <LoginPageHeader />
       </div>
       <div className="loginPageContext">
         <div
