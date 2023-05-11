@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 import LoginPageHeader from "../LoginPageHeader";
-import "./setupTest"
+import "../../../../setupTest"
 
 
 test("testing LoginPage", () => {
