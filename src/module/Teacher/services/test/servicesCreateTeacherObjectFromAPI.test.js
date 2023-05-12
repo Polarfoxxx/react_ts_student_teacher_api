@@ -2,15 +2,16 @@ import servicesCreateTeacherObjectFromAPI from "../servicesCreateTeacherObjectFr
 
 const newTeacher = {
     name: "a",
-    subject: "b" 
+    subject: "b"
 }
 
 const newStudents = [
-    {name: "a", class: "b"},
-    {name: "a", class: "b"},
-    {name: "a", class: "b"},
-    {name: "", class: ""},
+    { name: "a", class: "b" },
+    { name: "a", class: "b" },
+    { name: "a", class: "b" },
+    { name: "", class: "" },
 ]
+
 
 test("create new object from CreateTecherAPI", () => {
     expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).toHaveProperty("name", "a")
@@ -18,4 +19,15 @@ test("create new object from CreateTecherAPI", () => {
     expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).toHaveProperty("students")
     expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).toHaveProperty("students[2].name", "a")
     expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).not.toHaveProperty("students[3].name", "a")
+
+
+    const students = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)
+
+    expect(students.students).toEqual(          
+        expect.arrayContaining([      
+            expect.not.objectContaining({   
+                name: ''               
+            })
+        ])
+    )
 })
