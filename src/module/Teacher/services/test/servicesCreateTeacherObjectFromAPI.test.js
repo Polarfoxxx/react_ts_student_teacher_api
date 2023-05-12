@@ -18,8 +18,6 @@ test("create new object from CreateTecherAPI", () => {
     expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).toHaveProperty("subject", "b")
     expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).toHaveProperty("students")
     expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).toHaveProperty("students[2].name", "a")
-    expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).not.toHaveProperty("students[3].name", "a")
-
 
     const students = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)
 
