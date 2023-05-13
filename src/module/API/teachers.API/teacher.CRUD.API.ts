@@ -1,4 +1,5 @@
 import axios from "axios"
+
 import { TypeRespoAllTeacherAndStatus } from "../types"
 import { TypeNewTeacher } from "../../Teacher/types"
 import { TyperesponseTeacherByIdAndstatus } from "../types"

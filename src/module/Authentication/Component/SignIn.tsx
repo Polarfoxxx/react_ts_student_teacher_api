@@ -8,7 +8,7 @@ import "../style/SignIn.style.css"
 
 
 function SignIn(): JSX.Element {
-    let navigate = useNavigate()
+    const navigate = useNavigate()
     const InputUserNameRefs = React.useRef<HTMLInputElement>(null)
     const InputPasswordRefs = React.useRef<HTMLInputElement>(null)
 
@@ -44,6 +44,7 @@ function SignIn(): JSX.Element {
                     <div className="inputUserName">
                         <h4>Username</h4>
                         <input
+                            data-testid="userNameTestInput"
                             ref={InputUserNameRefs}
                             name="userName"
                             type="text"

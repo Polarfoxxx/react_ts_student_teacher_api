@@ -20,7 +20,6 @@ test("create new object from CreateTecherAPI", () => {
     expect(servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)).toHaveProperty("students[2].name", "a")
 
     const students = servicesCreateTeacherObjectFromAPI.createTeacherObjectFromAPI(newTeacher, newStudents)
-
     expect(students.students).toEqual(          
         expect.arrayContaining([      
             expect.not.objectContaining({   
